@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { Badge, Box, Card, Flex, Grid, Text } from "@radix-ui/themes";
-import { format } from "date-fns";
+import { Card, Flex, Grid, Text } from "@radix-ui/themes";
 
 import { getPostDataBySlug } from "@/lib/posts";
+import { BadgeList } from "@/components/ui/badge-list";
+import { FormattedDate } from "@/components/ui/formatted-date";
 
 export const PreviewCard: React.FC<{ slug: string }> = ({ slug }) => {
 	const matter = getPostDataBySlug(slug);
@@ -19,27 +20,13 @@ export const PreviewCard: React.FC<{ slug: string }> = ({ slug }) => {
 						<Text weight="bold" size="5">
 							{matter.title}
 						</Text>
-						<Text size="1" weight="bold" className="text-accent-8">
-							{format(matter.createdAt, "MMM do, y")}
-						</Text>
+						<FormattedDate date={matter.createdAt} />
 						<Text size="2" weight="light" mt="2">
 							{matter.description}
 						</Text>
 					</Flex>
 					<Flex justify="between">
-						<Flex gap="2">
-							{matter.tags.map((tag) => (
-								<Box key={tag}>
-									<Badge
-										variant="surface"
-										highContrast
-										className="hover:cursor-pointer uppercase"
-									>
-										{tag}
-									</Badge>
-								</Box>
-							))}
-						</Flex>
+						<BadgeList labels={matter.tags} className="hover:cursor-pointer" />
 					</Flex>
 				</Flex>
 			</Link>

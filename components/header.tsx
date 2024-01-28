@@ -15,8 +15,8 @@ export const Header = () => {
 					<Link href="/">
 						<Flex gap="3" align="center">
 							<CubeIcon width={20} height={20} />
-							<Text size="5" weight="medium" className="lowercase">
-								Workbench
+							<Text size="5" weight="medium" className="uppercase">
+								Backuardo&apos;s Workbench
 							</Text>
 						</Flex>
 					</Link>

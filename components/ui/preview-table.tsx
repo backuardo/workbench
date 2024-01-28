@@ -1,7 +1,8 @@
-import { Badge, Flex, Table, Text } from "@radix-ui/themes";
-import { format } from "date-fns";
+import { Table, Text } from "@radix-ui/themes";
 
 import { getPostDataBySlug } from "@/lib/posts";
+import { BadgeList } from "@/components/ui/badge-list";
+import { FormattedDate } from "@/components/ui/formatted-date";
 
 const PreviewTableRow: React.FC<{ slug: string }> = ({ slug }) => {
 	const matter = getPostDataBySlug(slug);
@@ -18,23 +19,10 @@ const PreviewTableRow: React.FC<{ slug: string }> = ({ slug }) => {
 				</Text>
 			</Table.RowHeaderCell>
 			<Table.Cell>
-				<Flex gap="2" align="center">
-					{matter.tags.map((tag) => (
-						<Badge
-							key={tag}
-							variant="surface"
-							highContrast
-							className="uppercase"
-						>
-							{tag}
-						</Badge>
-					))}
-				</Flex>
+				<BadgeList labels={matter.tags} />
 			</Table.Cell>
 			<Table.Cell align="center" justify="center">
-				<Text size="1" weight="bold" className="text-accent-11">
-					{format(matter.createdAt, "MMM do, y")}
-				</Text>
+				<FormattedDate date={matter.createdAt} />
 			</Table.Cell>
 		</Table.Row>
 	);

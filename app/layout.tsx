@@ -8,7 +8,7 @@ import { Header } from "@/components/header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "WORKBENCH",
+	title: "Backuardo's Workbench",
 	description: "A collection of patterns and experiments for the web.",
 };
 
