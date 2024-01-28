@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
-import { Container, Flex, Theme as RadixTheme } from "@radix-ui/themes";
+import { Container, Flex, Grid, Theme as RadixTheme } from "@radix-ui/themes";
 
 import * as Theme from "@/components/theme";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 import "./globals.css";
 
@@ -42,8 +43,11 @@ const RootLayout = ({
 								width="100%"
 								className="max-w-screen px-rx-4"
 							>
-								<Header />
-								{children}
+								<Grid rows="auto 1fr auto" className="min-h-screen">
+									<Header />
+									<main>{children}</main>
+									<Footer />
+								</Grid>
 							</Container>
 						</Flex>
 					</RadixTheme>
