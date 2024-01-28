@@ -55,6 +55,10 @@ export const Previews: React.FC<{
 		}
 	};
 
+	const resetIncludedTags = () => {
+		setIncludedTags(allTags);
+	};
+
 	const toggleSortKey = () => {
 		setSortKey(sortKey === SortKey.Asc ? SortKey.Desc : SortKey.Asc);
 	};
@@ -65,6 +69,7 @@ export const Previews: React.FC<{
 				tags={allTags}
 				includedTags={includedTags}
 				toggleIncludedTag={toggleIncludedTag}
+				resetIncludedTags={resetIncludedTags}
 				sortKey={sortKey}
 				toggleSortKey={toggleSortKey}
 			/>

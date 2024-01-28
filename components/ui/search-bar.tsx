@@ -5,6 +5,7 @@ import {
 	MixerHorizontalIcon,
 	CaretSortIcon,
 	CheckIcon,
+	ResetIcon,
 } from "@radix-ui/react-icons";
 
 import { SortKey } from "@/lib/types";
@@ -13,9 +14,17 @@ export const SearchBar: React.FC<{
 	tags: string[];
 	includedTags: string[];
 	toggleIncludedTag: (tag: string) => void;
+	resetIncludedTags: () => void;
 	sortKey: SortKey;
 	toggleSortKey: () => void;
-}> = ({ tags, includedTags, toggleIncludedTag, sortKey, toggleSortKey }) => {
+}> = ({
+	tags,
+	includedTags,
+	toggleIncludedTag,
+	resetIncludedTags,
+	sortKey,
+	toggleSortKey,
+}) => {
 	return (
 		<Flex justify="end" gap="2">
 			<DropdownMenu.Root>
@@ -41,6 +50,12 @@ export const SearchBar: React.FC<{
 							{tag} {includedTags.includes(tag) && <CheckIcon />}
 						</DropdownMenu.Item>
 					))}
+					<DropdownMenu.Item
+						onClick={resetIncludedTags}
+						className="uppercase gap-2 bg-gray-3 hover:bg-gray-5 hover:text-gray-12"
+					>
+						Reset <ResetIcon />
+					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 			<Button

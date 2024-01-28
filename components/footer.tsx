@@ -31,12 +31,16 @@ export const Footer: React.FC = () => {
 			<Flex gap="4">
 				{socials.map(({ url, name, Icon }) => (
 					<ExternalLink key={url} href={url}>
-						<Text size="1">{name}</Text>
+						<Text size="1" className="uppercase">
+							{name}
+						</Text>
 					</ExternalLink>
 				))}
 			</Flex>
 			<Flex height="100%" align="end">
-				<Text size="1">Ben Eisner &copy;{new Date().getFullYear()}</Text>
+				<Text size="1" className="uppercase">
+					Ben Eisner &copy;{new Date().getFullYear()}
+				</Text>
 			</Flex>
 		</Flex>
 	);
