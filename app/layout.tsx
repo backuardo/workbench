@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
-import { Container, Flex, Grid, Theme as RadixTheme } from "@radix-ui/themes";
+import {
+	Container,
+	Flex,
+	Grid,
+	Theme as RadixTheme,
+	// ThemePanel,
+} from "@radix-ui/themes";
 
 import * as Theme from "@/components/theme";
 import { Header } from "@/components/header";
@@ -24,10 +30,10 @@ const RootLayout = ({
 				<Theme.Provider>
 					<RadixTheme
 						accentColor="orange"
-						grayColor="olive"
-						radius="none"
+						grayColor="sage"
+						radius="small"
 						scaling="90%"
-						panelBackground="translucent"
+						panelBackground="solid"
 					>
 						<Flex
 							direction="column"
@@ -50,6 +56,7 @@ const RootLayout = ({
 								</Grid>
 							</Container>
 						</Flex>
+						{/* <ThemePanel /> */}
 					</RadixTheme>
 				</Theme.Provider>
 			</body>
