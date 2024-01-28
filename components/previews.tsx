@@ -35,7 +35,7 @@ const getAllTags = (previewData: PreviewData[]) => {
 export const Previews: React.FC<{
 	previewData: PreviewData[];
 }> = ({ previewData }) => {
-	const allTags = getAllTags(previewData);
+	const allTags = getAllTags(previewData).sort();
 	const [includedTags, setIncludedTags] = useState(allTags);
 	const [sortKey, setSortKey] = useState(SortKey.Desc);
 
