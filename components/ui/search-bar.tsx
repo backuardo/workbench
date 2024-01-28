@@ -5,7 +5,6 @@ import {
 	MixerHorizontalIcon,
 	CaretSortIcon,
 	CheckIcon,
-	BookmarkIcon,
 } from "@radix-ui/react-icons";
 
 import { SortKey } from "@/lib/types";
@@ -28,7 +27,7 @@ export const SearchBar: React.FC<{
 						highContrast
 					>
 						Tags
-						<BookmarkIcon height={12} width={12} />
+						<MixerHorizontalIcon />
 					</Button>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
