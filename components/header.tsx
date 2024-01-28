@@ -12,18 +12,18 @@ export const Header = () => {
 		<Flex my="6">
 			<Navigation.Root orientation="horizontal" className="w-screen">
 				<Navigation.List className="flex justify-between">
-					<Link href="/">
-						<Flex gap="1" align="center">
-							<CubeIcon width={20} height={20} />
-							<Text size="5" weight="medium" className="uppercase">
-								Backuardo&apos;s Workbench
-							</Text>
-						</Flex>
-					</Link>
 					<Navigation.Item>
-						<Flex gap="2">
-							<Theme.Toggle />
-						</Flex>
+						<Link href="/">
+							<Flex gap="2" align="center">
+								<CubeIcon width={20} height={20} />
+								<Text size="5" weight="medium" className="uppercase">
+									Backuardo&apos;s Workbench
+								</Text>
+							</Flex>
+						</Link>
+					</Navigation.Item>
+					<Navigation.Item>
+						<Theme.Toggle />
 					</Navigation.Item>
 				</Navigation.List>
 			</Navigation.Root>

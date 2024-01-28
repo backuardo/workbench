@@ -1,4 +1,4 @@
-import { Flex, Text } from "@radix-ui/themes";
+import { Badge, Flex, Text } from "@radix-ui/themes";
 import {
 	TwitterLogoIcon,
 	LinkedInLogoIcon,
@@ -28,6 +28,11 @@ const socials = Object.freeze([
 export const Footer: React.FC = () => {
 	return (
 		<Flex align="center" justify="between" py="6">
+			<Flex height="100%" align="end">
+				<Text size="1" className="uppercase">
+					Ben Eisner &copy;{new Date().getFullYear()}
+				</Text>
+			</Flex>
 			<Flex gap="4">
 				{socials.map(({ url, name, Icon }) => (
 					<ExternalLink key={url} href={url}>
@@ -37,10 +42,8 @@ export const Footer: React.FC = () => {
 					</ExternalLink>
 				))}
 			</Flex>
-			<Flex height="100%" align="end">
-				<Text size="1" className="uppercase">
-					Ben Eisner &copy;{new Date().getFullYear()}
-				</Text>
+			<Flex>
+				<Badge>v{process.env.APP_VERSION}</Badge>
 			</Flex>
 		</Flex>
 	);
