@@ -8,10 +8,6 @@ import { FormattedDate } from "@/components/ui/formatted-date";
 export const PreviewCard: React.FC<{ slug: string }> = ({ slug }) => {
 	const matter = getPostDataBySlug(slug);
 
-	if (!matter) {
-		return null;
-	}
-
 	return (
 		<Card size="2" variant="surface" asChild>
 			<Link href={`/p/${slug}`}>
