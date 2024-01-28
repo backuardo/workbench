@@ -5,3 +5,8 @@ export type PreviewData = {
 	createdAt: Date;
 	slug: string;
 };
+
+export enum SortKey {
+	Asc = -1,
+	Desc = 1,
+}

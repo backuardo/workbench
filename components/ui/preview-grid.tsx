@@ -1,28 +1,32 @@
 import Link from "next/link";
 import { Card, Flex, Grid, Text } from "@radix-ui/themes";
 
-import { getPostDataBySlug } from "@/lib/posts";
+import { PreviewData } from "@/lib/types";
 import { BadgeList } from "@/components/ui/badge-list";
 import { FormattedDate } from "@/components/ui/formatted-date";
 
-export const PreviewCard: React.FC<{ slug: string }> = ({ slug }) => {
-	const matter = getPostDataBySlug(slug);
-
+export const PreviewCard: React.FC<PreviewData> = ({
+	slug,
+	title,
+	createdAt,
+	description,
+	tags,
+}) => {
 	return (
 		<Card size="2" variant="surface" asChild>
 			<Link href={`/p/${slug}`}>
 				<Flex direction="column" gap="6" height="100%" justify="between">
 					<Flex direction="column" gap="1">
 						<Text weight="bold" size="5">
-							{matter.title}
+							{title}
 						</Text>
-						<FormattedDate date={matter.createdAt} />
+						<FormattedDate date={createdAt} />
 						<Text size="2" weight="light" mt="2">
-							{matter.description}
+							{description}
 						</Text>
 					</Flex>
 					<Flex justify="between">
-						<BadgeList labels={matter.tags} className="hover:cursor-pointer" />
+						<BadgeList labels={tags} className="hover:cursor-pointer" />
 					</Flex>
 				</Flex>
 			</Link>
@@ -30,7 +34,28 @@ export const PreviewCard: React.FC<{ slug: string }> = ({ slug }) => {
 	);
 };
 
-export const PreviewGrid: React.FC<{ slugs: string[] }> = ({ slugs }) => {
+export const PreviewGrid: React.FC<{ previews: PreviewData[] }> = ({
+	previews,
+}) => {
+	if (!previews.length) {
+		return (
+			<Flex
+				direction="column"
+				align="center"
+				justify="center"
+				height="100%"
+				gap="4"
+			>
+				<Text size="6" weight="bold">
+					No results
+				</Text>
+				<Text size="2" weight="light">
+					Update your search query or try a different tag
+				</Text>
+			</Flex>
+		);
+	}
+
 	return (
 		<Grid
 			columns={{
@@ -41,8 +66,8 @@ export const PreviewGrid: React.FC<{ slugs: string[] }> = ({ slugs }) => {
 			gap="4"
 			width="auto"
 		>
-			{slugs.map((slug) => (
-				<PreviewCard key={slug} slug={slug} />
+			{previews.map((previewData) => (
+				<PreviewCard key={previewData.slug} {...previewData} />
 			))}
 		</Grid>
 	);

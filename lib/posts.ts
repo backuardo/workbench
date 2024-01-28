@@ -24,3 +24,9 @@ export const getPostDataBySlug = (slug: string) => {
 		slug,
 	} as PreviewData;
 };
+
+export const getPostData = () => {
+	const slugs = getPostSlugs();
+	const postData = slugs.map(getPostDataBySlug);
+	return postData;
+};
