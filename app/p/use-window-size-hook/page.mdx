@@ -1,0 +1,58 @@
+---
+title: "Building a performant useWindowSize hook"
+description: Debounce your useWindowSize hook to improve performance
+tags: [Patterns, Experiments]
+createdAt: 2024-01-28
+---
+
+# Unlocking React's Potential: Creating a Custom UseFetch Hook
+
+**Welcome to our latest tech blog post!** Today, we're diving into the world of React hooks. Specifically, we'll explore how to create a custom `useFetch` hook. This hook simplifies fetching data from APIs, making your React components cleaner and more efficient.
+
+## Understanding React Hooks
+
+React hooks, introduced in React 16.8, allow you to use state and other React features without writing a class. Hooks are a powerful feature for organizing and reusing logic in your React applications.
+
+### The Basics of useState and useEffect
+
+Before we create our custom hook, let's quickly review two fundamental hooks: `useState` and `useEffect`.
+
+- `useState` allows you to add state to functional components.
+- `useEffect` lets you perform side effects in functional components, like fetching data, manipulating the DOM, etc.
+
+## Crafting the UseFetch Hook
+
+Our `useFetch` hook will use `useState` to manage the fetched data and loading state, and `useEffect` to handle the API call.
+
+### The Hook's Structure
+
+Here's a basic structure of our custom hook:
+
+```javascript
+import { useState, useEffect } from "react";
+
+const useFetch = (url) => {
+	const [data, setData] = useState(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch(url);
+				const json = await response.json();
+				setData(json);
+				setLoading(false);
+			} catch (error) {
+				console.error("Error fetching data: ", error);
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, [url]);
+
+	return { data, loading };
+};
+
+export default useFetch;
+```

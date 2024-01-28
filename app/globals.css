@@ -1,0 +1,28 @@
+@import url("@radix-ui/themes/styles.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radix-themes {
+	--default-font-family: var(--font-geist-mono);
+}
+
+* {
+	@apply box-border relative min-w-0;
+}
+
+body {
+	@apply min-h-screen;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	@apply text-balance;
+}
+
+p {
+	@apply text-pretty;
+}
