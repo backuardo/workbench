@@ -21,7 +21,7 @@ const PreviewTableRow: React.FC<{ slug: string }> = ({ slug }) => {
 			<Table.Cell>
 				<BadgeList labels={matter.tags} />
 			</Table.Cell>
-			<Table.Cell align="center" justify="center">
+			<Table.Cell align="center" justify="end">
 				<FormattedDate date={matter.createdAt} />
 			</Table.Cell>
 		</Table.Row>
