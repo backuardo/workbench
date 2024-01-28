@@ -7,7 +7,11 @@ import { PreviewData } from "@/lib/types";
 const postsDirectory = join(process.cwd(), "app/p");
 
 export const getPostSlugs = () => {
-	const slugs = fs.readdirSync(postsDirectory);
+	const entries = fs.readdirSync(postsDirectory);
+	const slugs = entries.filter((entry) => {
+		const entryPath = join(postsDirectory, entry);
+		return fs.statSync(entryPath).isDirectory();
+	});
 	return slugs;
 };
 

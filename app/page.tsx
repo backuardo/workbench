@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Box, Button, Flex, Heading } from "@radix-ui/themes";
+import { Flex, Heading } from "@radix-ui/themes";
 
 import { getPostSlugs } from "@/lib/posts";
 import { PreviewGrid } from "@/components/ui/preview-grid";
