@@ -1,19 +1,11 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import { parse } from "path";
+import type { Metadata } from "next";
 
-// export const metadata: Metadata = {
-// 	title: "WORKBENCH",
-// 	description: "A collection of patterns and experiments for the web.",
-// };
-
-export const generateMetadata = async (
-	props: {},
-	parent: ResolvingMetadata
-): Promise<Metadata> => {
-	const title = "blog title";
+export const generateMetadata = async (): Promise<Metadata> => {
 	return {
-		title: `WORKBENCH - ${title}`,
-		description: "A collection of patterns and experiments for the web.",
+		title: {
+			template: "%s | WORKBENCH",
+			default: "WORKBENCH",
+		},
 	};
 };
 
