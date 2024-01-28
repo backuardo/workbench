@@ -1,3 +1,4 @@
+import { Box } from "@radix-ui/themes";
 import type { Metadata } from "next";
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -14,7 +15,7 @@ const PLayout = ({
 }: Readonly<{
 	children: React.ReactNode;
 }>) => {
-	return <>{children}</>;
+	return <Box className="mb-rx-6">{children}</Box>;
 };
 
 export default PLayout;

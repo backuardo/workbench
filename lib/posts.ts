@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 import { PreviewData } from "@/lib/types";
 
-const postsDirectory = join(process.cwd(), "app/p");
+const postsDirectory = join(process.cwd(), "app/(posts)");
 
 export const getPostSlugs = () => {
 	const entries = fs.readdirSync(postsDirectory);

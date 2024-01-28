@@ -13,7 +13,7 @@ export const Header = () => {
 			<Navigation.Root orientation="horizontal" className="w-screen">
 				<Navigation.List className="flex justify-between">
 					<Link href="/">
-						<Flex gap="3" align="center">
+						<Flex gap="1" align="center">
 							<CubeIcon width={20} height={20} />
 							<Text size="5" weight="medium" className="uppercase">
 								Backuardo&apos;s Workbench

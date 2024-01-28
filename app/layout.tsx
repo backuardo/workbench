@@ -38,7 +38,6 @@ const RootLayout = ({
 								size={{
 									sm: "2",
 									md: "3",
-									lg: "4",
 								}}
 								width="100%"
 								className="max-w-screen px-rx-4"
