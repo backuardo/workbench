@@ -14,7 +14,7 @@
 pre:has(.hljs),
 .hljs {
 	color: var(--white-8);
-	background: var(--accent-);
+	background: var(--gray-2);
 	border-radius: var(--radius-4);
 	font-family: var(--default-font-family);
 }
@@ -22,6 +22,8 @@ pre:has(.hljs),
 pre:has(.hljs) {
 	padding: 1.5em;
 	border: 1px solid var(--gray-5);
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
 }
 
 .hljs-subst {

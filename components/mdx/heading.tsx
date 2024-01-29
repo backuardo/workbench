@@ -21,27 +21,31 @@ const H = ({ children, ...props }: HeadingProps) => {
 const HEADINGS = Object.freeze({
 	[Level.H1]: {
 		as: "h1",
+		weight: "bold",
 		size: "8",
-		mt: "4",
-		mb: "2",
+		mt: "6",
+		mb: "6",
 	},
 	[Level.H2]: {
 		as: "h2",
+		weight: "bold",
 		size: "6",
-		mt: "3",
-		mb: "1",
+		mt: "5",
+		mb: "5",
 	},
 	[Level.H3]: {
 		as: "h3",
+		weight: "bold",
 		size: "4",
-		mt: "2",
-		mb: "0",
+		mt: "4",
+		mb: "4",
 	},
 	[Level.H4]: {
 		as: "h4",
+		weight: "bold",
 		size: "3",
-		mt: "2",
-		mb: "0",
+		mt: "3",
+		mb: "3",
 	},
 }) as Record<string, HeadingProps>;
 
