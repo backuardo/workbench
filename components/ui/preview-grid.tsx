@@ -60,8 +60,8 @@ export const PreviewGrid: React.FC<{ previews: PreviewData[] }> = ({
 		<Grid
 			columns={{
 				initial: "1",
-				sm: "2",
-				lg: "3",
+				// sm: "2",
+				// lg: "3",
 			}}
 			gap="4"
 			width="auto"

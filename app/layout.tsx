@@ -44,7 +44,7 @@ const RootLayout = ({
 							<Container
 								size={{
 									sm: "2",
-									md: "3",
+									// md: "3",
 								}}
 								width="100%"
 								className="max-w-screen px-rx-4"
