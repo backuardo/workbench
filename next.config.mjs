@@ -1,5 +1,6 @@
 import withMDX from "@next/mdx";
 import remarkFrontmatter from "remark-frontmatter";
+import rehypeHighlight from "rehype-highlight";
 
 import packageJson from "./package.json" with { type: "json" };
 
@@ -19,6 +20,7 @@ export default withMDX({
 		],
 		rehypePlugins: [
 			// https://github.com/rehypejs/rehype/blob/main/doc/plugins.md
+			rehypeHighlight,
 		],
 	},
 })(nextConfig);

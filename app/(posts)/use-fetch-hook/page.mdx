@@ -36,28 +36,50 @@ Here's a basic structure of our custom hook:
 ```javascript
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
-	const [data, setData] = useState(null);
-	const [loading, setLoading] = useState(true);
+export const Previews: React.FC<{
+	previewData: PreviewData[],
+}> = ({ previewData }) => {
+	const allTags = getAllTags(previewData).sort();
+	const [includedTags, setIncludedTags] = useState(allTags);
+	const [sortKey, setSortKey] = useState(SortKey.Desc);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch(url);
-				const json = await response.json();
-				setData(json);
-				setLoading(false);
-			} catch (error) {
-				console.error("Error fetching data: ", error);
-				setLoading(false);
-			}
-		};
+	// Memoize previews to avoid unnecessary re-renders
+	const previews = useMemo(() => {
+		const filteredPreviews = filterIncludedTags(previewData, includedTags);
+		const sortedPreviews = sortPreviewsByDate(filteredPreviews, sortKey);
+		return sortedPreviews;
+	}, [previewData, includedTags, sortKey]);
 
-		fetchData();
-	}, [url]);
+	const toggleIncludedTag = (tag: string) => {
+		if (includedTags.includes(tag)) {
+			setIncludedTags(
+				includedTags.filter((includedTag) => includedTag !== tag)
+			);
+		} else {
+			setIncludedTags([...includedTags, tag]);
+		}
+	};
 
-	return { data, loading };
+	const resetIncludedTags = () => {
+		setIncludedTags(allTags);
+	};
+
+	const toggleSortKey = () => {
+		setSortKey(sortKey === SortKey.Asc ? SortKey.Desc : SortKey.Asc);
+	};
+
+	return (
+		<>
+			<SearchBar
+				tags={allTags}
+				includedTags={includedTags}
+				toggleIncludedTag={toggleIncludedTag}
+				resetIncludedTags={resetIncludedTags}
+				sortKey={sortKey}
+				toggleSortKey={toggleSortKey}
+			/>
+			<PreviewGrid previews={previews} />
+		</>
+	);
 };
-
-export default useFetch;
 ```
