@@ -30,7 +30,7 @@ const RootLayout = ({
 				<Theme.Provider>
 					<RadixTheme
 						accentColor="orange"
-						grayColor="sage"
+						grayColor="olive"
 						radius="small"
 						scaling="90%"
 						panelBackground="solid"
@@ -47,7 +47,7 @@ const RootLayout = ({
 									// md: "3",
 								}}
 								width="100%"
-								className="max-w-screen px-rx-4"
+								className="max-w-screen px-rx-4 bg-gray-1"
 							>
 								<Grid rows="auto 1fr auto" className="min-h-screen">
 									<Header />
