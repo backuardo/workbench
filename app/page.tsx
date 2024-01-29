@@ -9,12 +9,12 @@ const Home: NextPage = async () => {
 
 	return (
 		<Flex gap="6" direction="column" my="8">
-			<Flex direction="column" gap="2" className="md:max-w-md">
-				<Heading size="7">Experiments & patterns</Heading>
+			<Flex direction="column" gap="1" className="md:max-w-md">
+				<Heading size="6" className="uppercase">
+					Patterns, gists, and ideas
+				</Heading>
 				<Text size="2" weight="light">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-					quidem, voluptas, voluptatem, quos voluptatum doloremque dolorum
-					asperiores quas autem quibusdam quae.
+					Primarily for my own reference.
 				</Text>
 			</Flex>
 			<Previews previewData={postData} />
