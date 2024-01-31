@@ -8,10 +8,10 @@ const Home: NextPage = async () => {
 	const postData = getPostData();
 
 	return (
-		<Flex gap="6" direction="column" my="8">
+		<Flex gap="4" direction="column" my="4">
 			<Flex direction="column" gap="1" className="md:max-w-md">
 				<Heading size="6" className="uppercase">
-					Patterns, gists, and ideas
+					Workbench
 				</Heading>
 				<Text size="2" weight="light">
 					Primarily for my own reference.

@@ -15,8 +15,8 @@ import { Footer } from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "Backuardo's Workbench",
-	description: "A collection of patterns and experiments for the web.",
+	title: "Workbench",
+	description: "Patterns and experiments for the web.",
 };
 
 const RootLayout = ({
@@ -29,11 +29,11 @@ const RootLayout = ({
 			<body>
 				<Theme.Provider>
 					<RadixTheme
-						accentColor="orange"
+						accentColor="gray"
 						grayColor="olive"
 						radius="small"
 						scaling="90%"
-						panelBackground="solid"
+						panelBackground="translucent"
 					>
 						<Flex
 							direction="column"

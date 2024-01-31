@@ -51,6 +51,8 @@ enum Variant {
 	Quaternary = "quaternary",
 }
 
+const numVariants = 4;
+
 const renderMap = {
 	[Variant.Primary]: PrimaryButton,
 	[Variant.Secondary]: SecondaryButton,
@@ -59,6 +61,7 @@ const renderMap = {
 };
 
 const Button = ({ variant, children }) => {
+	// important part
 	const Component = renderMap[variant];
 
 	return <Component>{children}</Component>;

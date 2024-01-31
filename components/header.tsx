@@ -6,6 +6,7 @@ import * as Navigation from "@radix-ui/react-navigation-menu";
 import { CubeIcon } from "@radix-ui/react-icons";
 
 import * as Theme from "@/components/theme";
+import { Logo } from "./ui/logo";
 
 export const Header = () => {
 	return (
@@ -15,10 +16,7 @@ export const Header = () => {
 					<Navigation.Item>
 						<Link href="/">
 							<Flex gap="2" align="center">
-								<CubeIcon width={20} height={20} />
-								<Text size="5" weight="medium" className="uppercase">
-									Backuardo&apos;s Workbench
-								</Text>
+								<Logo />
 							</Flex>
 						</Link>
 					</Navigation.Item>
