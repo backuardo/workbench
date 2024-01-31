@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Box, Flex, Link } from "@radix-ui/themes";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 
-// import "@/styles/highlight-js/xt256.css";
-import "@/styles/highlight-js/studio.css";
+import "@/styles/syntax-highlight.css";
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	return {
