@@ -14,7 +14,7 @@ export const PreviewCard: React.FC<PreviewData> = ({
 }) => {
 	return (
 		<Card size="2" variant="surface" className="bg-gray-2" asChild>
-			<Link href={`/${slug}`}>
+			<Link href={`/workbench/${slug}`}>
 				<Flex direction="column" gap="6" height="100%" justify="between">
 					<Flex direction="column" gap="1">
 						<Text weight="bold" size="5">

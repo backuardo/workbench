@@ -7,8 +7,8 @@ import "@/styles/syntax-highlight.css";
 export const generateMetadata = async (): Promise<Metadata> => {
 	return {
 		title: {
-			template: "%s | Workbench",
-			default: "Workbench",
+			template: "%s | beneisner.io",
+			default: "beneisner.io",
 		},
 	};
 };
@@ -21,7 +21,7 @@ const PLayout = ({
 	return (
 		<Box className="mb-rx-6">
 			<Flex pt="2" pb="6">
-				<Link href="/">
+				<Link href="/workbench">
 					<Flex gap="2" align="center">
 						<ArrowLeftIcon />
 						Back

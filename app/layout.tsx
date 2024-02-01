@@ -15,8 +15,8 @@ import { Footer } from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "Workbench",
-	description: "Patterns and experiments for the web.",
+	title: "beneisner.io",
+	description: "",
 };
 
 const RootLayout = ({
