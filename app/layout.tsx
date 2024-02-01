@@ -30,7 +30,7 @@ const RootLayout = ({
 				<Theme.Provider>
 					<RadixTheme
 						accentColor="gray"
-						grayColor="olive"
+						grayColor="mauve"
 						radius="small"
 						scaling="90%"
 						panelBackground="translucent"
