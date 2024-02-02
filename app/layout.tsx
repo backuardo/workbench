@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
-import {
-	Container,
-	Flex,
-	Grid,
-	Theme as RadixTheme,
-	// ThemePanel,
-} from "@radix-ui/themes";
+import { Container, Flex, Grid } from "@radix-ui/themes";
 
-import * as Theme from "@/components/theme";
+import { Providers } from "@/components/providers";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -27,38 +21,29 @@ const RootLayout = ({
 	return (
 		<html lang="en" className={GeistMono.variable} suppressHydrationWarning>
 			<body>
-				<Theme.Provider>
-					<RadixTheme
-						accentColor="gray"
-						grayColor="mauve"
-						radius="small"
-						scaling="90%"
-						panelBackground="translucent"
+				<Providers>
+					<Flex
+						direction="column"
+						justify="center"
+						align="center"
+						className="min-h-screen"
 					>
-						<Flex
-							direction="column"
-							justify="center"
-							align="center"
-							className="min-h-screen"
+						<Container
+							size={{
+								sm: "2",
+								// md: "3",
+							}}
+							width="100%"
+							className="max-w-screen px-rx-4 bg-gray-1"
 						>
-							<Container
-								size={{
-									sm: "2",
-									// md: "3",
-								}}
-								width="100%"
-								className="max-w-screen px-rx-4 bg-gray-1"
-							>
-								<Grid rows="auto 1fr auto" className="min-h-screen">
-									<Header />
-									<main>{children}</main>
-									<Footer />
-								</Grid>
-							</Container>
-						</Flex>
-						{/* <ThemePanel /> */}
-					</RadixTheme>
-				</Theme.Provider>
+							<Grid rows="auto 1fr auto" className="min-h-screen">
+								<Header />
+								<main>{children}</main>
+								<Footer />
+							</Grid>
+						</Container>
+					</Flex>
+				</Providers>
 			</body>
 		</html>
 	);
