@@ -14,7 +14,7 @@ const Workbench: NextPage = async () => {
 					Workbench
 				</Heading>
 				<Text size="2" weight="light">
-					Primarily for my own reference.
+					Patterns, experiments, ideas, etc.
 				</Text>
 			</Flex>
 			<Previews previewData={postData} />

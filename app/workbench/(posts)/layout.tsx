@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Box, Flex, Link } from "@radix-ui/themes";
+import Link from "next/link";
+import { Box, Flex } from "@radix-ui/themes";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 
 import "@/styles/syntax-highlight.css";
@@ -19,10 +20,10 @@ const PLayout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<Box className="mb-rx-6">
+		<Box mb="6">
 			<Flex pt="2" pb="6">
 				<Link href="/workbench">
-					<Flex gap="2" align="center">
+					<Flex gap="2" align="center" className="uppercase">
 						<ArrowLeftIcon />
 						Back
 					</Flex>

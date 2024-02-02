@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Flex, Text } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
+import { ReaderIcon } from "@radix-ui/react-icons";
 
 import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/cn";
@@ -12,6 +13,17 @@ import { Logo } from "@/components/ui/logo";
 
 export const Header = () => {
 	const pathname = usePathname();
+
+	const isExactRoute = (path: string) => {
+		return pathname === path;
+	};
+
+	const isSubRoute = (mainRoute: string) => {
+		return (
+			pathname.startsWith(mainRoute + "/") && pathname.length > mainRoute.length
+		);
+	};
+
 	return (
 		<Flex direction="column" my="6" gap="3">
 			<Flex justify="center">
@@ -24,19 +36,31 @@ export const Header = () => {
 					<Navigation.List className="flex justify-between">
 						<Flex gap="3" className="uppercase">
 							{ROUTES.map(({ path, name }) => (
-								<Navigation.Item>
-									<Link key={path} href={path}>
-										<Text
-											className={cn(
-												pathname === path ||
-													(path !== "/" && pathname.startsWith(path + "/"))
-													? "text-gray-12"
-													: "text-gray-10"
-											)}
-										>
-											/{name}
-										</Text>
-									</Link>
+								<Navigation.Item key={path}>
+									<Flex>
+										<Link href={path}>
+											<Text
+												className={cn(
+													isExactRoute(path) || isSubRoute(path)
+														? "text-gray-12"
+														: "text-gray-10"
+												)}
+											>
+												/{name}
+											</Text>
+										</Link>
+										{isSubRoute(path) && (
+											<Link href={pathname}>
+												<Flex
+													direction="row"
+													align="center"
+													className="text-gray-12"
+												>
+													/<ReaderIcon height={13} width={13} />
+												</Flex>
+											</Link>
+										)}
+									</Flex>
 								</Navigation.Item>
 							))}
 						</Flex>
