@@ -28,7 +28,7 @@ export const Header = () => {
 		<Flex direction="column" my="6" gap="3">
 			<Flex justify="center">
 				<Link href="/">
-					<Logo />
+					<Logo className="fill-gray-8 hover:fill-gray-12" />
 				</Link>
 			</Flex>
 			<Flex>
@@ -43,7 +43,8 @@ export const Header = () => {
 												className={cn(
 													isExactRoute(path) || isSubRoute(path)
 														? "text-gray-12"
-														: "text-gray-10"
+														: "text-gray-10",
+													"hover:text-gray-12"
 												)}
 											>
 												/{name}
