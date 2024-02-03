@@ -14,7 +14,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 	};
 };
 
-const PLayout = ({
+const PostLayout = ({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
@@ -34,4 +34,4 @@ const PLayout = ({
 	);
 };
 
-export default PLayout;
+export default PostLayout;

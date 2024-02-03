@@ -4,6 +4,11 @@ import { Flex, Heading, Text } from "@radix-ui/themes";
 import { getPostData } from "@/lib/posts";
 import { Previews } from "@/components/previews";
 
+export const metadata = {
+	title: "Workbench",
+	description: "Patterns, experiments, ideas, etc.",
+};
+
 const Workbench: NextPage = async () => {
 	const postData = getPostData();
 

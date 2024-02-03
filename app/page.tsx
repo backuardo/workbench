@@ -1,12 +1,9 @@
 import { NextPage } from "next";
-import { Flex, Heading, Text } from "@radix-ui/themes";
+import { Flex, Heading } from "@radix-ui/themes";
 
-import { getPostData } from "@/lib/posts";
-import { Previews } from "@/components/previews";
+import { Three } from "@/components/three";
 
 const Home: NextPage = async () => {
-	const postData = getPostData();
-
 	return (
 		<Flex gap="4" direction="column" my="4">
 			<Flex direction="column" gap="1" className="md:max-w-md">
@@ -14,6 +11,7 @@ const Home: NextPage = async () => {
 					Index
 				</Heading>
 			</Flex>
+			<Three />
 		</Flex>
 	);
 };

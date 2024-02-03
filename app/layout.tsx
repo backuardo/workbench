@@ -8,9 +8,13 @@ import { Footer } from "@/components/footer";
 
 import "./globals.css";
 
-export const metadata: Metadata = {
-	title: "beneisner.io",
-	description: "",
+export const generateMetadata = async (): Promise<Metadata> => {
+	return {
+		title: {
+			template: "%s | beneisner.io",
+			default: "beneisner.io",
+		},
+	};
 };
 
 const RootLayout = ({
