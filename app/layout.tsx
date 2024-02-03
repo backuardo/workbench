@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { Container, Flex, Grid } from "@radix-ui/themes";
 
-import { Providers } from "@/components/providers";
+import { AppContextProvider } from "@/components/app-context-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -21,7 +21,7 @@ const RootLayout = ({
 	return (
 		<html lang="en" className={GeistMono.variable} suppressHydrationWarning>
 			<body>
-				<Providers>
+				<AppContextProvider>
 					<Flex
 						direction="column"
 						justify="center"
@@ -43,7 +43,7 @@ const RootLayout = ({
 							</Grid>
 						</Container>
 					</Flex>
-				</Providers>
+				</AppContextProvider>
 			</body>
 		</html>
 	);
