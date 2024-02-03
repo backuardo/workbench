@@ -2,7 +2,7 @@
 
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Instances, Instance } from "@react-three/drei";
+import { Center, Instances, Instance } from "@react-three/drei";
 
 const Box = () => {
 	const ref = useRef(null!);
@@ -44,10 +44,13 @@ const Grid = ({ number = 23, lineWidth = 0.026, height = 0.5 }) => (
 	</Instances>
 );
 
-export const Three = () => {
+export const Scene = () => {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<Canvas className="w-full h-full grow">
+			<Canvas
+				camera={{ position: [10, 20, 20], zoom: 10 }}
+				className="w-full max-h-96"
+			>
 				<ambientLight intensity={0.5} />
 				<spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
 				<pointLight position={[-10, -10, -10]} />
