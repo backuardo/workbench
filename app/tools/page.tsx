@@ -3,6 +3,7 @@ import { Card, Flex, Grid, Heading, Separator, Text } from "@radix-ui/themes";
 import { CaretRightIcon } from "@radix-ui/react-icons";
 
 import { ExternalLink } from "@/components/ui/external-link";
+import { Section } from "@/components/ui/section";
 
 export const metadata = {
 	title: "Tools",
@@ -93,12 +94,9 @@ const TOOLS = Object.freeze({
 
 const Tools: NextPage = async () => {
 	return (
-		<Flex gap="4" direction="column" my="4">
-			<Flex direction="column" gap="3">
-				<Heading size="6" className="uppercase">
-					Tools
-				</Heading>
-				<Separator size="4" />
+		<Section.Container>
+			<Section.Heading title="Tools" />
+			<Section.Content>
 				<Grid columns="2" gap="4">
 					{Object.keys(TOOLS).map((key) => {
 						return (
@@ -127,8 +125,8 @@ const Tools: NextPage = async () => {
 						);
 					})}
 				</Grid>
-			</Flex>
-		</Flex>
+			</Section.Content>
+		</Section.Container>
 	);
 };
 

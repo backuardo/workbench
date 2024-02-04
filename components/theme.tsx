@@ -5,24 +5,24 @@ import { Flex, Switch, Skeleton } from "@radix-ui/themes";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import { ThemeProvider, useTheme } from "next-themes";
 
-enum Theme {
+enum _Theme {
 	Light = "light",
 	Dark = "dark",
 }
 
 const themeIconMap = Object.freeze({
-	[Theme.Light]: <SunIcon />,
-	[Theme.Dark]: <MoonIcon />,
+	[_Theme.Light]: <SunIcon />,
+	[_Theme.Dark]: <MoonIcon />,
 });
 
-export const Toggle = () => {
+const Toggle = () => {
 	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
 
 	useEffect(() => setMounted(true), []);
 
 	const toggleTheme = () => {
-		setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
+		setTheme(theme === _Theme.Light ? _Theme.Dark : _Theme.Light);
 	};
 
 	if (!mounted) {
@@ -30,7 +30,7 @@ export const Toggle = () => {
 			<Skeleton loading>
 				<Flex gap="2" align="center">
 					<Switch />
-					{themeIconMap[Theme.Dark]}
+					{themeIconMap[_Theme.Dark]}
 				</Flex>
 			</Skeleton>
 		);
@@ -39,17 +39,20 @@ export const Toggle = () => {
 	return (
 		<Flex gap="2" align="center">
 			<Switch onCheckedChange={toggleTheme} radius="full" />
-			{themeIconMap[theme as Theme]}
+			{themeIconMap[theme as _Theme]}
 		</Flex>
 	);
 };
 
-export const Provider: React.FC<{ children: React.ReactNode }> = ({
-	children,
-}) => {
+const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	return (
-		<ThemeProvider attribute="class" themes={Object.values(Theme)}>
+		<ThemeProvider attribute="class" themes={Object.values(_Theme)}>
 			{children}
 		</ThemeProvider>
 	);
+};
+
+export const Theme = {
+	Provider,
+	Toggle,
 };

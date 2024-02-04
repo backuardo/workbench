@@ -8,7 +8,7 @@ import { ReaderIcon } from "@radix-ui/react-icons";
 
 import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/cn";
-import * as Theme from "@/components/theme";
+import { Theme } from "@/components/theme";
 import { Logo } from "@/components/ui/logo";
 
 export const Header = () => {

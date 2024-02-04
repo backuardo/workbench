@@ -2,7 +2,7 @@
 
 import { Theme as RadixTheme } from "@radix-ui/themes";
 
-import * as Theme from "@/components/theme";
+import { Theme } from "@/components/theme";
 
 type ProviderWithProps = readonly [
 	React.ComponentType<any> | React.ForwardRefExoticComponent<any>,
