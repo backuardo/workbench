@@ -100,9 +100,9 @@ const Tools: NextPage = async () => {
 				<Grid columns="2" gap="4">
 					{Object.keys(TOOLS).map((key) => {
 						return (
-							<Card key={key}>
+							<Card key={key} variant="ghost">
 								<Flex direction="column" gap="4">
-									<Heading size="5" className="uppercase">
+									<Heading size="2" className="uppercase">
 										{key}
 									</Heading>
 									<Flex direction="column" gap="3">
