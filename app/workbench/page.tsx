@@ -1,9 +1,8 @@
 import { NextPage } from "next";
-import { Flex, Heading, Text } from "@radix-ui/themes";
 
 import { getPostData } from "@/lib/posts";
-import { Previews } from "@/components/previews";
 import { Section } from "@/components/ui/section";
+import * as Preview from "@/components/preview";
 
 export const metadata = {
 	title: "Workbench",
@@ -15,10 +14,14 @@ const Workbench: NextPage = async () => {
 
 	return (
 		<Section.Container>
-			<Section.Heading title="Workbench" />
-			<Section.Content>
-				<Previews previewData={postData} />
-			</Section.Content>
+			<Preview.Provider previewData={postData}>
+				<Section.Heading title="Workbench">
+					<Preview.SearchBar />
+				</Section.Heading>
+				<Section.Content>
+					<Preview.Grid />
+				</Section.Content>
+			</Preview.Provider>
 		</Section.Container>
 	);
 };

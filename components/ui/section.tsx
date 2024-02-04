@@ -22,7 +22,7 @@ const Heading: React.FC<{
 				</RadixHeading>
 				{children}
 			</Flex>
-			{/* <Separator size="4" /> */}
+			<Separator size="4" />
 		</Flex>
 	);
 };

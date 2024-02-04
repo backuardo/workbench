@@ -8,8 +8,8 @@ import { ReaderIcon } from "@radix-ui/react-icons";
 
 import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/cn";
-import { Theme } from "@/components/theme";
 import { Logo } from "@/components/ui/logo";
+import * as Theme from "@/components/theme";
 
 export const Header = () => {
 	const pathname = usePathname();
