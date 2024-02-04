@@ -6,6 +6,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import { ExternalLink } from "@/components/ui/external-link";
+import { VERSION } from "@/lib/constants";
 
 const socials = Object.freeze([
 	{
@@ -43,7 +44,7 @@ export const Footer: React.FC = () => {
 				))}
 			</Flex>
 			<Flex>
-				<Badge>v{process.env.APP_VERSION}</Badge>
+				<Badge>v{VERSION}</Badge>
 			</Flex>
 		</Flex>
 	);
