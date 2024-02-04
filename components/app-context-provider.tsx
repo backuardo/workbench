@@ -6,7 +6,7 @@ import * as Theme from "@/components/theme";
 
 type ProviderWithProps = readonly [
 	React.ComponentType<any> | React.ForwardRefExoticComponent<any>,
-	Record<string, any>?
+	Record<string, any>?,
 ];
 
 const combineProviders = (
@@ -30,7 +30,7 @@ const providers: ProviderWithProps[] = [
 		RadixTheme,
 		{
 			accentColor: "gray",
-			grayColor: "mauve",
+			grayColor: "sage",
 			radius: "small",
 			scaling: "90%",
 			panelBackground: "translucent",
