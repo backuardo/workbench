@@ -16,6 +16,7 @@ import {
 	MixerHorizontalIcon,
 	ResetIcon,
 } from "@radix-ui/react-icons";
+import analytics from "@vercel/analytics";
 
 import { PreviewData, SortKey } from "@/lib/types";
 import { FormattedDate } from "@/components/ui/formatted-date";
@@ -91,8 +92,10 @@ export const Provider: React.FC<{
 			setIncludedTags(
 				includedTags.filter((includedTag) => includedTag !== tag)
 			);
+			analytics.track("remove tag", { tag });
 		} else {
 			setIncludedTags([...includedTags, tag]);
+			analytics.track("add tag", { tag });
 		}
 	};
 
@@ -102,6 +105,7 @@ export const Provider: React.FC<{
 
 	const toggleSortKey = () => {
 		setSortKey(sortKey === SortKey.Asc ? SortKey.Desc : SortKey.Asc);
+		analytics.track("toggle sort key");
 	};
 
 	const previews = useMemo(() => {
