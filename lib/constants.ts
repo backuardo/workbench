@@ -5,3 +5,5 @@ export const ROUTES = Object.freeze([
 ]);
 
 export const VERSION = "2.0.0";
+
+export const BASE_URL = "https://beneisner.io";
