@@ -1,18 +1,18 @@
-import { ExternalLink } from "@/components/ui/external-link";
+import { Link as _Link } from "@/components/ui/link";
 
 type LinkProps = Omit<
-	React.ComponentPropsWithoutRef<typeof ExternalLink>,
+	React.ComponentPropsWithoutRef<typeof _Link>,
 	"as" | "color"
 >;
 
 export const Link = ({ children, ...props }: LinkProps) => {
 	return (
-		<ExternalLink
+		<_Link
 			{...(props as Record<string, any>)}
 			href={props.href}
 			className="text-accent-11"
 		>
 			{children}
-		</ExternalLink>
+		</_Link>
 	);
 };
