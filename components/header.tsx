@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Flex, Text } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
@@ -10,6 +9,7 @@ import { ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
 import * as Theme from "@/components/theme";
+import { Link } from "@/components/ui/link";
 
 export const Header = () => {
 	const pathname = usePathname();

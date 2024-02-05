@@ -11,6 +11,7 @@ import "./globals.css";
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	return {
+		metadataBase: new URL("https://beneisner.io"),
 		title: {
 			template: "%s | beneisner.io",
 			default: "beneisner.io",

@@ -5,7 +5,7 @@ import {
 	GitHubLogoIcon,
 } from "@radix-ui/react-icons";
 
-import { ExternalLink } from "@/components/ui/external-link";
+import { Link } from "@/components/ui/link";
 import { VERSION } from "@/lib/constants";
 
 const socials = Object.freeze([
@@ -36,11 +36,11 @@ export const Footer: React.FC = () => {
 			</Flex>
 			<Flex gap="4">
 				{socials.map(({ url, name, Icon }) => (
-					<ExternalLink key={url} href={url}>
+					<Link key={url} href={url}>
 						<Text size="1" className="uppercase">
 							{name}
 						</Text>
-					</ExternalLink>
+					</Link>
 				))}
 			</Flex>
 			<Flex>

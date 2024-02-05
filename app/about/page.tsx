@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { Flex, Heading, Separator, Text } from "@radix-ui/themes";
 
-import { ExternalLink } from "@/components/ui/external-link";
+import { Link } from "@/components/ui/link";
 import { Section } from "@/components/ui/section";
 
 export const metadata = {
@@ -17,16 +17,16 @@ const About: NextPage = async () => {
 				<Text size="3" weight="light">
 					I'm a seasoned full-stack engineer specializing in building products
 					from concept to launch. Right now I'm working on{" "}
-					<ExternalLink href="https://cedar.build" className="font-bold">
+					<Link href="https://cedar.build" className="font-bold">
 						Cedar
-					</ExternalLink>
+					</Link>
 					, the definitive platform for commercial development.
 				</Text>
 				<Text size="3" weight="light">
 					I was an early engineer at{" "}
-					<ExternalLink href="https://cameo.com" className="font-bold">
+					<Link href="https://cameo.com" className="font-bold">
 						Cameo
-					</ExternalLink>
+					</Link>
 					, joining the company in 2017 and leaving in 2023. During my time
 					there, I worked across the stack and helped scale the platform to
 					millions of users. During my last year, I led technology for the
@@ -34,9 +34,9 @@ const About: NextPage = async () => {
 				</Text>
 				<Text size="3" weight="light">
 					I started programming while serving as an infantry squad leader in the{" "}
-					<ExternalLink href="https://marines.com/" className="font-bold">
+					<Link href="https://marines.com/" className="font-bold">
 						US&nbsp;Marines
-					</ExternalLink>
+					</Link>
 					, and studied computer science at Dartmouth College after leaving the
 					service.
 				</Text>
