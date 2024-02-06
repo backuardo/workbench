@@ -151,10 +151,11 @@ export const SearchBar: React.FC = () => {
 					<Button
 						variant="surface"
 						size="1"
-						className="uppercase bg-accent-2"
+						radius="full"
+						className="uppercase bg-accent-2 pt-[0.05rem]"
 						highContrast
 					>
-						Tags
+						Topics
 						<MixerHorizontalIcon />
 					</Button>
 				</DropdownMenu.Trigger>
@@ -171,7 +172,7 @@ export const SearchBar: React.FC = () => {
 					))}
 					<DropdownMenu.Item
 						onClick={resetIncludedTags}
-						className="uppercase gap-2 bg-gray-3 hover:bg-gray-5 hover:text-gray-12 border-gray-5 border-1"
+						className="uppercase gap-2 bg-gray-3 hover:bg-gray-8 hover:text-gray-12 border-gray-5 border-1 font-bold"
 					>
 						Reset <ResetIcon />
 					</DropdownMenu.Item>
@@ -180,8 +181,9 @@ export const SearchBar: React.FC = () => {
 			<Button
 				size="1"
 				variant="surface"
-				className="uppercase"
 				onClick={toggleSortKey}
+				radius="full"
+				className="uppercase pt-[0.05rem]"
 				highContrast
 			>
 				{sortKey === SortKey.Desc ? "Newest" : "Oldest"}

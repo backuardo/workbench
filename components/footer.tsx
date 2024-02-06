@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
 				))}
 			</Flex>
 			<Flex>
-				<Badge>v{VERSION}</Badge>
+				<Badge radius="full">v{VERSION}</Badge>
 			</Flex>
 		</Flex>
 	);

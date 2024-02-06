@@ -11,6 +11,7 @@ export const BadgeList: React.FC<{ labels: string[]; className?: string }> = ({
 			{labels.map((tag) => (
 				<Box key={tag}>
 					<Badge
+						radius="full"
 						variant="soft"
 						className={cn("uppercase leading-1 pt-[0.15rem]", className)}
 					>

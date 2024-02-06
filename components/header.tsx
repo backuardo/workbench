@@ -42,9 +42,9 @@ export const Header = () => {
 											<Text
 												className={cn(
 													isExactRoute(path) || isSubRoute(path)
-														? "text-gray-12"
+														? "text-accent-10"
 														: "text-gray-10",
-													"hover:text-gray-12"
+													"hover:text-accent-10"
 												)}
 											>
 												/{name}
@@ -55,7 +55,7 @@ export const Header = () => {
 												<Flex
 													direction="row"
 													align="center"
-													className="text-gray-12"
+													className="text-accent-10"
 												>
 													/<ReaderIcon height={13} width={13} />
 												</Flex>
