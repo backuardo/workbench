@@ -12,7 +12,7 @@ export const FormattedDate: React.FC<{
 		<Text
 			size="1"
 			weight="bold"
-			className={cn("text-accent-11 uppercase", className)}
+			className={cn("text-accent-10 uppercase", className)}
 		>
 			{format(date, formatString)}
 		</Text>

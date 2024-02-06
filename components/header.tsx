@@ -28,7 +28,7 @@ export const Header = () => {
 		<Flex direction="column" my="6" gap="3">
 			<Flex justify="center">
 				<Link href="/">
-					<Logo className="fill-gray-10 hover:fill-gray-12" />
+					<Logo className="fill-gray-10 hover:fill-accent-10" />
 				</Link>
 			</Flex>
 			<Flex>

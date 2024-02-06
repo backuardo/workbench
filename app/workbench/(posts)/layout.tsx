@@ -26,7 +26,7 @@ const PostLayout = ({
 					<Flex
 						gap="2"
 						align="center"
-						className="uppercase text-gray-10 hover:text-gray-12"
+						className="uppercase text-gray-10 hover:text-accent-10"
 					>
 						<ArrowLeftIcon />
 						Back
