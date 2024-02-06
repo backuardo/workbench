@@ -21,7 +21,7 @@ const PostLayout = ({
 }>) => {
 	return (
 		<Box mb="6">
-			<Flex pt="2" pb="6">
+			<Flex>
 				<Link href="/workbench">
 					<Flex gap="2" align="center" className="uppercase">
 						<ArrowLeftIcon />
