@@ -23,7 +23,11 @@ const PostLayout = ({
 		<Box mb="6">
 			<Flex>
 				<Link href="/workbench">
-					<Flex gap="2" align="center" className="uppercase">
+					<Flex
+						gap="2"
+						align="center"
+						className="uppercase text-gray-10 hover:text-gray-12"
+					>
 						<ArrowLeftIcon />
 						Back
 					</Flex>
