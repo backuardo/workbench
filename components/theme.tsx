@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Flex, Switch, Skeleton } from "@radix-ui/themes";
-import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
+import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import { ThemeProvider, useTheme } from "next-themes";
 import analytics from "@vercel/analytics";
 
@@ -12,8 +12,8 @@ enum Theme {
 }
 
 const themeIconMap = Object.freeze({
-	[Theme.Light]: <SunIcon />,
-	[Theme.Dark]: <MoonIcon />,
+	[Theme.Light]: <EyeOpenIcon />,
+	[Theme.Dark]: <EyeClosedIcon />,
 });
 
 export const Toggle = () => {
