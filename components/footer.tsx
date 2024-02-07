@@ -30,16 +30,18 @@ export const Footer: React.FC = () => {
 	return (
 		<Flex align="center" justify="between" py="6">
 			<Flex height="100%" align="end">
-				<Text size="1" className="uppercase">
+				<Text size="1" className="uppercase text-gray-10">
 					Ben Eisner &copy;{new Date().getFullYear()}
 				</Text>
 			</Flex>
 			<Flex gap="4">
 				{socials.map(({ url, name, Icon }) => (
-					<Link key={url} href={url}>
-						<Text size="1" className="uppercase">
-							{name}
-						</Text>
+					<Link
+						key={url}
+						href={url}
+						className="!text-1 uppercase text-gray-10 hover:text-accent-10"
+					>
+						{name}
 					</Link>
 				))}
 			</Flex>
