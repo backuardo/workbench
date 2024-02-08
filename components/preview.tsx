@@ -148,7 +148,7 @@ export const SearchBar: React.FC = () => {
 	} = usePreviewContext();
 	return (
 		<Flex justify="end" gap="2">
-			<TextField.Root size="2">
+			<TextField.Root size="2" variant="surface">
 				<TextField.Slot>
 					<MagnifyingGlassIcon />
 				</TextField.Slot>
@@ -156,8 +156,7 @@ export const SearchBar: React.FC = () => {
 					placeholder="Search"
 					aria-label="Search"
 					radius="full"
-					variant="surface"
-					className="uppercase pt-[0.15rem]"
+					className="uppercase pt-[0.15rem] font-bold"
 				/>
 			</TextField.Root>
 			<DropdownMenu.Root>
@@ -167,7 +166,6 @@ export const SearchBar: React.FC = () => {
 						size="2"
 						radius="full"
 						className="uppercase bg-accent-2 pt-[0.1rem]"
-						highContrast
 					>
 						Topics
 						<MixerHorizontalIcon />
@@ -198,7 +196,6 @@ export const SearchBar: React.FC = () => {
 				onClick={toggleSortKey}
 				radius="full"
 				className="uppercase pt-[0.1rem]"
-				highContrast
 			>
 				{sortKey === SortKey.Desc ? "Newest" : "Oldest"}
 				<CaretSortIcon />
