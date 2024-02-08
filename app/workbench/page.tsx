@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { Text } from "@radix-ui/themes";
 
-import { getPostData } from "@/lib/posts";
+import { getPostPreviewData } from "@/lib/posts";
 import { Section } from "@/components/ui/section";
 import * as Preview from "@/components/preview";
 
@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 const Workbench: NextPage = async () => {
-	const postData = getPostData();
+	const postData = getPostPreviewData();
 
 	return (
 		<Section.Container>

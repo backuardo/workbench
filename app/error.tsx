@@ -16,11 +16,19 @@ const Error = ({
 	reset: () => void;
 }) => {
 	return (
-		<Flex direction="column" align="center" justify="center" gap="4">
-			<Heading as="h1" size="8" weight="bold" className="uppercase">
+		<Flex
+			direction="column"
+			align="center"
+			justify="center"
+			gap="4"
+			height="100%"
+		>
+			<Heading as="h1" size="6" weight="bold">
 				Something went wrong
 			</Heading>
-			<Button onClick={() => reset()}>Try again</Button>
+			<Button onClick={() => reset()} radius="full">
+				Try again
+			</Button>
 		</Flex>
 	);
 };
