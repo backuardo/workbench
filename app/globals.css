@@ -26,3 +26,8 @@ h4 {
 p {
 	@apply text-pretty;
 }
+
+::selection {
+	@apply !bg-gray-12;
+	@apply !text-gray-1;
+}
