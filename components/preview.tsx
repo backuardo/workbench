@@ -1,7 +1,10 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState, memo } from "react";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import analytics from "@vercel/analytics";
+import { useDebouncedCallback } from "use-debounce";
 import {
 	Card as RadixCard,
 	DropdownMenu,
@@ -17,11 +20,9 @@ import {
 	StackIcon,
 	LayersIcon,
 	CheckIcon,
-	MixerHorizontalIcon,
 	ResetIcon,
 	MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
-import analytics from "@vercel/analytics";
 
 import { PreviewData, SortKey } from "@/lib/types";
 import { FormattedDate } from "@/components/ui/formatted-date";
@@ -150,6 +151,24 @@ export const SearchBar: React.FC = () => {
 		toggleSortKey,
 	} = usePreviewContext();
 	const [tagsDropdownOpen, setTagsDropdownOpen] = useState(false);
+	const searchParams = useSearchParams();
+	const pathname = usePathname();
+	const { replace } = useRouter();
+
+	const handleInputChange = useDebouncedCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			const searchTerm = e.target.value;
+			const params = new URLSearchParams(searchParams);
+			if (searchTerm) {
+				params.set("query", searchTerm);
+			} else {
+				params.delete("query");
+			}
+			replace(`${pathname}?${params.toString()}`);
+		},
+		250
+	);
+
 	return (
 		<Flex justify="end" gap="2">
 			<TextField.Root size="2" variant="surface">
@@ -157,9 +176,11 @@ export const SearchBar: React.FC = () => {
 					<MagnifyingGlassIcon />
 				</TextField.Slot>
 				<TextField.Input
+					defaultValue={searchParams.get("query")?.toString()}
+					onChange={handleInputChange}
 					placeholder="Search"
 					aria-label="Search"
-					// radius="full"
+					key="search-bar"
 					className="uppercase pt-[0.15rem] font-medium"
 				/>
 			</TextField.Root>

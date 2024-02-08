@@ -21,13 +21,15 @@
 		"framer-motion": "^11.0.3",
 		"geist": "^1.2.1",
 		"gray-matter": "^4.0.3",
+		"natural": "^6.10.4",
 		"next": "14.1.0",
 		"next-themes": "^0.2.1",
 		"react": "^18",
 		"react-dom": "^18",
 		"rehype-highlight": "^7.0.0",
 		"remark-frontmatter": "^5.0.0",
-		"tailwind-merge": "^2.2.1"
+		"tailwind-merge": "^2.2.1",
+		"use-debounce": "^10.0.0"
 	},
 	"devDependencies": {
 		"@types/mdx": "^2.0.11",
