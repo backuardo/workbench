@@ -156,7 +156,7 @@ export const SearchBar: React.FC = () => {
 					placeholder="Search"
 					aria-label="Search"
 					radius="full"
-					className="uppercase pt-[0.15rem] font-bold"
+					className="uppercase pt-[0.15rem] font-medium"
 				/>
 			</TextField.Root>
 			<DropdownMenu.Root>
