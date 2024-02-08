@@ -9,12 +9,14 @@ import {
 	Flex,
 	Grid as RadixGrid,
 	Text,
+	TextField,
 } from "@radix-ui/themes";
 import {
 	CaretSortIcon,
 	CheckIcon,
 	MixerHorizontalIcon,
 	ResetIcon,
+	MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 import analytics from "@vercel/analytics";
 
@@ -146,26 +148,38 @@ export const SearchBar: React.FC = () => {
 	} = usePreviewContext();
 	return (
 		<Flex justify="end" gap="2">
+			<TextField.Root size="2">
+				<TextField.Slot>
+					<MagnifyingGlassIcon />
+				</TextField.Slot>
+				<TextField.Input
+					placeholder="Search"
+					aria-label="Search"
+					radius="full"
+					variant="surface"
+					className="uppercase pt-[0.15rem]"
+				/>
+			</TextField.Root>
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger>
 					<Button
 						variant="surface"
-						size="1"
+						size="2"
 						radius="full"
-						className="uppercase bg-accent-2 pt-[0.05rem]"
+						className="uppercase bg-accent-2 pt-[0.1rem]"
 						highContrast
 					>
 						Topics
 						<MixerHorizontalIcon />
 					</Button>
 				</DropdownMenu.Trigger>
-				<DropdownMenu.Content>
+				<DropdownMenu.Content size="2">
 					{allTags.map((tag) => (
 						<DropdownMenu.Item
 							key={tag}
 							onClick={() => toggleIncludedTag(tag)}
 							onSelect={(e) => e.preventDefault()}
-							className="uppercase gap-2 flex w-36"
+							className="uppercase gap-2 flex w-48"
 						>
 							{tag} {includedTags.includes(tag) && <CheckIcon />}
 						</DropdownMenu.Item>
@@ -179,11 +193,11 @@ export const SearchBar: React.FC = () => {
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 			<Button
-				size="1"
+				size="2"
 				variant="surface"
 				onClick={toggleSortKey}
 				radius="full"
-				className="uppercase pt-[0.05rem]"
+				className="uppercase pt-[0.1rem]"
 				highContrast
 			>
 				{sortKey === SortKey.Desc ? "Newest" : "Oldest"}

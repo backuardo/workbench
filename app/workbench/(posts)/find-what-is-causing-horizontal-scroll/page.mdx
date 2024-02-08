@@ -1,0 +1,31 @@
+---
+title: Find what is causing horizontal scroll
+description: A debugging tip to find what is causing horizontal scroll
+tags: [Debugging, Snippet]
+createdAt: 2024-02-08
+---
+
+export const metadata = {
+	title: "Find what is causing horizontal scroll",
+	description: "A debugging tip to find what is causing horizontal scroll",
+};
+
+# Credit
+
+**All credit goes to [the original author](https://pham.codes/blog/quickly-find-what-is-causing-horizontal-scrolling).**
+
+# Problem
+
+Your website has a horizontal scroll bar, and you want to find out what is causing it.
+
+# Solution
+
+```typescript
+const documentWidth = document.documentElement.offsetWidth;
+
+document.querySelectorAll("*").forEach((node) => {
+	if (node.offsetWidth > documentWidth) {
+		console.log(node);
+	}
+});
+```
