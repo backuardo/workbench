@@ -3,16 +3,19 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import Link from "next/link";
 import {
-	Button,
 	Card as RadixCard,
 	DropdownMenu,
 	Flex,
 	Grid as RadixGrid,
 	Text,
 	TextField,
+	IconButton,
 } from "@radix-ui/themes";
 import {
-	CaretSortIcon,
+	ArrowUpIcon,
+	ArrowDownIcon,
+	StackIcon,
+	LayersIcon,
 	CheckIcon,
 	MixerHorizontalIcon,
 	ResetIcon,
@@ -146,6 +149,7 @@ export const SearchBar: React.FC = () => {
 		sortKey,
 		toggleSortKey,
 	} = usePreviewContext();
+	const [tagsDropdownOpen, setTagsDropdownOpen] = useState(false);
 	return (
 		<Flex justify="end" gap="2">
 			<TextField.Root size="2" variant="surface">
@@ -155,23 +159,28 @@ export const SearchBar: React.FC = () => {
 				<TextField.Input
 					placeholder="Search"
 					aria-label="Search"
-					radius="full"
+					// radius="full"
 					className="uppercase pt-[0.15rem] font-medium"
 				/>
 			</TextField.Root>
-			<DropdownMenu.Root>
+			<DropdownMenu.Root open={tagsDropdownOpen}>
 				<DropdownMenu.Trigger>
-					<Button
+					<IconButton
 						variant="surface"
 						size="2"
 						radius="full"
 						className="uppercase bg-accent-2 pt-[0.1rem]"
+						onClick={() => setTagsDropdownOpen((prev) => !prev)}
 					>
-						Topics
-						<MixerHorizontalIcon />
-					</Button>
+						{tagsDropdownOpen ? <LayersIcon /> : <StackIcon />}
+					</IconButton>
 				</DropdownMenu.Trigger>
-				<DropdownMenu.Content size="2">
+				<DropdownMenu.Content
+					size="2"
+					align="end"
+					sideOffset={14}
+					onInteractOutside={() => setTagsDropdownOpen((prev) => !prev)}
+				>
 					{allTags.map((tag) => (
 						<DropdownMenu.Item
 							key={tag}
@@ -190,16 +199,15 @@ export const SearchBar: React.FC = () => {
 					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
-			<Button
+			<IconButton
 				size="2"
 				variant="surface"
 				onClick={toggleSortKey}
 				radius="full"
 				className="uppercase pt-[0.1rem]"
 			>
-				{sortKey === SortKey.Desc ? "Newest" : "Oldest"}
-				<CaretSortIcon />
-			</Button>
+				{sortKey === SortKey.Desc ? <ArrowDownIcon /> : <ArrowUpIcon />}
+			</IconButton>
 		</Flex>
 	);
 };
