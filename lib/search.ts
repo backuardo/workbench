@@ -2,62 +2,67 @@ import { TfIdf } from "natural/lib/natural/tfidf";
 import { JaroWinklerDistance } from "natural/lib/natural/distance";
 
 import { getPostSlugs, getPostDataBySlug } from "@/lib/posts";
+import { PostData } from "@/lib/types";
 
 const SIMILARITY_THRESHOLD = 0.5;
 
 const generateLowercaseString = (...args: string[]) =>
 	args.map((arg) => arg.toLowerCase()).join(" ");
 
-export const search = (term: string) => {
-	const tfidf = new TfIdf();
-	const slugs = getPostSlugs();
-	const posts = slugs.map(getPostDataBySlug);
+const prepareDocuments = (posts: PostData[]) => {
+	return posts.map(({ title, content, description, tags }) =>
+		generateLowercaseString(title, content, description, ...tags)
+	);
+};
+
+const addToTfIdfModel = (tfidf: TfIdf, documents: string[]) => {
+	documents.forEach((document, index) =>
+		tfidf.addDocument(document, index.toString())
+	);
+};
+
+const calculateScores = (tfidf: TfIdf, term: string, documents: string[]) => {
 	const scoresMap: Map<number, number> = new Map();
 
-	if (!term) {
-		return posts;
-	}
-
-	const lowerCaseTerm = term.toLowerCase();
-
-	posts.forEach((post, index) => {
-		const text = generateLowercaseString(
-			post.title,
-			post.content,
-			post.description,
-			...post.tags
-		);
-		tfidf.addDocument(text, index.toString());
-	});
-
-	tfidf.tfidfs(lowerCaseTerm, (index, score) => {
+	tfidf.tfidfs(term, (index, score) => {
 		if (!scoresMap.has(index)) {
 			scoresMap.set(index, 0);
 		}
 		scoresMap.set(index, (scoresMap.get(index) ?? 0) + score);
 	});
 
-	posts.forEach((post, index) => {
-		const text = generateLowercaseString(
-			post.title,
-			post.content,
-			post.description,
-			...post.tags
-		);
-		const similarityScore = JaroWinklerDistance(lowerCaseTerm, text, {
+	documents.forEach((doc, index) => {
+		const similarityScore = JaroWinklerDistance(term, doc, {
 			ignoreCase: true,
 		});
 		scoresMap.set(index, (scoresMap.get(index) ?? 0) + similarityScore);
 	});
 
-	const ranked = Array.from(scoresMap)
-		.map(([index, score]) => ({
-			index,
-			score,
-		}))
+	return scoresMap;
+};
+
+const rankAndFilterResults = (
+	scoresMap: Map<number, number>,
+	posts: PostData[]
+) => {
+	return Array.from(scoresMap)
+		.map(([index, score]) => ({ index, score }))
 		.filter(({ score }) => score > SIMILARITY_THRESHOLD)
 		.sort((a, b) => b.score - a.score)
 		.map(({ index }) => posts[Number(index)]);
+};
 
-	return ranked;
+export const search = (term: string) => {
+	const tfidf = new TfIdf();
+	const slugs = getPostSlugs();
+	const posts = slugs.map(getPostDataBySlug);
+
+	if (!term) {
+		return posts;
+	}
+
+	const documents = prepareDocuments(posts);
+	addToTfIdfModel(tfidf, documents);
+	const scoresMap = calculateScores(tfidf, term, documents);
+	return rankAndFilterResults(scoresMap, posts);
 };
