@@ -1,7 +1,10 @@
 import { TfIdf } from "natural/lib/natural/tfidf";
-import { NGrams } from "natural/lib/natural/ngrams";
+import { JaroWinklerDistance } from "natural/lib/natural/distance";
 
 import { getPostSlugs, getPostDataBySlug } from "@/lib/posts";
+
+const generateLowercaseString = (...args: string[]) =>
+	args.map((arg) => arg.toLowerCase()).join(" ");
 
 export const search = (term: string) => {
 	const tfidf = new TfIdf();
@@ -14,9 +17,12 @@ export const search = (term: string) => {
 	}
 
 	posts.forEach((post, index) => {
-		const text = `${post.title} ${post.content} ${
-			post.description
-		} ${post.tags.join(" ")}`;
+		const text = generateLowercaseString(
+			post.title,
+			post.content,
+			post.description,
+			...post.tags
+		);
 		tfidf.addDocument(text, index.toString());
 	});
 
