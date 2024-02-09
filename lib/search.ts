@@ -2,7 +2,7 @@ import { TfIdf } from "natural/lib/natural/tfidf";
 import { JaroWinklerDistance } from "natural/lib/natural/distance";
 
 import { getPostSlugs, getPostDataBySlug } from "@/lib/posts";
-import { PostData } from "@/lib/types";
+import { PostData, PreviewData } from "@/lib/types";
 
 const SIMILARITY_THRESHOLD = 0.5;
 
@@ -52,6 +52,12 @@ const rankAndFilterResults = (
 		.map(({ index }) => posts[Number(index)]);
 };
 
+const trimResults = (results: PostData[]): PreviewData[] => {
+	return results.map(({ title, description, tags, createdAt, slug }) => {
+		return { title, description, tags, createdAt, slug };
+	});
+};
+
 export const search = (term: string) => {
 	const tfidf = new TfIdf();
 	const slugs = getPostSlugs();
@@ -64,5 +70,6 @@ export const search = (term: string) => {
 	const documents = prepareDocuments(posts);
 	addToTfIdfModel(tfidf, documents);
 	const scoresMap = calculateScores(tfidf, term, documents);
-	return rankAndFilterResults(scoresMap, posts);
+	const rankedAndFilteredResults = rankAndFilterResults(scoresMap, posts);
+	return trimResults(rankedAndFilteredResults);
 };
