@@ -3,14 +3,6 @@ import { NGrams } from "natural/lib/natural/ngrams";
 
 import { getPostSlugs, getPostDataBySlug } from "@/lib/posts";
 
-const createNgrams = (tokens: string[], n: number) => {
-	let ngrams = [];
-	for (let i = 0; i < tokens.length - n + 1; i++) {
-		ngrams.push(tokens.slice(i, i + n).join(" "));
-	}
-	return ngrams;
-};
-
 export const search = (term: string) => {
 	const tfidf = new TfIdf();
 	const slugs = getPostSlugs();
