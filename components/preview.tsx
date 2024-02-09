@@ -24,7 +24,7 @@ import {
 	MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 
-import { PreviewData, SortKey } from "@/lib/types";
+import { PreviewData } from "@/lib/types";
 import { FormattedDate } from "@/components/ui/formatted-date";
 import { BadgeList } from "@/components/ui/badge-list";
 
@@ -45,41 +45,24 @@ const filterIncludedTags = (
 	);
 };
 
-const sortPreviewsByDate = (previewData: PreviewData[], sortKey: SortKey) => {
-	// return previewData.sort((a, b) => {
-	// 	if (a.createdAt < b.createdAt) {
-	// 		return sortKey;
-	// 	} else if (a.createdAt > b.createdAt) {
-	// 		return -sortKey;
-	// 	} else {
-	// 		return 0;
-	// 	}
-	// });
-	return previewData;
-};
-
 /* -------------------------------------------------------------------------------------------------
  * Context
  * -----------------------------------------------------------------------------------------------*/
 
 type PreviewContextValue = {
-	sortKey: SortKey;
 	includedTags: string[];
 	allTags: string[];
 	previews: PreviewData[];
 	toggleIncludedTag: (tag: string) => void;
 	resetIncludedTags: () => void;
-	toggleSortKey: () => void;
 };
 
 const PreviewContext = createContext<PreviewContextValue>({
-	sortKey: SortKey.Desc,
 	includedTags: [],
 	allTags: [],
 	previews: [],
 	toggleIncludedTag: (tag: string) => null,
 	resetIncludedTags: () => null,
-	toggleSortKey: () => null,
 });
 
 const usePreviewContext = () => {
@@ -91,7 +74,6 @@ export const Provider: React.FC<{
 	children: React.ReactNode | React.ReactNode[];
 }> = ({ previewData, children }) => {
 	const allTags = getAllTags(previewData).sort();
-	const [sortKey, setSortKey] = useState(SortKey.Desc);
 	const [includedTags, setIncludedTags] = useState(allTags);
 
 	const toggleIncludedTag = (tag: string) => {
@@ -110,26 +92,17 @@ export const Provider: React.FC<{
 		setIncludedTags(allTags);
 	};
 
-	const toggleSortKey = () => {
-		setSortKey(sortKey === SortKey.Asc ? SortKey.Desc : SortKey.Asc);
-		analytics.track("toggle sort key");
-	};
-
 	const previews = useMemo(() => {
-		const filteredPreviews = filterIncludedTags(previewData, includedTags);
-		const sortedPreviews = sortPreviewsByDate(filteredPreviews, sortKey);
-		return sortedPreviews;
-	}, [previewData, includedTags, sortKey]);
+		return filterIncludedTags(previewData, includedTags);
+	}, [previewData, includedTags]);
 
 	return (
 		<PreviewContext.Provider
 			value={{
-				sortKey,
 				allTags,
 				includedTags,
 				toggleIncludedTag,
 				resetIncludedTags,
-				toggleSortKey,
 				previews,
 			}}
 		>
@@ -143,14 +116,8 @@ export const Provider: React.FC<{
  * -----------------------------------------------------------------------------------------------*/
 
 export const SearchBar: React.FC = () => {
-	const {
-		allTags,
-		includedTags,
-		toggleIncludedTag,
-		resetIncludedTags,
-		sortKey,
-		toggleSortKey,
-	} = usePreviewContext();
+	const { allTags, includedTags, toggleIncludedTag, resetIncludedTags } =
+		usePreviewContext();
 	const [tagsDropdownOpen, setTagsDropdownOpen] = useState(false);
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
@@ -221,15 +188,6 @@ export const SearchBar: React.FC = () => {
 					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
-			<IconButton
-				size="2"
-				variant="surface"
-				onClick={toggleSortKey}
-				radius="full"
-				className="uppercase pt-[0.1rem]"
-			>
-				{sortKey === SortKey.Desc ? <ArrowDownIcon /> : <ArrowUpIcon />}
-			</IconButton>
 		</Flex>
 	);
 };
