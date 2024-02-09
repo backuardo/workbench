@@ -1,6 +1,5 @@
 import { TfIdf } from "natural/lib/natural/tfidf";
-// import { WordTokenizer } from "natural/lib/natural/tokenizers";
-// import { PorterStemmer } from "natural/lib/natural/stemmers";
+import { NGrams } from "natural/lib/natural/ngrams";
 
 import { getPostSlugs, getPostDataBySlug } from "@/lib/posts";
 
@@ -14,7 +13,6 @@ const createNgrams = (tokens: string[], n: number) => {
 
 export const search = (term: string) => {
 	const tfidf = new TfIdf();
-	// const tokenizer = new WordTokenizer();
 	const slugs = getPostSlugs();
 	const posts = slugs.map(getPostDataBySlug);
 	const scoresMap: Map<number, number> = new Map();
