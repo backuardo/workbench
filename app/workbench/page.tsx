@@ -4,14 +4,14 @@ import { Text } from "@radix-ui/themes";
 import { Section } from "@/components/ui/section";
 import * as Preview from "@/components/preview";
 import { search } from "@/lib/search";
-import { PostData } from "@/lib/types";
+import { PreviewData } from "@/lib/types";
 
 export const metadata = {
 	title: "Workbench",
 	description: "Patterns, experiments, ideas, etc.",
 };
 
-const getKey = (postData: PostData[]) => {
+const getKey = (postData: PreviewData[]) => {
 	return postData
 		.slice(0, postData.length >= 5 ? 5 : postData.length)
 		.map((post) => post.slug)
