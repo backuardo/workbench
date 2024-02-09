@@ -3,6 +3,8 @@ import { JaroWinklerDistance } from "natural/lib/natural/distance";
 
 import { getPostSlugs, getPostDataBySlug } from "@/lib/posts";
 
+const SIMILARITY_THRESHOLD = 0.5;
+
 const generateLowercaseString = (...args: string[]) =>
 	args.map((arg) => arg.toLowerCase()).join(" ");
 
@@ -16,6 +18,8 @@ export const search = (term: string) => {
 		return posts;
 	}
 
+	const lowerCaseTerm = term.toLowerCase();
+
 	posts.forEach((post, index) => {
 		const text = generateLowercaseString(
 			post.title,
@@ -26,11 +30,24 @@ export const search = (term: string) => {
 		tfidf.addDocument(text, index.toString());
 	});
 
-	tfidf.tfidfs(term.toLowerCase(), (index, score) => {
+	tfidf.tfidfs(lowerCaseTerm, (index, score) => {
 		if (!scoresMap.has(index)) {
 			scoresMap.set(index, 0);
 		}
 		scoresMap.set(index, (scoresMap.get(index) ?? 0) + score);
+	});
+
+	posts.forEach((post, index) => {
+		const text = generateLowercaseString(
+			post.title,
+			post.content,
+			post.description,
+			...post.tags
+		);
+		const similarityScore = JaroWinklerDistance(lowerCaseTerm, text, {
+			ignoreCase: true,
+		});
+		scoresMap.set(index, (scoresMap.get(index) ?? 0) + similarityScore);
 	});
 
 	const ranked = Array.from(scoresMap)
@@ -38,9 +55,9 @@ export const search = (term: string) => {
 			index,
 			score,
 		}))
-		.filter(({ score }) => score > 0)
+		.filter(({ score }) => score > SIMILARITY_THRESHOLD)
 		.sort((a, b) => b.score - a.score)
-		.map(({ index }) => posts[index]);
+		.map(({ index }) => posts[Number(index)]);
 
 	return ranked;
 };

@@ -1,14 +1,21 @@
 import { NextPage } from "next";
 import { Text } from "@radix-ui/themes";
 
-import { getPostPreviewData } from "@/lib/posts";
 import { Section } from "@/components/ui/section";
 import * as Preview from "@/components/preview";
 import { search } from "@/lib/search";
+import { PostData } from "@/lib/types";
 
 export const metadata = {
 	title: "Workbench",
 	description: "Patterns, experiments, ideas, etc.",
+};
+
+const getKey = (postData: PostData[]) => {
+	return postData
+		.slice(0, postData.length >= 5 ? 5 : postData.length)
+		.map((post) => post.slug)
+		.join("-");
 };
 
 const Workbench: NextPage = async ({
@@ -19,8 +26,8 @@ const Workbench: NextPage = async ({
 	};
 }) => {
 	const query = searchParams?.query || "";
-	// const postData = getPostPreviewData();
 	const postData = search(query);
+
 	return (
 		<Section.Container>
 			<Preview.Provider previewData={postData}>
@@ -38,7 +45,7 @@ const Workbench: NextPage = async ({
 						acknowledging their contributions and ensuring proper credit is
 						given to the original authors.
 					</Text>
-					<Preview.Grid key={`${postData.length}-${query}`} />
+					<Preview.Grid key={getKey(postData)} />
 				</Section.Content>
 			</Preview.Provider>
 		</Section.Container>

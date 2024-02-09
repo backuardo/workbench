@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState, memo } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import analytics from "@vercel/analytics";
@@ -46,15 +46,16 @@ const filterIncludedTags = (
 };
 
 const sortPreviewsByDate = (previewData: PreviewData[], sortKey: SortKey) => {
-	return previewData.sort((a, b) => {
-		if (a.createdAt < b.createdAt) {
-			return sortKey;
-		} else if (a.createdAt > b.createdAt) {
-			return -sortKey;
-		} else {
-			return 0;
-		}
-	});
+	// return previewData.sort((a, b) => {
+	// 	if (a.createdAt < b.createdAt) {
+	// 		return sortKey;
+	// 	} else if (a.createdAt > b.createdAt) {
+	// 		return -sortKey;
+	// 	} else {
+	// 		return 0;
+	// 	}
+	// });
+	return previewData;
 };
 
 /* -------------------------------------------------------------------------------------------------
