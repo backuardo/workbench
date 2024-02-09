@@ -13,8 +13,6 @@ export const search = (term: string) => {
 		return posts;
 	}
 
-	const lowerCaseTerm = term.toLowerCase();
-
 	posts.forEach((post, index) => {
 		const text = `${post.title} ${post.content} ${
 			post.description
@@ -22,7 +20,7 @@ export const search = (term: string) => {
 		tfidf.addDocument(text, index.toString());
 	});
 
-	tfidf.tfidfs(lowerCaseTerm, (index, score) => {
+	tfidf.tfidfs(term.toLowerCase(), (index, score) => {
 		if (!scoresMap.has(index)) {
 			scoresMap.set(index, 0);
 		}
