@@ -13,6 +13,8 @@ export const search = (term: string) => {
 		return posts;
 	}
 
+	const lowerCaseTerm = term.toLowerCase();
+
 	posts.forEach((post, index) => {
 		const text = `${post.title} ${post.content} ${
 			post.description
@@ -20,18 +22,18 @@ export const search = (term: string) => {
 		tfidf.addDocument(text, index.toString());
 	});
 
-	tfidf.tfidfs(term, (index, score) => {
+	tfidf.tfidfs(lowerCaseTerm, (index, score) => {
 		if (!scoresMap.has(index)) {
 			scoresMap.set(index, 0);
 		}
 		scoresMap.set(index, (scoresMap.get(index) ?? 0) + score);
 	});
 
-	const scores = Array.from(scoresMap).map(([index, score]) => ({
-		index,
-		score,
-	}));
-	const ranked = scores
+	const ranked = Array.from(scoresMap)
+		.map(([index, score]) => ({
+			index,
+			score,
+		}))
 		.filter(({ score }) => score > 0)
 		.sort((a, b) => b.score - a.score)
 		.map(({ index }) => posts[index]);
