@@ -28,6 +28,6 @@ p {
 }
 
 ::selection {
-	@apply !bg-gray-12;
+	@apply !bg-accent-10;
 	@apply !text-gray-1;
 }
