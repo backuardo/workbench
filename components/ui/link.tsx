@@ -18,7 +18,7 @@ export const Link: React.FC<{
 	return (
 		<_Link
 			href={href}
-			className={cn("text-gray-12", className)}
+			className={cn("text-gray-12 hover:text-accent-10", className)}
 			{...(isExternalUrl ? externalLinkAttributes : {})}
 		>
 			{children}

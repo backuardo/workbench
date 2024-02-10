@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Flex, Heading, Separator, Text } from "@radix-ui/themes";
+import { Text } from "@radix-ui/themes";
 
 import { Link } from "@/components/ui/link";
 import { Section } from "@/components/ui/section";
@@ -15,12 +15,18 @@ const About: NextPage = async () => {
 			<Section.Heading title="About" />
 			<Section.Content>
 				<Text size="3" weight="light" className="text-grayA-11">
-					I'm a seasoned full-stack engineer specializing in building products
-					from concept to launch. Right now I'm working on{" "}
-					<Link href="https://cedar.build" className="font-bold">
-						Cedar
+					I'm a product engineer and I know nobody reads this part of the
+					website. Click the icon at the end of this sentence to see how many
+					people read this and clicked the button at the end of this paragraph
+					(it's unique clicks).
+				</Text>
+				<Text size="3" weight="light" className="text-grayA-11">
+					I started programming while serving as an infantry squad leader in the{" "}
+					<Link href="https://marines.com/" className="font-bold">
+						US&nbsp;Marines
 					</Link>
-					, the definitive platform for commercial development.
+					, and studied computer science at Dartmouth College after leaving the
+					service.
 				</Text>
 				<Text size="3" weight="light" className="text-grayA-11">
 					I was an early engineer at{" "}
@@ -33,12 +39,11 @@ const About: NextPage = async () => {
 					company's crypto efforts.
 				</Text>
 				<Text size="3" weight="light" className="text-grayA-11">
-					I started programming while serving as an infantry squad leader in the{" "}
-					<Link href="https://marines.com/" className="font-bold">
-						US&nbsp;Marines
+					Right now I'm working on{" "}
+					<Link href="https://cedar.build" className="font-bold">
+						Cedar
 					</Link>
-					, and studied computer science at Dartmouth College after leaving the
-					service.
+					, the definitive platform for commercial development.
 				</Text>
 			</Section.Content>
 		</Section.Container>

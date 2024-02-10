@@ -36,11 +36,7 @@ export const Footer: React.FC = () => {
 			</Flex>
 			<Flex gap="4">
 				{socials.map(({ url, name, Icon }) => (
-					<Link
-						key={url}
-						href={url}
-						className="!text-1 uppercase text-gray-10 hover:text-accent-10"
-					>
+					<Link key={url} href={url} className="!text-1 uppercase text-gray-10">
 						{name}
 					</Link>
 				))}
