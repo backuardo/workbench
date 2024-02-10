@@ -29,8 +29,8 @@ const providers: ProviderWithProps[] = [
 	[
 		RadixTheme,
 		{
-			accentColor: "orange",
-			grayColor: "sage",
+			accentColor: "lime",
+			grayColor: "olive",
 			radius: "none",
 			scaling: "90%",
 			panelBackground: "translucent",
