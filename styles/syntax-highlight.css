@@ -26,7 +26,7 @@ pre:has(.hljs) {
 
 .hljs-title,
 .hljs-name {
-	color: var(--accent-9);
+	color: var(--accent-11);
 	font-weight: 900;
 }
 
