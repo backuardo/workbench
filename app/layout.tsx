@@ -32,16 +32,9 @@ const RootLayout = ({
 						direction="column"
 						justify="center"
 						align="center"
-						className="min-h-screen"
+						className="min-h-screen bg-gray-1"
 					>
-						<Container
-							size={{
-								sm: "2",
-								// md: "3",
-							}}
-							width="100%"
-							className="max-w-screen px-rx-4 bg-gray-1"
-						>
+						<Container size="2" width="100%" className="max-w-screen px-rx-4">
 							<Grid rows="auto 1fr auto" className="min-h-screen">
 								<Header />
 								<main>{children}</main>
