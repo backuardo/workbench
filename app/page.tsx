@@ -13,9 +13,7 @@ const Home: NextPage = async () => {
 			<Section.Heading title="Home" />
 			<Section.Content>
 				<Text size="3" weight="light" className="text-grayA-11">
-					Welcome. It looks like your browser doesnt support the incredible
-					webGL experience that I have planned for this page. Please consider
-					upgrading to VisionPro.
+					Welcome. This will be an incredible little WebGL experience.
 				</Text>
 			</Section.Content>
 		</Section.Container>

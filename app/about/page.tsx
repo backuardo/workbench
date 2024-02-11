@@ -3,6 +3,7 @@ import { Text } from "@radix-ui/themes";
 
 import { Link } from "@/components/ui/link";
 import { Section } from "@/components/ui/section";
+import { P } from "@/components/ui/typography";
 
 export const metadata = {
 	title: "About",
@@ -14,21 +15,23 @@ const About: NextPage = async () => {
 		<Section.Container>
 			<Section.Heading title="About" />
 			<Section.Content>
-				<Text size="3" weight="light" className="text-grayA-11">
-					I'm a product engineer and I know nobody reads this part of the
-					website. Click the icon at the end of this sentence to see how many
-					people read this and clicked the button at the end of this paragraph
-					(it's unique clicks).
-				</Text>
-				<Text size="3" weight="light" className="text-grayA-11">
+				<P>
+					I'm <span className="text-accent-10">Ben Eisner</span>, a software
+					engineer and web enthusiast. I like tackling big problems, and
+					building teams that can solve them.
+				</P>
+				<P>
 					I started programming while serving as an infantry squad leader in the{" "}
-					<Link href="https://marines.com/" className="font-bold">
+					<Link href="https://marines.com" className="font-bold">
 						US&nbsp;Marines
 					</Link>
-					, and studied computer science at Dartmouth College after leaving the
-					service.
-				</Text>
-				<Text size="3" weight="light" className="text-grayA-11">
+					, and studied computer science at{" "}
+					<Link href="https://dartmouth.edu" className="font-bold">
+						Dartmouth&nbsp;College
+					</Link>{" "}
+					after leaving the service.
+				</P>
+				<P>
 					I was an early engineer at{" "}
 					<Link href="https://cameo.com" className="font-bold">
 						Cameo
@@ -37,14 +40,19 @@ const About: NextPage = async () => {
 					there, I worked across the stack and helped scale the platform to
 					millions of users. During my last year, I led technology for the
 					company's crypto efforts.
-				</Text>
-				<Text size="3" weight="light" className="text-grayA-11">
+				</P>
+				<P>
 					Right now I'm working on{" "}
 					<Link href="https://cedar.build" className="font-bold">
 						Cedar
-					</Link>
-					, the definitive platform for commercial development.
-				</Text>
+					</Link>{" "}
+					as the lead engineer. Cedar is a seed-stage company building the
+					definitive platform for commercial development.
+				</P>
+				<P>
+					In my free time I like to mentor military veterans, collect hot sauce,
+					lift weights, and go boating with my fiancée Maura and my dog George.
+				</P>
 			</Section.Content>
 		</Section.Container>
 	);
