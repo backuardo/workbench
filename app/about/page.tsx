@@ -16,9 +16,8 @@ const About: NextPage = async () => {
 			<Section.Heading title="About" />
 			<Section.Content>
 				<P>
-					I'm <span className="text-accent-10">Ben Eisner</span>, a software
-					engineer and web enthusiast. I like tackling big problems, and
-					building teams that can solve them.
+					I'm a software engineer and web enthusiast. I like tackling big
+					problems and working with teams that can solve them.
 				</P>
 				<P>
 					I started programming while serving as an infantry squad leader in the{" "}
