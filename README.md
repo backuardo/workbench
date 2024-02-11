@@ -1,5 +1,10 @@
 # Workbench
 
+## Work log
+
+Right now, need to fix the Section.Content (?) sizing and height.
+The main page container should be maxxing out the height.
+
 ## TODO
 
 1. Add 3D model w/ ascii shader aniso.studiofreight.com
