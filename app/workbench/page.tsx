@@ -7,7 +7,7 @@ import { search } from "@/lib/search";
 import { PreviewData } from "@/lib/types";
 
 export const metadata = {
-	title: "Workbench",
+	title: "WORKBENCH",
 	description: "Patterns, experiments, ideas, etc.",
 };
 

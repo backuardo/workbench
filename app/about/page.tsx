@@ -6,8 +6,8 @@ import { Section } from "@/components/ui/section";
 import { P } from "@/components/ui/typography";
 
 export const metadata = {
-	title: "About",
-	description: "About me",
+	title: "ABOUT",
+	description: "ABOUT",
 };
 
 const About: NextPage = async () => {

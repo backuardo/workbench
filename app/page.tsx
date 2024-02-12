@@ -3,8 +3,8 @@ import { Flex, Heading, Separator, Text } from "@radix-ui/themes";
 import { Section } from "@/components/ui/section";
 
 export const metadata = {
-	title: "Index | beneisner.io",
-	description: "Index",
+	title: "INDEX | beneisner.io",
+	description: "INDEX",
 };
 
 const Home: NextPage = async () => {
