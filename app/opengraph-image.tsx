@@ -19,7 +19,7 @@ const MainOG = async () => {
 	return new ImageResponse(
 		(
 			<div
-				tw="flex flex-col justify-center items-center h-full w-full text-[#FF801F] bg-[#101211]"
+				tw="flex flex-col justify-center items-center h-full w-full text-[rgb(205, 255, 93)] bg-[rgb(14, 15, 14)]"
 				style={{
 					fontFamily: "geist-mono-black",
 				}}
@@ -31,8 +31,8 @@ const MainOG = async () => {
 						width="381.75"
 						height="492.75"
 						viewBox="0 0 763.5 985.5"
-						fill="#FF801F"
-						stroke="#FF801F"
+						fill="rgb(205, 255, 93)"
+						stroke="rgb(205, 255, 93)"
 					>
 						<path
 							fill-rule="evenodd"
@@ -43,7 +43,6 @@ const MainOG = async () => {
 						/>
 					</svg>
 				</div>
-				<h1 tw="text-6xl">beneisner.io</h1>
 			</div>
 		),
 		{
