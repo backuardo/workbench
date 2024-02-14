@@ -6,7 +6,7 @@ export const Scene: React.FC<{
 	children: React.ReactNode | React.ReactNode[];
 }> = ({ children }) => {
 	return (
-		<Canvas className="h-full min-h-[30rem] flex">
+		<Canvas className="!absolute h-screen w-screen">
 			<AsciiRenderer
 				bgColor="transparent"
 				fgColor="var(--accent-11)"

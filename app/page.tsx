@@ -1,6 +1,9 @@
 import { NextPage } from "next";
 import { Flex, Heading, Separator, Text } from "@radix-ui/themes";
+
 import { Section } from "@/components/ui/section";
+import { Scene } from "@/components/web-gl/scene";
+import { ArcadeFighter } from "@/components/web-gl/arcade-fighter";
 
 export const metadata = {
 	title: "INDEX | beneisner.io",

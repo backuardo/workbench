@@ -6,6 +6,8 @@ import { AppContextProvider } from "@/components/app-context-provider";
 import { Analytics } from "@/components/analytics";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Scene } from "@/components/web-gl/scene";
+import { ArcadeFighter } from "@/components/web-gl/arcade-fighter";
 
 import "./globals.css";
 
@@ -32,8 +34,11 @@ const RootLayout = ({
 						direction="column"
 						justify="center"
 						align="center"
-						className="min-h-screen bg-gray-1"
+						className="min-h-screen bg-gray-1 !relative"
 					>
+						<Scene>
+							<ArcadeFighter scale={0.02} position={[0, -2.4, 0]} />
+						</Scene>
 						<Container size="2" width="100%" className="max-w-screen px-rx-4">
 							<Grid rows="auto 1fr auto" className="min-h-screen">
 								<Header />
