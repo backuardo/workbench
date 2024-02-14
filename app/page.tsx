@@ -10,11 +10,8 @@ export const metadata = {
 const Home: NextPage = async () => {
 	return (
 		<Section.Container>
-			<Section.Heading title="Home" />
 			<Section.Content>
-				<Text size="3" weight="light" className="text-grayA-11">
-					Welcome. This will be an incredible little WebGL experience.
-				</Text>
+				<Flex></Flex>
 			</Section.Content>
 		</Section.Container>
 	);

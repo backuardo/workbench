@@ -32,15 +32,17 @@ const RootLayout = ({
 						direction="column"
 						justify="center"
 						align="center"
-						className="min-h-screen bg-gray-1"
+						className="min-h-screen bg-gray-1 border-1 border-gray-5"
 					>
-						<Container size="2" width="100%" className="max-w-screen px-rx-4">
-							<Grid rows="auto 1fr auto" className="min-h-screen">
-								<Header />
-								<main>{children}</main>
-								<Footer />
-							</Grid>
-						</Container>
+						<Flex className="border-gray-5 border-x-1 px-rx-4">
+							<Container size="2" width="100%" className="max-w-screen">
+								<Grid rows="auto 1fr auto" className="min-h-screen">
+									<Header />
+									<main>{children}</main>
+									<Footer />
+								</Grid>
+							</Container>
+						</Flex>
 					</Flex>
 				</AppContextProvider>
 				<Analytics />
