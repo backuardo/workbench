@@ -6,6 +6,10 @@
 
 .radix-themes {
 	--default-font-family: var(--font-geist-mono);
+	--container-1: calc(448px + var(--space-4) * 2);
+	--container-2: calc(688px + var(--space-4) * 2);
+	--container-3: calc(880px + var(--space-4) * 2);
+	--container-4: calc(1136px + var(--space-4) * 2);
 }
 
 * {

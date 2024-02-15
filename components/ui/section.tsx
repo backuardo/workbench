@@ -16,7 +16,7 @@ const Heading: React.FC<{
 }> = ({ title, children }) => {
 	return (
 		<Flex direction="column" gap="3">
-			<Flex justify="between" align="center">
+			<Flex justify="between" align="center" px="4">
 				<RadixHeading size="6" className="uppercase">
 					{title}
 				</RadixHeading>
@@ -31,7 +31,7 @@ const Content: React.FC<{
 	children: React.ReactNode;
 }> = ({ children }) => {
 	return (
-		<Flex direction="column" gap="4">
+		<Flex direction="column" gap="4" px="4">
 			{children}
 		</Flex>
 	);

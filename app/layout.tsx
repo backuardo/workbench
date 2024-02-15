@@ -34,7 +34,7 @@ const RootLayout = ({
 						align="center"
 						className="min-h-screen bg-gray-1 border-1 border-gray-5"
 					>
-						<Flex className="border-gray-5 border-x-1 px-rx-4">
+						<Flex className="border-gray-5 border-x-1">
 							<Container size="2" width="100%" className="max-w-screen">
 								<Grid rows="auto 1fr auto" className="min-h-screen">
 									<Header />

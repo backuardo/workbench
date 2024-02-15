@@ -31,7 +31,7 @@ export const Header = () => {
 					<Logo className="fill-gray-10 hover:fill-accent-10" />
 				</Link>
 			</Flex>
-			<Flex>
+			<Flex px="4">
 				<Navigation.Root orientation="horizontal" className="w-screen">
 					<Navigation.List className="flex justify-between">
 						<Flex gap="3" className="uppercase">
