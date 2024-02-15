@@ -28,10 +28,10 @@ const socials = Object.freeze([
 
 export const Footer: React.FC = () => {
 	return (
-		<Flex align="center" justify="between" py="6" px="4">
+		<Flex align="center" justify="between" p="4">
 			<Flex height="100%" align="end">
 				<Text size="1" className="uppercase text-gray-10">
-					Ben Eisner &copy;{new Date().getFullYear()}
+					&copy;{new Date().getFullYear()}
 				</Text>
 			</Flex>
 			<Flex gap="4">

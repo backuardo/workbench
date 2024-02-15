@@ -4,7 +4,7 @@ const Container: React.FC<{
 	children: React.ReactNode | React.ReactNode[];
 }> = ({ children }) => {
 	return (
-		<Flex gap="4" direction="column" my="4">
+		<Flex gap="4" direction="column" mt="4">
 			{children}
 		</Flex>
 	);

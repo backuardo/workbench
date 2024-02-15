@@ -25,7 +25,12 @@ export const Header = () => {
 	};
 
 	return (
-		<Flex direction="column" my="6" gap="3">
+		<Flex
+			direction="column"
+			py="4"
+			gap="3"
+			className="border-b-1 border-gray-5"
+		>
 			<Flex justify="center">
 				<Link href="/">
 					<Logo className="fill-gray-10 hover:fill-accent-10" />

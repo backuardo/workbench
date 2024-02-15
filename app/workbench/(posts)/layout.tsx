@@ -20,7 +20,7 @@ const PostLayout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<Box mb="6" px="4">
+		<Box p="4">
 			<Flex>
 				<Link href="/workbench">
 					<Flex
