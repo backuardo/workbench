@@ -1,10 +1,12 @@
 import { Flex, Heading as RadixHeading, Separator } from "@radix-ui/themes";
 
-const Container: React.FC<{
-	children: React.ReactNode | React.ReactNode[];
-}> = ({ children }) => {
+const Container: React.FC<
+	{
+		children: React.ReactNode | React.ReactNode[];
+	} & React.ComponentProps<typeof Flex>
+> = ({ children, ...props }) => {
 	return (
-		<Flex gap="4" direction="column" mt="4">
+		<Flex gap="4" direction="column" mt="4" {...props}>
 			{children}
 		</Flex>
 	);
@@ -17,7 +19,7 @@ const Heading: React.FC<{
 	return (
 		<Flex direction="column" gap="3">
 			<Flex justify="between" align="center" px="4">
-				<RadixHeading size="6" className="uppercase">
+				<RadixHeading size="6" className="uppercase text-accent-10">
 					{title}
 				</RadixHeading>
 				{children}
@@ -27,11 +29,13 @@ const Heading: React.FC<{
 	);
 };
 
-const Content: React.FC<{
-	children: React.ReactNode;
-}> = ({ children }) => {
+const Content: React.FC<
+	{
+		children: React.ReactNode;
+	} & React.ComponentProps<typeof Flex>
+> = ({ children, ...props }) => {
 	return (
-		<Flex direction="column" gap="4" px="4">
+		<Flex direction="column" gap="4" px="4" {...props}>
 			{children}
 		</Flex>
 	);
