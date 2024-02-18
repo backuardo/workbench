@@ -3,6 +3,7 @@
 import { Theme as RadixTheme } from "@radix-ui/themes";
 
 import * as Theme from "@/components/theme";
+import { THEME } from "@/lib/config";
 
 type ProviderWithProps = readonly [
 	React.ComponentType<any> | React.ForwardRefExoticComponent<any>,
@@ -24,18 +25,6 @@ const combineProviders = (
 	);
 };
 
-const providers: ProviderWithProps[] = [
-	[Theme.Provider],
-	[
-		RadixTheme,
-		{
-			accentColor: "tomato",
-			grayColor: "mauve",
-			radius: "none",
-			scaling: "90%",
-			panelBackground: "translucent",
-		},
-	],
-];
+const providers: ProviderWithProps[] = [[Theme.Provider], [RadixTheme, THEME]];
 
 export const AppContextProvider = combineProviders(providers);

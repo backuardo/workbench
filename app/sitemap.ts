@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 import { getPostSlugs } from "@/lib/posts";
-import { BASE_URL } from "@/lib/constants";
+import { BASE_URL } from "@/lib/config";
 
 const sitemap = (): MetadataRoute.Sitemap => {
 	return [

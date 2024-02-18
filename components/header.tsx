@@ -5,7 +5,7 @@ import { Flex, Text } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
 import { ReaderIcon } from "@radix-ui/react-icons";
 
-import { ROUTES } from "@/lib/constants";
+import { ROUTES } from "@/lib/config";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
 import * as Theme from "@/components/theme";

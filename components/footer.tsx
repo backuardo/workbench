@@ -6,7 +6,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import { Link } from "@/components/ui/link";
-import { VERSION } from "@/lib/constants";
+import { VERSION } from "@/lib/config";
 
 const socials = Object.freeze([
 	{
