@@ -12,7 +12,7 @@ export const metadata = {
 const Home: NextPage = async () => {
 	return (
 		<Section.Container mt="0">
-			<Section.Content>
+			<Section.Content px="0">
 				<Hero />
 			</Section.Content>
 		</Section.Container>
