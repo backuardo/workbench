@@ -40,7 +40,6 @@ const Content: React.FC<
 		</Flex>
 	);
 };
-
 export const Section = {
 	Container,
 	Heading,
