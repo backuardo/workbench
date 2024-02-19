@@ -1,8 +1,8 @@
 import { NextPage } from "next";
-import { Flex, Heading, Separator, Text } from "@radix-ui/themes";
 
 import { Section } from "@/components/ui/section";
 import { Hero } from "@/components/hero";
+// import { HeroAlt } from "@/components/hero-alt";
 
 export const metadata = {
 	title: "INDEX | beneisner.io",
@@ -11,8 +11,8 @@ export const metadata = {
 
 const Home: NextPage = async () => {
 	return (
-		<Section.Container mt="0">
-			<Section.Content px="0">
+		<Section.Container>
+			<Section.Content>
 				<Hero />
 			</Section.Content>
 		</Section.Container>
