@@ -12,14 +12,14 @@ export const Hero: React.FC<Omit<SVGProps<SVGSVGElement>, "ref">> = ({
 					<path d="M181.55 265.77h447v278.25h-447Zm0 0" />
 				</clipPath>
 				<radialGradient id="grid-gradient">
-					<stop offset="60%" stop-color="var(--gray-5)" />
-					<stop offset="80%" stop-color="var(--gray-4)" />
-					<stop offset="100%" stop-color="var(--gray-2)" />
+					<stop offset="60%" stopColor="var(--gray-6)" />
+					<stop offset="80%" stopColor="var(--gray-4)" />
+					<stop offset="100%" stopColor="var(--gray-3)" />
 				</radialGradient>
 				<radialGradient id="center-gradient">
-					<stop offset="60%" stop-color="var(--accent-10)" />
-					<stop offset="80%" stop-color="var(--accent-8)" />
-					<stop offset="100%" stop-color="var(--accent-6)" />
+					<stop offset="60%" stopColor="var(--accent-10)" />
+					<stop offset="80%" stopColor="var(--accent-8)" />
+					<stop offset="100%" stopColor="var(--accent-6)" />
 				</radialGradient>
 			</defs>
 			<path

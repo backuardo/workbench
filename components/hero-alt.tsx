@@ -6,13 +6,19 @@ export const HeroAlt: React.FC<Omit<SVGProps<SVGSVGElement>, "ref">> = ({
 	...props
 }) => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 810 810">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			version="1.0"
+			viewBox="0 0 810 810"
+			className="absolute"
+		>
 			<defs>
 				<clipPath id="a">
 					<path d="M0 0h810v797.2H0Zm0 0" />
 				</clipPath>
 				<radialGradient id="grid-gradient">
-					<stop offset="70%" stop-color="var(--gray-4)" />
+					<stop offset="60%" stop-color="var(--gray-5)" />
+					<stop offset="80%" stop-color="var(--gray-4)" />
 					<stop offset="100%" stop-color="var(--gray-1)" />
 				</radialGradient>
 			</defs>
