@@ -28,7 +28,7 @@ export const Header = () => {
 		<Flex
 			direction="column"
 			py="4"
-			gap="3"
+			gap="0"
 			className="border-b-1 border-gray-5"
 		>
 			<Flex justify="center">
@@ -39,7 +39,7 @@ export const Header = () => {
 			<Flex px="4">
 				<Navigation.Root orientation="horizontal" className="w-screen">
 					<Navigation.List className="flex justify-between">
-						<Flex gap="3" className="uppercase">
+						<Flex gap="4" className="uppercase">
 							{ROUTES.map(({ path, name }) => (
 								<Navigation.Item key={path}>
 									<Flex>

@@ -9,8 +9,8 @@ export const Logo: React.FC<Omit<SVGProps<SVGSVGElement>, "ref">> = ({
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"
-			width="75"
-			height="75"
+			width="55"
+			height="55"
 			viewBox="0 0 763.5 985.5"
 			className={cn("fill-gray-12", className)}
 			{...props}
