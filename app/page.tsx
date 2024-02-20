@@ -11,7 +11,7 @@ export const metadata = {
 const Home: NextPage = async () => {
 	return (
 		<Section.Container>
-			<Section.Content>
+			<Section.Content align="center" justify="center">
 				<Hero />
 			</Section.Content>
 		</Section.Container>

@@ -6,7 +6,13 @@ export const Hero: React.FC<Omit<SVGProps<SVGSVGElement>, "ref">> = ({
 	...props
 }) => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 810 810">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			version="1.0"
+			viewBox="0 0 810 810"
+			// width="97%"
+			// height="97%"
+		>
 			<defs>
 				<clipPath id="a">
 					<path d="M181.55 265.77h447v278.25h-447Zm0 0" />
