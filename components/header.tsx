@@ -1,17 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Flex, Text } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
 import { ReaderIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import { format } from "date-fns";
 
 import { ROUTES } from "@/lib/config";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
 import * as Theme from "@/components/theme";
 import { Link } from "@/components/ui/link";
+import { Clock } from "@/components/ui/clock";
 
-export const Header = () => {
+export const Header: React.FC = () => {
 	const pathname = usePathname();
 
 	const isExactRoute = (path: string) => {
@@ -76,9 +80,14 @@ export const Header = () => {
 								</Navigation.Item>
 							))}
 						</Flex>
-						<Navigation.Item>
-							<Theme.Toggle />
-						</Navigation.Item>
+						<Flex gap="4" align="center">
+							<Navigation.Item>
+								<Clock />
+							</Navigation.Item>
+							<Navigation.Item>
+								<Theme.Toggle />
+							</Navigation.Item>
+						</Flex>
 					</Navigation.List>
 				</Navigation.Root>
 			</Flex>
