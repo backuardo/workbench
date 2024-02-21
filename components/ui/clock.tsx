@@ -34,9 +34,7 @@ export const Clock: React.FC = () => {
 	useEffect(() => {
 		const tick = () => {
 			const now = new Date();
-			const utcString = now.toISOString();
-			const utcDate = new Date(utcString);
-
+			const utcDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
 			const hours = format(utcDate, "HH");
 			const minutes = format(utcDate, "mm");
 			const seconds = format(utcDate, "ss");
