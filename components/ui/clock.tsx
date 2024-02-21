@@ -24,7 +24,7 @@ const AnimatedValue = ({ value }: { value: string }) => (
 );
 
 export const Clock: React.FC = () => {
-	const [currentTime, setCurrentTime] = useState({
+	const [zuluTime, setZuluTime] = useState({
 		hours: "00",
 		minutes: "00",
 		seconds: "00",
@@ -34,12 +34,14 @@ export const Clock: React.FC = () => {
 	useEffect(() => {
 		const tick = () => {
 			const now = new Date();
-			const utcDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-			const hours = format(utcDate, "HH");
-			const minutes = format(utcDate, "mm");
-			const seconds = format(utcDate, "ss");
+			const zuluDate = new Date(
+				now.getTime() + now.getTimezoneOffset() * 60000
+			);
+			const hours = format(zuluDate, "HH");
+			const minutes = format(zuluDate, "mm");
+			const seconds = format(zuluDate, "ss");
 
-			setCurrentTime((prevTime) => ({
+			setZuluTime((prevTime) => ({
 				hours: hours !== prevTime.hours ? hours : prevTime.hours,
 				minutes: minutes !== prevTime.minutes ? minutes : prevTime.minutes,
 				seconds: seconds !== prevTime.seconds ? seconds : prevTime.seconds,
@@ -55,10 +57,10 @@ export const Clock: React.FC = () => {
 		<Flex className="text-gray-8" align="center" justify="center" gap="1">
 			<ClockIcon />
 			<Flex>
-				{splitDigits(currentTime.hours)}
-				{splitDigits(currentTime.minutes)}
-				{splitDigits(currentTime.seconds)}
-				<AnimatedValue value={currentTime.timeZone} />
+				{splitDigits(zuluTime.hours)}
+				{splitDigits(zuluTime.minutes)}
+				{splitDigits(zuluTime.seconds)}
+				<AnimatedValue value={zuluTime.timeZone} />
 			</Flex>
 		</Flex>
 	);
