@@ -1,10 +1,9 @@
 import { Flex, Heading as RadixHeading, Separator } from "@radix-ui/themes";
 
-const Container: React.FC<
-	{
-		children: React.ReactNode | React.ReactNode[];
-	} & React.ComponentProps<typeof Flex>
-> = ({ children, ...props }) => {
+const Container: React.FC<React.ComponentProps<typeof Flex>> = ({
+	children,
+	...props
+}) => {
 	return (
 		<Flex gap="4" direction="column" mt="4" {...props}>
 			{children}
@@ -29,11 +28,10 @@ const Heading: React.FC<{
 	);
 };
 
-const Content: React.FC<
-	{
-		children: React.ReactNode;
-	} & React.ComponentProps<typeof Flex>
-> = ({ children, ...props }) => {
+const Content: React.FC<React.ComponentProps<typeof Flex>> = ({
+	children,
+	...props
+}) => {
 	return (
 		<Flex direction="column" gap="4" px="4" {...props}>
 			{children}

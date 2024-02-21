@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
 			<Flex px="4">
 				<Navigation.Root orientation="horizontal" className="w-screen">
 					<Navigation.List className="flex justify-between">
-						<Flex gap="4" className="uppercase">
+						<Flex gap="3" className="uppercase">
 							{ROUTES.map(({ path, name }) => (
 								<Navigation.Item key={path}>
 									<Flex>

@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import { Text } from "@radix-ui/themes";
 
 import { Link } from "@/components/ui/link";
 import { Section } from "@/components/ui/section";

@@ -3,6 +3,7 @@ import * as Theme from "@radix-ui/themes";
 export const ROUTES = Object.freeze([
 	{ path: "/", name: "Index" },
 	{ path: "/about", name: "About" },
+	// { path: "/contact", name: "Contact" },
 	{ path: "/workbench", name: "Workbench" },
 ]);
 
