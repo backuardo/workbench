@@ -40,7 +40,7 @@ export const Toggle = () => {
 
 	return (
 		<Flex gap="2" align="center">
-			<Switch onCheckedChange={toggleTheme} />
+			<Switch onCheckedChange={toggleTheme} variant="soft" />
 			{themeIconMap[theme as Theme]}
 		</Flex>
 	);

@@ -54,7 +54,12 @@ export const Clock: React.FC = () => {
 	}, []);
 
 	return (
-		<Flex className="text-gray-8" align="center" justify="center" gap="1">
+		<Flex
+			className="text-gray-8 select-none"
+			align="center"
+			justify="center"
+			gap="1"
+		>
 			<ClockIcon />
 			<Flex>
 				{splitDigits(zuluTime.hours)}
