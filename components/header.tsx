@@ -201,7 +201,7 @@ export const Header: React.FC = () => {
 								<motion.div>
 									<Button
 										variant="surface"
-										size="2"
+										size="1"
 										onClick={toggleMenu}
 										// disabled={open}
 										// className="disabled:cursor-default"
