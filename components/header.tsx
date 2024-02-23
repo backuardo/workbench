@@ -159,16 +159,18 @@ export const Header: React.FC = () => {
 													</Flex>
 													<Separator size="4" className="bg-gray-3" />
 													<Flex
-														mt="6"
+														mt="4"
 														direction="column"
-														className="divide-y-1 divide-gray-5"
+														className=""
+														gap="4"
+														mx="4"
 													>
 														{ROUTES.map(({ path, name }) => (
 															<Navigation.Item key={path}>
 																<Flex
 																	align="center"
 																	width="100%"
-																	className="p-rx-4"
+																	className="p-rx-4 border-1 border-gray-3 hover:bg-blackA-1"
 																>
 																	<Link
 																		href={path}
