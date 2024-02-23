@@ -123,7 +123,7 @@ export const Header: React.FC = () => {
 									exit="exit"
 									variants={SIDE_MENU_ANIMATION_VARIANTS}
 									onClick={(e) => e.stopPropagation()}
-									className="fixed h-screen w-[24rem] border-1 border-l-0 border-gray-5 flex flex-col justify-between"
+									className="fixed h-screen w-[24.8rem] border-1 border-l-0 border-gray-5 flex flex-col justify-between"
 								>
 									<Flex width="100%" align="center" justify="center">
 										<Navigation.Root
@@ -138,14 +138,14 @@ export const Header: React.FC = () => {
 												>
 													<Flex
 														p="4"
-														align="center"
+														align="end"
 														justify="between"
-														// className="h-[6.6rem]"
+														className="h-[6.6rem]"
 													>
 														<Text
-															size="6"
+															size="8"
 															weight="bold"
-															className="font-mono text-accent-10"
+															className="font-mono text-accent-9"
 														>
 															Navigation
 														</Text>
@@ -157,15 +157,24 @@ export const Header: React.FC = () => {
 															<Cross1Icon />
 														</IconButton>
 													</Flex>
-													<Separator size="4" />
+													<Separator size="4" className="bg-gray-3" />
 													<Flex
+														mt="6"
 														direction="column"
 														className="divide-y-1 divide-gray-5"
 													>
 														{ROUTES.map(({ path, name }) => (
 															<Navigation.Item key={path}>
-																<Flex align="center" className="p-rx-4">
-																	<Link href={path} onClick={toggleMenu}>
+																<Flex
+																	align="center"
+																	width="100%"
+																	className="p-rx-4"
+																>
+																	<Link
+																		href={path}
+																		onClick={toggleMenu}
+																		className="w-full"
+																	>
 																		<Text
 																			size="4"
 																			weight="light"
