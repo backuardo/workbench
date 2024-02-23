@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
 	Flex,
 	IconButton,
 	Text,
 	Portal,
-	Heading,
 	Theme as RadixTheme,
-	Inset,
 	Separator,
 	Button,
 } from "@radix-ui/themes";
@@ -20,7 +18,6 @@ import {
 	ReaderIcon,
 } from "@radix-ui/react-icons";
 import { AnimatePresence, motion } from "framer-motion";
-import { format } from "date-fns";
 
 import { ROUTES, THEME } from "@/lib/config";
 import { useIsClient } from "@/lib/use-is-client";
@@ -61,9 +58,9 @@ export const Header: React.FC = () => {
 	const [open, setOpen] = useState(false);
 	const isClient = useIsClient();
 
-	// useOutsideClickEvent(menuRef, () => {
-	// 	setOpen(false);
-	// });
+	useOutsideClickEvent(menuRef, () => {
+		setOpen(false);
+	});
 
 	const isExactRoute = (path: string) => {
 		return pathname === path;
@@ -73,6 +70,10 @@ export const Header: React.FC = () => {
 		return (
 			pathname.startsWith(mainRoute + "/") && pathname.length > mainRoute.length
 		);
+	};
+
+	const toggleMenu = () => {
+		setOpen(!open);
 	};
 
 	return (
@@ -106,10 +107,7 @@ export const Header: React.FC = () => {
 													<Text size="6" className="font-mono uppercase">
 														Navigation
 													</Text>
-													<IconButton
-														onClick={() => setOpen(false)}
-														variant="surface"
-													>
+													<IconButton onClick={toggleMenu} variant="surface">
 														<Cross1Icon />
 													</IconButton>
 												</Flex>
@@ -175,19 +173,20 @@ export const Header: React.FC = () => {
 					<Navigation.Root orientation="horizontal" className="w-screen">
 						<Navigation.List className="flex justify-between">
 							<Flex gap="3" className="uppercase" align="center">
-								<Button
-									variant="surface"
-									size="2"
-									onClick={(e) => {
-										e.stopPropagation();
-										setOpen(!open);
-									}}
-								>
-									<Flex gap="2" align="center" justify="center">
-										<HamburgerMenuIcon />
-										<Text className="uppercase">Menu</Text>
-									</Flex>
-								</Button>
+								<motion.div>
+									<Button
+										variant="surface"
+										size="2"
+										onClick={toggleMenu}
+										disabled={open}
+										className="disabled:cursor-default"
+									>
+										<Flex gap="2" align="center" justify="center">
+											<HamburgerMenuIcon />
+											<Text className="uppercase">Menu</Text>
+										</Flex>
+									</Button>
+								</motion.div>
 							</Flex>
 							<Flex gap="4" align="center">
 								<Navigation.Item>
