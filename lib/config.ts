@@ -8,8 +8,8 @@ export const ROUTES = Object.freeze([
 ]);
 
 export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
-	accentColor: "tomato",
-	grayColor: "mauve",
+	accentColor: "orange",
+	grayColor: "olive",
 	radius: "none",
 	scaling: "90%",
 	panelBackground: "translucent",
