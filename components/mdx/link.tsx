@@ -7,6 +7,7 @@ type LinkProps = Omit<
 
 export const Link = ({ children, ...props }: LinkProps) => {
 	return (
+		// @ts-ignore
 		<_Link
 			{...(props as Record<string, any>)}
 			href={props.href}
