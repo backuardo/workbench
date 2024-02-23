@@ -1,4 +1,4 @@
-import { Flex, Heading as RadixHeading, Separator } from "@radix-ui/themes";
+import { Flex, Heading as RadixHeading } from "@radix-ui/themes";
 
 const Container: React.FC<React.ComponentProps<typeof Flex>> = ({
 	children,

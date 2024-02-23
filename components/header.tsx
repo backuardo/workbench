@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import {
 	Flex,
 	IconButton,
@@ -24,6 +24,7 @@ import { useIsClient } from "@/lib/use-is-client";
 import { useOutsideClickEvent } from "@/lib/use-click-outside-event";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
+import { USAFlag } from "@/components/ui/usa-flag";
 import * as Theme from "@/components/theme";
 import { Link } from "@/components/ui/link";
 import { Clock } from "@/components/ui/clock";
@@ -65,9 +66,17 @@ const OVERLAY_ANIMATION_VARIANTS = {
 
 export const Header: React.FC = () => {
 	const pathname = usePathname();
+	const router = useRouter();
 	const menuRef = useRef(null!);
 	const [open, setOpen] = useState(false);
 	const isClient = useIsClient();
+
+	useEffect(() => {
+		// `Link`s are rendered in a portal, so we need to manually prefetch the pages
+		ROUTES.forEach(({ path }) => {
+			router.prefetch(path);
+		});
+	}, []);
 
 	useOutsideClickEvent(menuRef, () => {
 		setOpen(false);
@@ -114,7 +123,7 @@ export const Header: React.FC = () => {
 									exit="exit"
 									variants={SIDE_MENU_ANIMATION_VARIANTS}
 									onClick={(e) => e.stopPropagation()}
-									className="fixed h-screen w-[24rem] border-1 border-l-0 border-gray-5"
+									className="fixed h-screen w-[24rem] border-1 border-l-0 border-gray-5 flex flex-col justify-between"
 								>
 									<Flex width="100%" align="center" justify="center">
 										<Navigation.Root
@@ -127,22 +136,39 @@ export const Header: React.FC = () => {
 													direction="column"
 													width="100%"
 												>
-													<Flex p="4" align="start" justify="between">
-														<Text size="6" className="font-mono uppercase">
+													<Flex
+														p="4"
+														align="center"
+														justify="between"
+														// className="h-[6.6rem]"
+													>
+														<Text
+															size="6"
+															weight="bold"
+															className="font-mono text-accent-10"
+														>
 															Navigation
 														</Text>
-														<IconButton onClick={toggleMenu} variant="surface">
+														<IconButton
+															size="1"
+															onClick={toggleMenu}
+															variant="surface"
+														>
 															<Cross1Icon />
 														</IconButton>
 													</Flex>
 													<Separator size="4" />
-													<Flex p="4" direction="column" gap="4">
+													<Flex
+														direction="column"
+														className="divide-y-1 divide-gray-5"
+													>
 														{ROUTES.map(({ path, name }) => (
 															<Navigation.Item key={path}>
-																<Flex align="center">
+																<Flex align="center" className="p-rx-4">
 																	<Link href={path} onClick={toggleMenu}>
 																		<Text
-																			size="6"
+																			size="4"
+																			weight="light"
 																			className={cn(
 																				isExactRoute(path) || isSubRoute(path)
 																					? "text-accent-10 font-bold"
@@ -157,13 +183,13 @@ export const Header: React.FC = () => {
 																		<Link href={pathname}>
 																			<Flex
 																				align="center"
-																				className="text-accent-10 font-bold text-6 !leading-1"
+																				className="text-accent-10 font-bold text-5 !leading-1"
 																			>
 																				/
 																				<ReaderIcon
-																					height={20}
-																					width={20}
-																					strokeWidth={0.75}
+																					height={16}
+																					width={16}
+																					strokeWidth={0.5}
 																					className="stroke-accent-10"
 																				/>
 																			</Flex>
@@ -176,6 +202,17 @@ export const Header: React.FC = () => {
 												</Flex>
 											</Navigation.List>
 										</Navigation.Root>
+									</Flex>
+									<Flex
+										justify="between"
+										p="4"
+										className="top-1" // Aligns with footer, given 1px border
+									>
+										<Clock />
+										<Text size="1" className="uppercase text-gray-8">
+											Built in the USA
+										</Text>
+										{/* <USAFlag /> */}
 									</Flex>
 								</motion.div>
 							</>
@@ -199,13 +236,7 @@ export const Header: React.FC = () => {
 						<Navigation.List className="flex justify-between">
 							<Flex gap="3" className="uppercase" align="center">
 								<motion.div>
-									<Button
-										variant="surface"
-										size="1"
-										onClick={toggleMenu}
-										// disabled={open}
-										// className="disabled:cursor-default"
-									>
+									<Button variant="surface" size="1" onClick={toggleMenu}>
 										<Flex gap="2" align="center" justify="center">
 											<HamburgerMenuIcon />
 											<Text className="uppercase">Menu</Text>
@@ -214,9 +245,6 @@ export const Header: React.FC = () => {
 								</motion.div>
 							</Flex>
 							<Flex gap="4" align="center">
-								<Navigation.Item>
-									<Clock />
-								</Navigation.Item>
 								<Navigation.Item>
 									<Theme.Toggle />
 								</Navigation.Item>
