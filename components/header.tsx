@@ -32,7 +32,7 @@ const SIDE_MENU_ANIMATION_VARIANTS = {
 	open: {
 		x: 0,
 		opacity: 1,
-		backgroundColor: "var(--gray-2)",
+		backgroundColor: "var(--gray-1)",
 		filter: "blur(0)",
 		transition: { type: "easeInOut", duration: 0.2 },
 	},
@@ -49,6 +49,17 @@ const SIDE_MENU_ANIMATION_VARIANTS = {
 		backgroundColor: "var(--gray-1)",
 		filter: "blur(10px)",
 		transition: { type: "easeInOut", duration: 0.2 },
+	},
+};
+
+const OVERLAY_ANIMATION_VARIANTS = {
+	hidden: {
+		opacity: 0,
+		transition: { duration: 0.2 },
+	},
+	visible: {
+		opacity: 1,
+		transition: { duration: 0.2 },
 	},
 };
 
@@ -81,79 +92,93 @@ export const Header: React.FC = () => {
 			{isClient && (
 				<AnimatePresence mode="wait">
 					<Portal className="absolute top-0">
-						<RadixTheme {...THEME} asChild>
-							<motion.div
-								ref={menuRef}
-								key="side-menu"
-								initial="closed"
-								animate={open ? "open" : "closed"}
-								exit="exit"
-								variants={SIDE_MENU_ANIMATION_VARIANTS}
-								onClick={(e) => e.stopPropagation()}
-								className="fixed h-screen w-[24rem] border-1 border-l-0 border-gray-5"
-							>
-								<Flex width="100%" align="center" justify="center">
-									<Navigation.Root
-										orientation="horizontal"
-										className="w-screen"
-									>
-										<Navigation.List className="flex justify-between">
-											<Flex
-												className="uppercase"
-												direction="column"
-												width="100%"
-											>
-												<Flex p="4" align="start" justify="between">
-													<Text size="6" className="font-mono uppercase">
-														Navigation
-													</Text>
-													<IconButton onClick={toggleMenu} variant="surface">
-														<Cross1Icon />
-													</IconButton>
-												</Flex>
-												<Separator size="4" />
-												<Flex p="4" direction="column" gap="4">
-													{ROUTES.map(({ path, name }) => (
-														<Navigation.Item key={path}>
-															<Flex align="center">
-																<Link href={path}>
-																	<Text
-																		size="6"
-																		className={cn(
-																			isExactRoute(path) || isSubRoute(path)
-																				? "text-accent-10 font-bold"
-																				: "text-gray-10",
-																			"hover:text-accent-10"
-																		)}
-																	>
-																		/{name}
-																	</Text>
-																</Link>
-																{isSubRoute(path) && (
-																	<Link href={pathname}>
-																		<Flex
-																			align="center"
-																			className="text-accent-10 font-bold text-6 !leading-1"
+						<RadixTheme {...THEME}>
+							<>
+								<AnimatePresence>
+									{open && (
+										<motion.div
+											initial="hidden"
+											animate="visible"
+											exit="hidden"
+											variants={OVERLAY_ANIMATION_VARIANTS}
+											className="fixed inset-0 bg-blackA-6 grayscale"
+											onClick={toggleMenu}
+										/>
+									)}
+								</AnimatePresence>
+								<motion.div
+									ref={menuRef}
+									key="side-menu"
+									initial="closed"
+									animate={open ? "open" : "closed"}
+									exit="exit"
+									variants={SIDE_MENU_ANIMATION_VARIANTS}
+									onClick={(e) => e.stopPropagation()}
+									className="fixed h-screen w-[24rem] border-1 border-l-0 border-gray-5"
+								>
+									<Flex width="100%" align="center" justify="center">
+										<Navigation.Root
+											orientation="horizontal"
+											className="w-screen"
+										>
+											<Navigation.List className="flex justify-between">
+												<Flex
+													className="uppercase"
+													direction="column"
+													width="100%"
+												>
+													<Flex p="4" align="start" justify="between">
+														<Text size="6" className="font-mono uppercase">
+															Navigation
+														</Text>
+														<IconButton onClick={toggleMenu} variant="surface">
+															<Cross1Icon />
+														</IconButton>
+													</Flex>
+													<Separator size="4" />
+													<Flex p="4" direction="column" gap="4">
+														{ROUTES.map(({ path, name }) => (
+															<Navigation.Item key={path}>
+																<Flex align="center">
+																	<Link href={path} onClick={toggleMenu}>
+																		<Text
+																			size="6"
+																			className={cn(
+																				isExactRoute(path) || isSubRoute(path)
+																					? "text-accent-10 font-bold"
+																					: "text-gray-10",
+																				"hover:text-accent-10"
+																			)}
 																		>
-																			/
-																			<ReaderIcon
-																				height={20}
-																				width={20}
-																				strokeWidth={0.75}
-																				className="stroke-accent-10"
-																			/>
-																		</Flex>
+																			/{name}
+																		</Text>
 																	</Link>
-																)}
-															</Flex>
-														</Navigation.Item>
-													))}
+																	{isSubRoute(path) && (
+																		<Link href={pathname}>
+																			<Flex
+																				align="center"
+																				className="text-accent-10 font-bold text-6 !leading-1"
+																			>
+																				/
+																				<ReaderIcon
+																					height={20}
+																					width={20}
+																					strokeWidth={0.75}
+																					className="stroke-accent-10"
+																				/>
+																			</Flex>
+																		</Link>
+																	)}
+																</Flex>
+															</Navigation.Item>
+														))}
+													</Flex>
 												</Flex>
-											</Flex>
-										</Navigation.List>
-									</Navigation.Root>
-								</Flex>
-							</motion.div>
+											</Navigation.List>
+										</Navigation.Root>
+									</Flex>
+								</motion.div>
+							</>
 						</RadixTheme>
 					</Portal>
 				</AnimatePresence>
@@ -178,8 +203,8 @@ export const Header: React.FC = () => {
 										variant="surface"
 										size="2"
 										onClick={toggleMenu}
-										disabled={open}
-										className="disabled:cursor-default"
+										// disabled={open}
+										// className="disabled:cursor-default"
 									>
 										<Flex gap="2" align="center" justify="center">
 											<HamburgerMenuIcon />

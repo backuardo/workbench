@@ -2,7 +2,6 @@
 import { SVGProps } from "react";
 
 export const Hero: React.FC<Omit<SVGProps<SVGSVGElement>, "ref">> = ({
-	className,
 	...props
 }) => {
 	return (
@@ -10,17 +9,22 @@ export const Hero: React.FC<Omit<SVGProps<SVGSVGElement>, "ref">> = ({
 			xmlns="http://www.w3.org/2000/svg"
 			version="1.0"
 			viewBox="0 0 810 810"
-			// width="97%"
-			// height="97%"
+			// width="100%"
+			// height="100%"
+			{...props}
 		>
 			<defs>
 				<clipPath id="a">
 					<path d="M181.55 265.77h447v278.25h-447Zm0 0" />
 				</clipPath>
 				<radialGradient id="grid-gradient">
-					<stop offset="60%" stopColor="var(--gray-7)" />
-					<stop offset="80%" stopColor="var(--gray-5)" />
-					<stop offset="100%" stopColor="var(--gray-4)" />
+					<stop offset="40%" stopColor="var(--gray-8)" />
+					<stop offset="50%" stopColor="var(--gray-7)" />
+					<stop offset="60%" stopColor="var(--gray-6)" />
+					<stop offset="70%" stopColor="var(--gray-5)" />
+					<stop offset="80%" stopColor="var(--gray-4)" />
+					<stop offset="90%" stopColor="var(--gray-3)" />
+					<stop offset="100%" stopColor="var(--gray-2)" />
 				</radialGradient>
 				<radialGradient id="center-gradient">
 					<stop offset="60%" stopColor="var(--accent-10)" />
