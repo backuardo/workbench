@@ -213,7 +213,7 @@ export const Header: React.FC = () => {
 																</Link>
 															</Navigation.Item>
 														))}
-														<Flex gap="4" mt="8">
+														<Flex gap="4" mt="4">
 															<KeyboardShortcuts />
 														</Flex>
 													</Flex>
