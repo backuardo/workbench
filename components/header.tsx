@@ -10,6 +10,8 @@ import {
 	Theme as RadixTheme,
 	Separator,
 	Button,
+	Kbd,
+	Table,
 } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
 import {
@@ -24,10 +26,10 @@ import { useIsClient } from "@/lib/use-is-client";
 import { useOutsideClickEvent } from "@/lib/use-click-outside-event";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
-import { USAFlag } from "@/components/ui/usa-flag";
 import * as Theme from "@/components/theme";
 import { Link } from "@/components/ui/link";
 import { Clock } from "@/components/ui/clock";
+import { KeyboardShortcuts } from "./ui/keyboard-shortcuts";
 
 const SIDE_MENU_ANIMATION_VARIANTS = {
 	open: {
@@ -157,7 +159,7 @@ export const Header: React.FC = () => {
 														p="4"
 														align="end"
 														justify="between"
-														className="h-[6.6rem]"
+														className="h-[6.475rem]" // Hacky way to align with header
 													>
 														<Text
 															size="8"
@@ -193,9 +195,10 @@ export const Header: React.FC = () => {
 																		align="center"
 																		width="100%"
 																		className="p-rx-4 border-1 border-gray-3 hover:bg-blackA-1"
+																		gap="4"
 																	>
 																		<Text
-																			size="4"
+																			size="3"
 																			weight="light"
 																			className={cn(
 																				isExactRoute(path) || isSubRoute(path)
@@ -210,21 +213,26 @@ export const Header: React.FC = () => {
 																</Link>
 															</Navigation.Item>
 														))}
+														<Flex gap="4" mt="8">
+															<KeyboardShortcuts />
+														</Flex>
 													</Flex>
 												</Flex>
 											</Navigation.List>
 										</Navigation.Root>
 									</Flex>
 									<Flex
-										justify="between"
 										p="4"
+										direction="column"
+										gap="4"
 										className="top-1" // Aligns with footer, given 1px border
 									>
-										<Clock />
-										<Text size="1" className="uppercase text-gray-8">
-											Built in the USA
-										</Text>
-										{/* <USAFlag /> */}
+										<Flex justify="between" width="100%">
+											<Clock />
+											<Text size="1" className="uppercase text-gray-8">
+												Built in the USA
+											</Text>
+										</Flex>
 									</Flex>
 								</motion.div>
 							</>
@@ -247,14 +255,12 @@ export const Header: React.FC = () => {
 					<Navigation.Root orientation="horizontal" className="w-screen">
 						<Navigation.List className="flex justify-between">
 							<Flex gap="3" className="uppercase" align="center">
-								<motion.div>
-									<Button variant="surface" size="1" onClick={toggleMenu}>
-										<Flex gap="2" align="center" justify="center">
-											<HamburgerMenuIcon />
-											<Text className="uppercase">Menu</Text>
-										</Flex>
-									</Button>
-								</motion.div>
+								<Button variant="surface" size="1" onClick={toggleMenu}>
+									<Flex gap="2" align="center" justify="center">
+										<HamburgerMenuIcon />
+										<Text className="uppercase">Menu</Text>
+									</Flex>
+								</Button>
 							</Flex>
 							<Flex gap="4" align="center">
 								<Navigation.Item>
