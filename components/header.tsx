@@ -64,6 +64,23 @@ const OVERLAY_ANIMATION_VARIANTS = {
 	},
 };
 
+// {isSubRoute(path) && (
+// 	<Link href={pathname}>
+// 		<Flex
+// 			align="center"
+// 			className="text-accent-10 font-bold text-5 !leading-1"
+// 		>
+// 			/
+// 			<ReaderIcon
+// 				height={16}
+// 				width={16}
+// 				strokeWidth={0.5}
+// 				className="stroke-accent-10"
+// 			/>
+// 		</Flex>
+// 	</Link>
+// )}
+
 export const Header: React.FC = () => {
 	const pathname = usePathname();
 	const router = useRouter();
@@ -162,20 +179,20 @@ export const Header: React.FC = () => {
 														mt="4"
 														direction="column"
 														className=""
-														gap="4"
+														gap="1"
 														mx="4"
 													>
 														{ROUTES.map(({ path, name }) => (
 															<Navigation.Item key={path}>
-																<Flex
-																	align="center"
-																	width="100%"
-																	className="p-rx-4 border-1 border-gray-3 hover:bg-blackA-1"
+																<Link
+																	href={path}
+																	onClick={toggleMenu}
+																	className="w-full"
 																>
-																	<Link
-																		href={path}
-																		onClick={toggleMenu}
-																		className="w-full"
+																	<Flex
+																		align="center"
+																		width="100%"
+																		className="p-rx-4 border-1 border-gray-3 hover:bg-blackA-1"
 																	>
 																		<Text
 																			size="4"
@@ -189,24 +206,8 @@ export const Header: React.FC = () => {
 																		>
 																			/{name}
 																		</Text>
-																	</Link>
-																	{isSubRoute(path) && (
-																		<Link href={pathname}>
-																			<Flex
-																				align="center"
-																				className="text-accent-10 font-bold text-5 !leading-1"
-																			>
-																				/
-																				<ReaderIcon
-																					height={16}
-																					width={16}
-																					strokeWidth={0.5}
-																					className="stroke-accent-10"
-																				/>
-																			</Flex>
-																		</Link>
-																	)}
-																</Flex>
+																	</Flex>
+																</Link>
 															</Navigation.Item>
 														))}
 													</Flex>
