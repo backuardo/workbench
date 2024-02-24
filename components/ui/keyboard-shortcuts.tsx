@@ -57,10 +57,10 @@ export const KeyboardShortcuts: React.FC = () => {
 								</Table.Row>
 							</Table.Header>
 							<Table.Body>
-								{KEYBOARD_SHORTCUTS.map(({ name, key }) => (
+								{KEYBOARD_SHORTCUTS.map(({ name, key, display }) => (
 									<Table.Row key={key}>
 										<Table.Cell className="px-rx-4">
-											<Kbd className="text-accent-9">{key}</Kbd>
+											<Kbd className="text-accent-9">{display}</Kbd>
 										</Table.Cell>
 										<Table.Cell className="uppercase px-rx-4 text-gray-10 font-light">
 											{name}

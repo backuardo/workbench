@@ -13,24 +13,28 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	callbackName?: string;
 	name: string;
 	key: string;
+	display: string;
 }[] = Object.freeze([
-	{ path: "/", name: "Navigate to /Index", key: "i" },
+	{ path: "/", name: "Navigate to /Index", key: "i", display: "i" },
 	// { path: "/workbench", name: "Shortcut menu", key: "?" }, // why doesnt this work?
 	{
 		callbackName: "navigateNextPage",
 		name: "Navigate to next page",
 		key: "ArrowRight",
+		display: "→",
 	},
 	{
 		callbackName: "navigatePreviousPage",
 		name: "Navigate to previous page",
 		key: "ArrowLeft",
+		display: "←",
 	},
-	{ callbackName: "toggleTheme", name: "Toggle Theme", key: "t" },
+	{ callbackName: "toggleTheme", name: "Toggle Theme", key: "t", display: "t" },
 	{
 		callbackName: "toggleMenuOpen",
 		name: "Toggle Menu",
 		key: "m",
+		display: "m",
 	},
 ]);
 

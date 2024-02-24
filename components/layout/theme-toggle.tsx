@@ -32,7 +32,7 @@ export const ThemeToggle = () => {
 			<Switch
 				checked={theme === Theme.Dark}
 				onCheckedChange={toggleTheme}
-				variant="soft"
+				variant="surface"
 			/>
 			{themeIconMap[theme as Theme]}
 		</Flex>

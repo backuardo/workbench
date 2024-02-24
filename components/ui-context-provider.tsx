@@ -100,7 +100,6 @@ export const UIContextProvider: React.FC<{
 			if (path) {
 				return {
 					path,
-					name,
 					key,
 					action: () => router.push(path),
 				};
@@ -108,26 +107,22 @@ export const UIContextProvider: React.FC<{
 				switch (callbackName) {
 					case "toggleTheme":
 						return {
-							name,
 							key,
 							action: toggleTheme,
 						};
 					case "toggleMenuOpen":
 						return {
-							name,
 							key,
 							action: toggleSideMenuOpen,
 						};
 					case "navigatePreviousPage":
 						return {
-							name,
 							key,
 							action: navigatePreviousPage,
 							deps: [pathname],
 						};
 					case "navigateNextPage":
 						return {
-							name,
 							key,
 							action: navigateNextPage,
 							deps: [pathname],
