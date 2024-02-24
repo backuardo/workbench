@@ -14,11 +14,7 @@ import {
 	Table,
 } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
-import {
-	Cross1Icon,
-	HamburgerMenuIcon,
-	ReaderIcon,
-} from "@radix-ui/react-icons";
+import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ROUTES, THEME } from "@/lib/config";
@@ -65,23 +61,6 @@ const OVERLAY_ANIMATION_VARIANTS = {
 		transition: { duration: 0.2 },
 	},
 };
-
-// {isSubRoute(path) && (
-// 	<Link href={pathname}>
-// 		<Flex
-// 			align="center"
-// 			className="text-accent-10 font-bold text-5 !leading-1"
-// 		>
-// 			/
-// 			<ReaderIcon
-// 				height={16}
-// 				width={16}
-// 				strokeWidth={0.5}
-// 				className="stroke-accent-10"
-// 			/>
-// 		</Flex>
-// 	</Link>
-// )}
 
 export const Header: React.FC = () => {
 	const pathname = usePathname();
@@ -159,7 +138,9 @@ export const Header: React.FC = () => {
 														p="4"
 														align="end"
 														justify="between"
-														className="h-[6.475rem]" // Hacky way to align with header
+														className={cn(
+															"h-[6.475rem]" // Hacky way to align with header
+														)}
 													>
 														<Text
 															size="8"

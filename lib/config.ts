@@ -30,8 +30,8 @@ export const KEYBOARD_SHORTCUTS = Object.freeze([
 ]);
 
 export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
-	accentColor: "lime",
-	grayColor: "olive",
+	accentColor: "tomato",
+	// grayColor: "olive",
 	radius: "none",
 	scaling: "90%",
 	panelBackground: "translucent",
