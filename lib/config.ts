@@ -7,25 +7,25 @@ export const ROUTES = Object.freeze([
 	{ path: "/workbench", name: "Workbench" },
 ]);
 
-export const KEYBOARD_SHORTCUTS = Object.freeze([
-	{ path: "/", name: " Navigate to /Index", keyboardShortcut: "I" },
-	{ path: "/about", name: " Navigate to /About", keyboardShortcut: "A" },
-	{ path: "/contact", name: " Navigate to /Contact", keyboardShortcut: "C" },
+export const KEYBOARD_SHORTCUTS: readonly {
+	path?: string;
+	callbackName?: string;
+	name: string;
+	key: string;
+}[] = Object.freeze([
+	{ path: "/", name: " Navigate to /Index", key: "I" },
+	{ path: "/about", name: " Navigate to /About", key: "A" },
+	{ path: "/contact", name: " Navigate to /Contact", key: "C" },
 	{
 		path: "/workbench",
 		name: " Navigate to /Workbench",
-		keyboardShortcut: "W",
+		key: "W",
 	},
-	{ callback: "toggleTheme", name: "Toggle Theme", keyboardShortcut: "T" },
+	{ callbackName: "toggleTheme", name: "Toggle Theme", key: "T" },
 	{
-		callback: "toggleSideMenu",
+		callbackName: "toggleSideMenuOpen",
 		name: "Toggle Side Menu",
-		keyboardShortcut: "M",
-	},
-	{
-		callback: "toggleHelpModal",
-		name: "Toggle Help Modal",
-		keyboardShortcut: "?",
+		key: "M",
 	},
 ]);
 

@@ -2,7 +2,8 @@
 
 import { Theme as RadixTheme } from "@radix-ui/themes";
 
-import * as Theme from "@/components/theme";
+import { ThemeContextProvider } from "@/components/theme-context-provider";
+import { UIContextProvider } from "@/components/ui-context-provider";
 import { THEME } from "@/lib/config";
 
 type ProviderWithProps = readonly [
@@ -25,6 +26,10 @@ const combineProviders = (
 	);
 };
 
-const providers: ProviderWithProps[] = [[Theme.Provider], [RadixTheme, THEME]];
+const providers: ProviderWithProps[] = [
+	[ThemeContextProvider],
+	[UIContextProvider],
+	[RadixTheme, THEME],
+];
 
 export const AppContextProvider = combineProviders(providers);

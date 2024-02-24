@@ -10,18 +10,24 @@ const ANIMATION_VARIANTS = {
 	collapsed: { opacity: 0, height: 0 },
 };
 
+const KEYBOARD_SHORTCUTS_MENU_ID = "keyboard-shortcuts";
+
 export const KeyboardShortcuts: React.FC = () => {
 	return (
-		<Accordion.Root type="single" collapsible className="w-full">
-			<Accordion.Item className="AccordionItem" value="item-1">
+		<Accordion.Root
+			type="single"
+			defaultValue={KEYBOARD_SHORTCUTS_MENU_ID}
+			collapsible
+			className="w-full"
+		>
+			<Accordion.Item value={KEYBOARD_SHORTCUTS_MENU_ID}>
 				<Accordion.Trigger
 					className={cn(
 						"w-full border-1 border-gray-5 p-rx-4 bg-gray-2",
 						"hover:bg-blackA-1 [&&]:hover:cursor-s-resize data-[state=open]:[&&]:hover:cursor-n-resize"
 					)}
 				>
-					<Flex gap="4">
-						<Kbd className="text-accent-9">?</Kbd>
+					<Flex gap="4" align="center">
 						<Text size="3" weight="light" className="uppercase text-gray-11">
 							Keyboard shortcuts
 						</Text>
@@ -51,10 +57,10 @@ export const KeyboardShortcuts: React.FC = () => {
 								</Table.Row>
 							</Table.Header>
 							<Table.Body>
-								{KEYBOARD_SHORTCUTS.map(({ name, keyboardShortcut }) => (
-									<Table.Row key={keyboardShortcut}>
+								{KEYBOARD_SHORTCUTS.map(({ name, key }) => (
+									<Table.Row key={key}>
 										<Table.Cell className="px-rx-4">
-											<Kbd className="text-accent-9">{keyboardShortcut}</Kbd>
+											<Kbd className="text-accent-9">{key}</Kbd>
 										</Table.Cell>
 										<Table.Cell className="uppercase px-rx-4 text-gray-10 font-light">
 											{name}

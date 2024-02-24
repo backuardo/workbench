@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import { Text } from "@radix-ui/themes";
 
-import { Section } from "@/components/ui/section";
-import * as Preview from "@/components/preview";
+import { Section } from "@/components/layout/section";
+import * as Preview from "@/components/ui/workbench-preview";
 import { search } from "@/lib/search";
 import { PreviewData } from "@/lib/types";
 

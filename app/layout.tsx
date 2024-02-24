@@ -3,9 +3,9 @@ import { GeistMono } from "geist/font/mono";
 import { Container, Flex, Grid } from "@radix-ui/themes";
 
 import { AppContextProvider } from "@/components/app-context-provider";
-import { Analytics } from "@/components/analytics";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { Analytics } from "@/components/layout/analytics";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 import "./globals.css";
 

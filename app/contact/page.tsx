@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 import { TextField, TextArea, Button, Text } from "@radix-ui/themes";
 
-import { Section } from "@/components/ui/section";
+import { Section } from "@/components/layout/section";
 import { P } from "@/components/ui/typography";
-import { ContactForm } from "@/components/contact-form";
+import { ContactForm } from "@/components/ui/contact-form";
 import { Link } from "@/components/ui/link";
 
 export const metadata = {

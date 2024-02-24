@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import { Link } from "@/components/ui/link";
-import { Section } from "@/components/ui/section";
+import { Section } from "@/components/layout/section";
 import { P } from "@/components/ui/typography";
 
 export const metadata = {

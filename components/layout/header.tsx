@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import {
 	Flex,
@@ -22,10 +22,11 @@ import { useIsClient } from "@/lib/use-is-client";
 import { useOutsideClickEvent } from "@/lib/use-click-outside-event";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
-import * as Theme from "@/components/theme";
 import { Link } from "@/components/ui/link";
 import { Clock } from "@/components/ui/clock";
-import { KeyboardShortcuts } from "./ui/keyboard-shortcuts";
+import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { useUI } from "@/components/ui-context-provider";
 
 const SIDE_MENU_ANIMATION_VARIANTS = {
 	open: {
@@ -64,21 +65,11 @@ const OVERLAY_ANIMATION_VARIANTS = {
 
 export const Header: React.FC = () => {
 	const pathname = usePathname();
-	const router = useRouter();
 	const menuRef = useRef(null!);
-	const [open, setOpen] = useState(false);
+	const { sideMenuOpen, toggleSideMenuOpen, closeSideMenu } = useUI();
 	const isClient = useIsClient();
 
-	useEffect(() => {
-		// `Link`s are rendered in a portal, so we need to manually prefetch the pages
-		ROUTES.forEach(({ path }) => {
-			router.prefetch(path);
-		});
-	}, []);
-
-	useOutsideClickEvent(menuRef, () => {
-		setOpen(false);
-	});
+	useOutsideClickEvent(menuRef, () => closeSideMenu());
 
 	const isExactRoute = (path: string) => {
 		return pathname === path;
@@ -90,10 +81,6 @@ export const Header: React.FC = () => {
 		);
 	};
 
-	const toggleMenu = () => {
-		setOpen(!open);
-	};
-
 	return (
 		<>
 			{isClient && (
@@ -102,14 +89,14 @@ export const Header: React.FC = () => {
 						<RadixTheme {...THEME}>
 							<>
 								<AnimatePresence>
-									{open && (
+									{sideMenuOpen && (
 										<motion.div
 											initial="hidden"
 											animate="visible"
 											exit="hidden"
 											variants={OVERLAY_ANIMATION_VARIANTS}
 											className="fixed inset-0 bg-blackA-6 grayscale"
-											onClick={toggleMenu}
+											onClick={closeSideMenu}
 										/>
 									)}
 								</AnimatePresence>
@@ -117,7 +104,7 @@ export const Header: React.FC = () => {
 									ref={menuRef}
 									key="side-menu"
 									initial="closed"
-									animate={open ? "open" : "closed"}
+									animate={sideMenuOpen ? "open" : "closed"}
 									exit="exit"
 									variants={SIDE_MENU_ANIMATION_VARIANTS}
 									onClick={(e) => e.stopPropagation()}
@@ -139,7 +126,7 @@ export const Header: React.FC = () => {
 														align="end"
 														justify="between"
 														className={cn(
-															"h-[6.475rem]" // Hacky way to align with header
+															"h-[6.6rem]" // Hacky way to align with header
 														)}
 													>
 														<Text
@@ -151,7 +138,7 @@ export const Header: React.FC = () => {
 														</Text>
 														<IconButton
 															size="1"
-															onClick={toggleMenu}
+															onClick={toggleSideMenuOpen}
 															variant="surface"
 														>
 															<Cross1Icon />
@@ -169,7 +156,7 @@ export const Header: React.FC = () => {
 															<Navigation.Item key={path}>
 																<Link
 																	href={path}
-																	onClick={toggleMenu}
+																	onClick={toggleSideMenuOpen}
 																	className="w-full"
 																>
 																	<Flex
@@ -236,7 +223,7 @@ export const Header: React.FC = () => {
 					<Navigation.Root orientation="horizontal" className="w-screen">
 						<Navigation.List className="flex justify-between">
 							<Flex gap="3" className="uppercase" align="center">
-								<Button variant="surface" size="1" onClick={toggleMenu}>
+								<Button variant="surface" size="1" onClick={toggleSideMenuOpen}>
 									<Flex gap="2" align="center" justify="center">
 										<HamburgerMenuIcon />
 										<Text className="uppercase">Menu</Text>
@@ -245,7 +232,7 @@ export const Header: React.FC = () => {
 							</Flex>
 							<Flex gap="4" align="center">
 								<Navigation.Item>
-									<Theme.Toggle />
+									<ThemeToggle />
 								</Navigation.Item>
 							</Flex>
 						</Navigation.List>

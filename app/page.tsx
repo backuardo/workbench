@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
-import { Section } from "@/components/ui/section";
-import { Hero } from "@/components/hero";
+import { Section } from "@/components/layout/section";
+import { Hero } from "@/components/ui/hero";
 
 export const metadata = {
 	title: "INDEX | beneisner.io",
