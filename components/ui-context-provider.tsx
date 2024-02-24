@@ -105,6 +105,16 @@ export const UIContextProvider: React.FC<{
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
+			// Ignore keyboard shortcuts if the focus is on an input or textarea
+			const tagName = document.activeElement?.tagName.toUpperCase();
+			if (
+				(document.activeElement as HTMLElement).isContentEditable ||
+				tagName === "INPUT" ||
+				tagName === "TEXTAREA"
+			) {
+				return;
+			}
+
 			const shortcut = keyboardShortcuts.find(
 				({ key }) => key.toLowerCase() === e.key.toLowerCase()
 			);
