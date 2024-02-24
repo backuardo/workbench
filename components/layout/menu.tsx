@@ -193,7 +193,7 @@ export const Menu: React.FC = () => {
 										p="4"
 										direction="column"
 										gap="4"
-										className="top-[0.1rem]" // Aligns with footer, given 1px border
+										className="top-[0.2rem]" // Aligns with footer, given 1px border
 									>
 										<Flex justify="between" width="100%">
 											<Clock />

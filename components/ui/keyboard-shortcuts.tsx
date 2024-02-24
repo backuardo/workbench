@@ -1,4 +1,4 @@
-import { Table, Flex, Kbd, Text } from "@radix-ui/themes";
+import { Table, Flex, Text, Badge } from "@radix-ui/themes";
 import * as Accordion from "@radix-ui/react-accordion";
 import { motion } from "framer-motion";
 
@@ -60,7 +60,13 @@ export const KeyboardShortcuts: React.FC = () => {
 								{KEYBOARD_SHORTCUTS.map(({ name, key, display }) => (
 									<Table.Row key={key}>
 										<Table.Cell className="px-rx-4">
-											<Kbd className="text-accent-9">{display}</Kbd>
+											<Badge
+												variant="outline"
+												radius="large"
+												className="shadow-2 border-1 border-accent-5"
+											>
+												<kbd>{display}</kbd>
+											</Badge>
 										</Table.Cell>
 										<Table.Cell className="uppercase px-rx-4 text-gray-10 font-light">
 											{name}
