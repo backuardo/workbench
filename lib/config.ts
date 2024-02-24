@@ -1,4 +1,5 @@
 import * as Theme from "@radix-ui/themes";
+import { Key } from "ts-key-enum";
 
 export const ROUTES = Object.freeze([
 	{ path: "/", name: "Index" },
@@ -13,19 +14,23 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	name: string;
 	key: string;
 }[] = Object.freeze([
-	{ path: "/", name: " Navigate to /Index", key: "I" },
-	{ path: "/about", name: " Navigate to /About", key: "A" },
-	{ path: "/contact", name: " Navigate to /Contact", key: "C" },
+	{ path: "/", name: "Navigate to /Index", key: "i" },
+	// { path: "/workbench", name: "Shortcut menu", key: "?" }, // why doesnt this work?
 	{
-		path: "/workbench",
-		name: " Navigate to /Workbench",
-		key: "W",
+		callbackName: "navigateNextPage",
+		name: "Navigate to next page",
+		key: "ArrowRight",
 	},
-	{ callbackName: "toggleTheme", name: "Toggle Theme", key: "T" },
 	{
-		callbackName: "toggleSideMenuOpen",
-		name: "Toggle Side Menu",
-		key: "M",
+		callbackName: "navigatePreviousPage",
+		name: "Navigate to previous page",
+		key: "ArrowLeft",
+	},
+	{ callbackName: "toggleTheme", name: "Toggle Theme", key: "t" },
+	{
+		callbackName: "toggleMenuOpen",
+		name: "Toggle Menu",
+		key: "m",
 	},
 ]);
 

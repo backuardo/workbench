@@ -8,8 +8,9 @@ import {
 	useEffect,
 	useMemo,
 } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
+import { HotkeyCallback, Keys, Options, useHotkeys } from "react-hotkeys-hook";
 
 import { Theme } from "@/components/theme-context-provider";
 import { KEYBOARD_SHORTCUTS, ROUTES } from "@/lib/config";
@@ -41,10 +42,21 @@ export const useUI = () => {
 	return useContext(UIContext);
 };
 
+export const KeyboardShortcutUtility: React.FC<{
+	keys: Keys;
+	callback: HotkeyCallback;
+	options?: Options;
+	deps?: unknown[];
+}> = ({ keys, callback, options, deps }) => {
+	useHotkeys(keys, callback, options, deps);
+	return null;
+};
+
 export const UIContextProvider: React.FC<{
 	children: React.ReactNode | React.ReactNode[];
 }> = ({ children }) => {
 	const router = useRouter();
+	const pathname = usePathname();
 	const { theme, setTheme } = useTheme();
 	const [sideMenuOpen, setSideMenuOpen] = useState(false);
 
@@ -66,6 +78,23 @@ export const UIContextProvider: React.FC<{
 		setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
 	}, [setTheme, theme]);
 
+	const currentRouteIndex = useMemo(() => {
+		return ROUTES.findIndex(({ path }) => path === pathname);
+	}, [pathname]);
+
+	const navigateNextPage = useCallback(() => {
+		const nextRouteIndex = (currentRouteIndex + 1) % ROUTES.length;
+		const nextRoute = ROUTES[nextRouteIndex];
+		router.push(nextRoute.path, {});
+	}, [pathname]);
+
+	const navigatePreviousPage = useCallback(() => {
+		const nextRouteIndex =
+			(currentRouteIndex - 1 + ROUTES.length) % ROUTES.length;
+		const nextRoute = ROUTES[nextRouteIndex];
+		router.push(nextRoute.path, {});
+	}, [pathname]);
+
 	const keyboardShortcuts = useMemo(() => {
 		return KEYBOARD_SHORTCUTS.map(({ path, callbackName, name, key }) => {
 			if (path) {
@@ -83,11 +112,25 @@ export const UIContextProvider: React.FC<{
 							key,
 							action: toggleTheme,
 						};
-					case "toggleSideMenuOpen":
+					case "toggleMenuOpen":
 						return {
 							name,
 							key,
 							action: toggleSideMenuOpen,
+						};
+					case "navigatePreviousPage":
+						return {
+							name,
+							key,
+							action: navigatePreviousPage,
+							deps: [pathname],
+						};
+					case "navigateNextPage":
+						return {
+							name,
+							key,
+							action: navigateNextPage,
+							deps: [pathname],
 						};
 					default:
 						return null;
@@ -99,36 +142,10 @@ export const UIContextProvider: React.FC<{
 			path?: string;
 			name: string;
 			key: string;
+			deps?: unknown[];
 			action: () => void;
 		}[];
-	}, [toggleTheme, toggleSideMenuOpen, router]);
-
-	useEffect(() => {
-		const handleKeyDown = (e: KeyboardEvent) => {
-			// Ignore keyboard shortcuts if the focus is on an input or textarea
-			const tagName = document.activeElement?.tagName.toUpperCase();
-			if (
-				(document.activeElement as HTMLElement).isContentEditable ||
-				tagName === "INPUT" ||
-				tagName === "TEXTAREA"
-			) {
-				return;
-			}
-
-			const shortcut = keyboardShortcuts.find(
-				({ key }) => key.toLowerCase() === e.key.toLowerCase()
-			);
-			if (shortcut && shortcut.action) {
-				e.preventDefault();
-				shortcut.action();
-			}
-		};
-
-		window.addEventListener("keydown", handleKeyDown);
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
-		};
-	}, [keyboardShortcuts]);
+	}, [toggleTheme, toggleSideMenuOpen, router, pathname]);
 
 	return (
 		<UIContext.Provider
@@ -141,6 +158,14 @@ export const UIContextProvider: React.FC<{
 				keyboardShortcuts,
 			}}
 		>
+			{keyboardShortcuts.map(({ key, action, deps }) => (
+				<KeyboardShortcutUtility
+					key={key}
+					keys={key}
+					callback={action}
+					deps={deps}
+				/>
+			))}
 			{children}
 		</UIContext.Provider>
 	);

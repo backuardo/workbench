@@ -1,0 +1,37 @@
+---
+title: "Utility components: calling hooks in a loop"
+description: A method to call a hook in a loop
+tags: [Snippet, Hack]
+createdAt: 2024-02-24
+---
+
+export const metadata = {
+	title: "Utility components: calling hooks in a loop",
+	description: "A method to call a hook in a loop",
+};
+
+# Problem
+
+You need to call a hook in a loop, and don't want to break the "rules" of React hooks.
+This works with both static and dynamic arrays of data.
+
+# Solution
+
+```typescript
+const ExampleComponent = () => {
+	const { dynamicData }: { dynamicData: string[] } = useData();
+
+	return (
+		<>
+			{dynamicData.map((data, index) => (
+				<UtilityComponent key={index} data={data} />
+			))}
+		</>
+	);
+};
+
+const UtilityComponent = ({ data }: { data: string }) => {
+	const { data } = useData();
+	return null;
+};
+```
