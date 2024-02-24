@@ -63,7 +63,7 @@ const OVERLAY_ANIMATION_VARIANTS = {
 	},
 };
 
-export const Header: React.FC = () => {
+export const Menu: React.FC = () => {
 	const pathname = usePathname();
 	const menuRef = useRef(null!);
 	const { sideMenuOpen, toggleSideMenuOpen, closeSideMenu } = useUI();
@@ -181,7 +181,7 @@ export const Header: React.FC = () => {
 																</Link>
 															</Navigation.Item>
 														))}
-														<Flex gap="4" mt="4">
+														<Flex gap="4" mt="3">
 															<KeyboardShortcuts />
 														</Flex>
 													</Flex>

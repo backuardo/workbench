@@ -23,12 +23,12 @@ export const KeyboardShortcuts: React.FC = () => {
 			<Accordion.Item value={KEYBOARD_SHORTCUTS_MENU_ID}>
 				<Accordion.Trigger
 					className={cn(
-						"w-full border-1 border-gray-5 p-rx-4 bg-gray-2",
+						"w-full border-1 border-gray-5 p-rx-4 bg-gray-1",
 						"hover:bg-blackA-1 [&&]:hover:cursor-s-resize data-[state=open]:[&&]:hover:cursor-n-resize"
 					)}
 				>
 					<Flex gap="4" align="center">
-						<Text size="3" weight="light" className="uppercase text-gray-11">
+						<Text size="3" weight="light" className="uppercase text-gray-10">
 							Keyboard shortcuts
 						</Text>
 					</Flex>

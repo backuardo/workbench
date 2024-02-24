@@ -4,7 +4,7 @@ import { Container, Flex, Grid } from "@radix-ui/themes";
 
 import { AppContextProvider } from "@/components/app-context-provider";
 import { Analytics } from "@/components/layout/analytics";
-import { Header } from "@/components/layout/header";
+import { Menu } from "@/components/layout/menu";
 import { Footer } from "@/components/layout/footer";
 
 import "./globals.css";
@@ -37,7 +37,7 @@ const RootLayout = ({
 						<Flex className="border-gray-5 border-x-1">
 							<Container size="2" width="100%" className="max-w-screen">
 								<Grid rows="auto 1fr auto" className="min-h-screen">
-									<Header />
+									<Menu />
 									<main>{children}</main>
 									<Footer />
 								</Grid>
