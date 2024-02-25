@@ -126,7 +126,7 @@ export const Menu: React.FC = () => {
 														align="end"
 														justify="between"
 														className={cn(
-															"h-[6.6rem]" // Hacky way to align with header
+															"h-[6.475rem]" // Hacky way to align with header
 														)}
 													>
 														<Text

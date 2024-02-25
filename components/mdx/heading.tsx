@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import { Heading as RadixHeading } from "@radix-ui/themes";
 
 enum Level {
@@ -51,7 +52,13 @@ const HEADINGS = Object.freeze({
 
 export const Heading = Object.keys(HEADINGS).reduce(
 	(acc, key) => ({
-		[key]: (props: HeadingProps) => <H {...HEADINGS[key]} {...props} />,
+		[key]: ({ className, ...props }: HeadingProps) => (
+			<H
+				{...HEADINGS[key]}
+				{...props}
+				className={cn("text-gray-11 uppercase", className)}
+			/>
+		),
 		...acc,
 	}),
 	{} as Record<Level, React.FC<HeadingProps>>

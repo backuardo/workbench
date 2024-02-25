@@ -11,6 +11,7 @@ import { AppContextProvider } from "@/components/app-context-provider";
 import { Analytics } from "@/components/layout/analytics";
 import { Menu } from "@/components/layout/menu";
 import { Footer } from "@/components/layout/footer";
+import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
 
 import "./globals.css";
 
