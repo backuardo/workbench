@@ -181,7 +181,7 @@ export const Menu: React.FC = () => {
 																</Link>
 															</Navigation.Item>
 														))}
-														<Flex gap="4" mt="3">
+														<Flex gap="4" mt="3" className="hidden xs:flex">
 															<KeyboardShortcuts />
 														</Flex>
 													</Flex>
