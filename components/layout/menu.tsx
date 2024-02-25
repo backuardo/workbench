@@ -126,7 +126,7 @@ export const Menu: React.FC = () => {
 														align="end"
 														justify="between"
 														className={cn(
-															"h-[6.475rem]" // Hacky way to align with header
+															"h-[105.5px]" // Hacky way to align with header
 														)}
 													>
 														<Text
@@ -193,7 +193,7 @@ export const Menu: React.FC = () => {
 										p="4"
 										direction="column"
 										gap="4"
-										className="top-[0.2rem]" // Aligns with footer, given 1px border
+										className="top-[3px]" // Aligns with footer, given 1px border
 									>
 										<Flex justify="between" width="100%">
 											<Clock />
