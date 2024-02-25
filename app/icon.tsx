@@ -13,7 +13,7 @@ const Icon = () => {
 			<div
 				style={{
 					fontSize: 24,
-					background: "rgb(210, 69,49)",
+					background: "#D4B3A5",
 					width: "100%",
 					height: "100%",
 					display: "flex",

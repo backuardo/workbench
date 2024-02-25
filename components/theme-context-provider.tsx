@@ -11,7 +11,12 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
 	return (
-		<ThemeProvider attribute="class" themes={Object.values(Theme)}>
+		<ThemeProvider
+			attribute="class"
+			storageKey="backuardo-theme"
+			// defaultTheme={Theme.Dark}
+			themes={Object.values(Theme)}
+		>
 			{children}
 		</ThemeProvider>
 	);

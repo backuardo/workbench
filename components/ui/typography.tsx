@@ -11,7 +11,7 @@ export const P: React.FC<React.ComponentProps<typeof RadixText>> = ({
 		<RadixText
 			size="3"
 			weight="light"
-			className={cn("text-grayA-10", className)}
+			className={cn("text-grayA-10 text-justify break-words", className)}
 			{...props}
 		>
 			{children}

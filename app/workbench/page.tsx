@@ -1,8 +1,8 @@
 import { NextPage } from "next";
-import { Text } from "@radix-ui/themes";
 
 import { Section } from "@/components/layout/section";
 import * as Preview from "@/components/ui/workbench-preview";
+import { P } from "@/components/ui/typography";
 import { search } from "@/lib/search";
 import { PreviewData } from "@/lib/types";
 
@@ -35,16 +35,16 @@ const Workbench: NextPage = async ({
 					<Preview.SearchBar />
 				</Section.Heading>
 				<Section.Content>
-					<Text className="text-grayA-11 text-justify">
+					<P>
 						A collection of ideas, experiments, and helpful code snippets for
 						the web.
-					</Text>
-					<Text className="text-grayA-11 text-justify">
+					</P>
+					<P>
 						Much of the content draws inspiration from the efforts of others,
 						including direct references to their work. I am committed to
 						acknowledging their contributions and ensuring proper credit is
 						given to the original authors.
-					</Text>
+					</P>
 					<Preview.Grid key={getKey(postData)} />
 				</Section.Content>
 			</Preview.Provider>
