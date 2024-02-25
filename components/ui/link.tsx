@@ -19,7 +19,7 @@ export const Link: React.FC<
 		: ({ href } as any);
 	return (
 		<_Link
-			className={cn("text-gray-12 hover:text-accent-10", className)}
+			className={cn("text-gray-11 hover:text-accent-10", className)}
 			{...linkProps}
 			{...props}
 		>

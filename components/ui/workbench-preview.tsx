@@ -204,7 +204,7 @@ const Card: React.FC<PreviewData> = ({
 			<Link href={`/workbench/${slug}`}>
 				<Flex direction="column" gap="6" height="100%" justify="between">
 					<Flex direction="column" gap="1">
-						<Text weight="bold" size="5">
+						<Text weight="bold" size="4" className="text-gray-11 uppercase">
 							{title}
 						</Text>
 						<FormattedDate date={createdAt} />

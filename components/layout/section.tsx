@@ -18,7 +18,7 @@ const Heading: React.FC<{
 	return (
 		<Flex direction="column" gap="3">
 			<Flex justify="between" align="center" px="4">
-				<RadixHeading size="6" className="uppercase text-accent-9">
+				<RadixHeading size="6" className="uppercase text-gray-11">
 					{title}
 				</RadixHeading>
 				{children}

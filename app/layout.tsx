@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
-import { Container, Flex, Grid } from "@radix-ui/themes";
+import {
+	Container,
+	Flex,
+	Grid,
+	// ThemePanel
+} from "@radix-ui/themes";
 
 import { AppContextProvider } from "@/components/app-context-provider";
 import { Analytics } from "@/components/layout/analytics";
@@ -44,6 +49,7 @@ const RootLayout = ({
 							</Container>
 						</Flex>
 					</Flex>
+					{/* <ThemePanel /> */}
 				</AppContextProvider>
 				<Analytics />
 			</body>

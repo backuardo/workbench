@@ -132,7 +132,7 @@ export const Menu: React.FC = () => {
 														<Text
 															size="8"
 															weight="bold"
-															className="font-mono text-accent-9"
+															className="font-mono text-gray-11"
 														>
 															Navigation
 														</Text>

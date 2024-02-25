@@ -15,8 +15,8 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	key: string;
 	display: string;
 }[] = Object.freeze([
-	{ path: "/", name: "Navigate to /Index", key: "i", display: "i" },
 	// { path: "/workbench", name: "Shortcut menu", key: "?" }, // why doesnt this work?
+	{ path: "/", name: "Navigate to /Index", key: "i", display: "i" },
 	{
 		callbackName: "navigateNextPage",
 		name: "Navigate to next page",
@@ -39,8 +39,8 @@ export const KEYBOARD_SHORTCUTS: readonly {
 ]);
 
 export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
-	accentColor: "tomato",
-	// grayColor: "olive",
+	accentColor: "bronze", // teal indigo red tomato orange bronze gold
+	grayColor: "sage", // sage olive
 	radius: "none",
 	scaling: "90%",
 	panelBackground: "translucent",
