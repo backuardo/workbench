@@ -9,9 +9,10 @@ import {
 
 import { AppContextProvider } from "@/components/app-context-provider";
 import { Analytics } from "@/components/layout/analytics";
+import { SpeedInsights } from "@/components/layout/speed-insights";
 import { Menu } from "@/components/layout/menu";
 import { Footer } from "@/components/layout/footer";
-import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
+// import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
 
 import "./globals.css";
 
@@ -52,6 +53,7 @@ const RootLayout = ({
 					</Flex>
 					{/* <ThemePanel /> */}
 				</AppContextProvider>
+				<SpeedInsights />
 				<Analytics />
 			</body>
 		</html>
