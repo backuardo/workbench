@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
-import {
-	Container,
-	Flex,
-	Grid,
-	// ThemePanel
-} from "@radix-ui/themes";
+import { Container, Flex, Grid } from "@radix-ui/themes";
 
 import { AppContextProvider } from "@/components/app-context-provider";
 import { Analytics } from "@/components/layout/analytics";
 import { SpeedInsights } from "@/components/layout/speed-insights";
 import { Menu } from "@/components/layout/menu";
 import { Footer } from "@/components/layout/footer";
-// import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
 
 import "./globals.css";
 
@@ -51,7 +45,6 @@ const RootLayout = ({
 							</Container>
 						</Flex>
 					</Flex>
-					{/* <ThemePanel /> */}
 				</AppContextProvider>
 				<SpeedInsights />
 				<Analytics />

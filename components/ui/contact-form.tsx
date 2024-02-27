@@ -29,33 +29,34 @@ export const ContactForm: React.FC = () => {
 		<Flex direction="column" gap="4">
 			<form>
 				<Flex direction="column" width="100%" gap="4">
-					<Flex gap="4" width="100%">
-						<Flex direction="column" width="100%" gap="2">
-							<label htmlFor="name">
-								<P>Name</P>
-							</label>
-							<TextField.Input
-								{...register("name", { required: true })}
-								variant="surface"
-							/>
-							{errors.name && <P>Name is required</P>}
-						</Flex>
-						<Flex direction="column" width="100%" gap="2">
-							<label htmlFor="email">
-								<P>Email address</P>
-							</label>
-							<TextField.Input
-								{...register("email", { required: true })}
-								variant="surface"
-							/>
-							{errors.email && <P>Email is required</P>}
-						</Flex>
+					<Flex direction="column" width="100%" gap="2">
+						<label htmlFor="name">
+							<P>Name</P>
+						</label>
+						<TextField.Input
+							size="3"
+							{...register("name", { required: true })}
+							variant="surface"
+						/>
+						{errors.name && <P>Name is required</P>}
+					</Flex>
+					<Flex direction="column" width="100%" gap="2">
+						<label htmlFor="email">
+							<P>Email address</P>
+						</label>
+						<TextField.Input
+							size="3"
+							{...register("email", { required: true })}
+							variant="surface"
+						/>
+						{errors.email && <P>Email is required</P>}
 					</Flex>
 					<Flex direction="column" gap="2">
 						<label htmlFor="message">
 							<P>Message</P>
 						</label>
 						<TextArea
+							size="3"
 							{...register("message", { required: true })}
 							variant="surface"
 						/>
