@@ -26,7 +26,12 @@ export const ContactForm: React.FC = () => {
 	} = useForm<Inputs>();
 
 	return (
-		<Flex direction="column" gap="4">
+		<Flex
+			direction="column"
+			gap="4"
+			className="border-1 border-gray-5 bg-gray-2"
+			p="4"
+		>
 			<form>
 				<Flex direction="column" width="100%" gap="4">
 					<Flex direction="column" width="100%" gap="2">
@@ -36,7 +41,7 @@ export const ContactForm: React.FC = () => {
 						<TextField.Input
 							size="3"
 							{...register("name", { required: true })}
-							variant="surface"
+							variant="soft"
 						/>
 						{errors.name && <P>Name is required</P>}
 					</Flex>
@@ -47,7 +52,7 @@ export const ContactForm: React.FC = () => {
 						<TextField.Input
 							size="3"
 							{...register("email", { required: true })}
-							variant="surface"
+							variant="soft"
 						/>
 						{errors.email && <P>Email is required</P>}
 					</Flex>
@@ -58,12 +63,18 @@ export const ContactForm: React.FC = () => {
 						<TextArea
 							size="3"
 							{...register("message", { required: true })}
-							variant="surface"
+							variant="soft"
 						/>
 						{errors.message && <P>Message is required</P>}
 					</Flex>
 					<Grid columns="2" gap="4" mt="2">
-						<Button type="submit" variant="solid" className="uppercase">
+						<Button
+							type="submit"
+							variant="soft"
+							size="3"
+							radius="full"
+							className="uppercase"
+						>
 							Send message
 						</Button>
 					</Grid>
