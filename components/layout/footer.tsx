@@ -6,25 +6,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import { Link } from "@/components/ui/link";
-import { VERSION } from "@/lib/config";
-
-const socials = Object.freeze([
-	{
-		name: "Twitter",
-		url: "https://twitter.com/backuardo",
-		Icon: TwitterLogoIcon,
-	},
-	{
-		name: "LinkedIn",
-		url: "https://www.linkedin.com/in/ben-eisner",
-		Icon: LinkedInLogoIcon,
-	},
-	{
-		name: "GitHub",
-		url: "https://github.com/backuardo",
-		Icon: GitHubLogoIcon,
-	},
-]);
+import { VERSION, CONTACT } from "@/lib/config";
 
 export const Footer: React.FC = () => {
 	return (
@@ -35,7 +17,7 @@ export const Footer: React.FC = () => {
 				</Text>
 			</Flex>
 			<Flex gap="4">
-				{socials.map(({ url, name, Icon }) => (
+				{Object.values(CONTACT).map(({ name, url }) => (
 					<Link key={url} href={url} className="!text-1 uppercase text-gray-10">
 						{name}
 					</Link>

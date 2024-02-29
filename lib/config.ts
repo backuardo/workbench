@@ -1,5 +1,10 @@
+import {
+	EnvelopeClosedIcon,
+	GitHubLogoIcon,
+	LinkedInLogoIcon,
+	TwitterLogoIcon,
+} from "@radix-ui/react-icons";
 import * as Theme from "@radix-ui/themes";
-import { Key } from "ts-key-enum";
 
 export const ROUTES = Object.freeze([
 	{ path: "/", name: "Index" },
@@ -44,6 +49,33 @@ export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
 	radius: "none",
 	scaling: "90%",
 	panelBackground: "translucent",
+});
+
+export const CONTACT = Object.freeze({
+	twitter: {
+		name: "Twitter",
+		url: "https://twitter.com/backuardo",
+		handle: "@backuardo",
+		Icon: TwitterLogoIcon,
+	},
+	email: {
+		name: "Email",
+		url: "mailto:ben@beneisner.io",
+		handle: "ben@beneisner.io",
+		Icon: EnvelopeClosedIcon,
+	},
+	linkedIn: {
+		name: "LinkedIn",
+		url: "https://www.linkedin.com/in/ben-eisner",
+		handle: "ben-eisner",
+		Icon: LinkedInLogoIcon,
+	},
+	github: {
+		name: "GitHub",
+		url: "https://github.com/backuardo",
+		handle: "backuardo",
+		Icon: GitHubLogoIcon,
+	},
 });
 
 export const VERSION = "2.0.1";
