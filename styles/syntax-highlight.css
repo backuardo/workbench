@@ -65,7 +65,7 @@ pre:has(.hljs) {
 .hljs-section,
 .hljs-built_in,
 .hljs-tag {
-	color: var(--violet-9);
+	color: var(--accent-10);
 }
 
 .hljs-emphasis {
