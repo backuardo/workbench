@@ -19,6 +19,7 @@ import {
 	Card,
 	Text,
 } from "@radix-ui/themes";
+import { motion, AnimatePresence } from "framer-motion";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { GlobeIcon } from "@radix-ui/react-icons";
@@ -34,6 +35,11 @@ type Inputs = {
 	name: string;
 	email: string;
 	message: string;
+};
+
+const ANIMATION_VARIANTS = {
+	hidden: { opacity: 0, transition: { duration: 0.5 } },
+	visible: { opacity: 1, transition: { duration: 0.5 } },
 };
 
 export const ContactForm: React.FC = () => {
@@ -86,62 +92,107 @@ export const ContactForm: React.FC = () => {
 				className="border-1 border-gray-5 bg-gray-2"
 				p="4"
 			>
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<Flex direction="column" width="100%" gap="4">
-						<Flex gap="4" direction={{ initial: "column", sm: "row" }}>
-							<Flex direction="column" width="100%" gap="2">
-								<label htmlFor="name">
-									<P className="uppercase">Name</P>
-								</label>
-								<TextField.Input
-									size="3"
-									placeholder="Jonathan Doe"
-									{...register("name", { required: true })}
-									disabled={isSubmitting}
-									variant="soft"
-								/>
-								{errors.name && <P>Name is required</P>}
+				<AnimatePresence mode="wait">
+					{isSubmitted ? (
+						<motion.div
+							initial="hidden"
+							key="submitted"
+							animate="visible"
+							exit="hidden"
+							variants={ANIMATION_VARIANTS}
+						>
+							<Flex direction="column" gap="4">
+								<Text size="5" weight="bold" className="uppercase">
+									Messaged received
+								</Text>
+								<P>I&apos;ll be in touch soon.</P>
 							</Flex>
-							<Flex direction="column" width="100%" gap="2">
-								<label htmlFor="email">
-									<P className="uppercase">Email address</P>
-								</label>
-								<TextField.Input
-									size="3"
-									placeholder="jdoe@example.com"
-									{...register("email", { required: true })}
-									disabled={isSubmitting}
-									variant="soft"
-								/>
-								{errors.email && <P>Email is required</P>}
-							</Flex>
-						</Flex>
-						<Flex direction="column" gap="2">
-							<label htmlFor="message">
-								<P className="uppercase">Message</P>
-							</label>
-							<TextArea
-								size="3"
-								placeholder="Enter your message here"
-								{...register("message", { required: true })}
-								disabled={isSubmitting}
-								variant="soft"
-							/>
-							{errors.message && <P>Message is required</P>}
-						</Flex>
-						<Grid columns="2" gap="4" mt="2">
-							<Button
-								type="submit"
-								variant="soft"
-								size="3"
-								className="uppercase"
-								disabled={isSubmitting}
-							>
-								{isSubmitting ? <LoadingIcon /> : <>Send message</>}
-							</Button>
-						</Grid>
-					</Flex>
-				</form>
+						</motion.div>
+					) : (
+						<motion.div
+							key="submitting"
+							initial="hidden"
+							animate="visible"
+							exit="hidden"
+							variants={ANIMATION_VARIANTS}
+						>
+							<form onSubmit={handleSubmit(onSubmit)}>
+								<Flex direction="column" width="100%" gap="4">
+									<Flex gap="4" direction={{ initial: "column", sm: "row" }}>
+										<Flex direction="column" width="100%" gap="2">
+											<label htmlFor="name">
+												<Flex gap="4" align="center" className="uppercase">
+													<P>Name</P>
+													{errors.name && (
+														<P size="1" className="text-red-11">
+															[Required]
+														</P>
+													)}
+												</Flex>
+											</label>
+											<TextField.Input
+												size="3"
+												placeholder="Jonathan Doe"
+												{...register("name", { required: true })}
+												disabled={isSubmitting}
+												variant="soft"
+											/>
+										</Flex>
+										<Flex direction="column" width="100%" gap="2">
+											<label htmlFor="email">
+												<Flex gap="4" align="center" className="uppercase">
+													<P>Email address</P>
+													{errors.email && (
+														<P size="1" className="text-red-11">
+															[Required]
+														</P>
+													)}
+												</Flex>
+											</label>
+											<TextField.Input
+												size="3"
+												placeholder="jdoe@example.com"
+												{...register("email", { required: true })}
+												disabled={isSubmitting}
+												variant="soft"
+											/>
+										</Flex>
+									</Flex>
+									<Flex direction="column" gap="2">
+										<label htmlFor="message">
+											<Flex gap="4" align="center" className="uppercase">
+												<P>Message</P>
+												{errors.message && (
+													<P size="1" className="text-red-11">
+														[Required]
+													</P>
+												)}
+											</Flex>
+										</label>
+										<TextArea
+											size="3"
+											placeholder="Enter your message here"
+											{...register("message", { required: true })}
+											disabled={isSubmitting}
+											variant="soft"
+										/>
+									</Flex>
+									<Grid columns="2" gap="4" mt="2">
+										<Button
+											type="submit"
+											variant="soft"
+											size="3"
+											className="uppercase"
+											disabled={isSubmitting}
+										>
+											{isSubmitting ? <LoadingIcon /> : <>Send message</>}
+										</Button>
+									</Grid>
+								</Flex>
+							</form>
+						</motion.div>
+					)}
+				</AnimatePresence>
 			</Flex>
 			<Card variant="ghost" mt="2">
 				<Flex
