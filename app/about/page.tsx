@@ -15,15 +15,18 @@ const About: NextPage = async () => {
 			<Section.Heading title="About" />
 			<Section.Content>
 				<P>
-					I'm a software engineer and web enthusiast. I like tackling big
-					problems and working with teams that can solve them.
+					I'm a software engineer and web enthusiast who likes tackling big
+					problems with rockstar teams.
 				</P>
 				<P>
 					I started programming while serving as an infantry squad leader in the{" "}
 					<Link href="https://marines.com" className="font-bold">
 						US&nbsp;Marines
 					</Link>
-					, and studied computer science at{" "}
+					. I became interested in technology and startups after reading{" "}
+					<span className="italic">Without Their Permission</span> by Alexis
+					Ohanian, a book about the limited barriers to entry in building online
+					businesses. This pivotal moment led me to study computer science at{" "}
 					<Link href="https://dartmouth.edu" className="font-bold">
 						Dartmouth&nbsp;College
 					</Link>{" "}
@@ -48,8 +51,11 @@ const About: NextPage = async () => {
 					definitive platform for commercial development.
 				</P>
 				<P>
-					In my free time I like to mentor military veterans, collect hot sauce,
-					lift weights, and go boating with my fiancée Maura and my dog George.
+					Outside of my professional endeavors, I dedicate time to mentoring
+					military veterans, leveraging my experience to guide them through
+					their tech journeys. My leisure time is filled with collecting hot
+					sauce, lifting weights, and boating with my fiancée Maura and my dog
+					George.
 				</P>
 			</Section.Content>
 		</Section.Container>
