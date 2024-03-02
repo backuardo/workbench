@@ -44,7 +44,7 @@ export const KEYBOARD_SHORTCUTS: readonly {
 ]);
 
 export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
-	accentColor: "bronze", // teal indigo red tomato orange bronze gold
+	accentColor: "gold", // teal indigo red tomato orange bronze gold
 	grayColor: "sage", // sage olive
 	radius: "none",
 	scaling: "90%",
