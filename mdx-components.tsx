@@ -4,6 +4,7 @@ import { Blockquote, Em, Kbd, Text, Strong } from "@radix-ui/themes";
 import { Code } from "@/components/mdx/code";
 import { Heading } from "@/components/mdx/heading";
 import { Link } from "@/components/mdx/link";
+import { Paragraph } from "@/components/mdx/paragraph";
 
 export const useMDXComponents = (components: MDXComponents): MDXComponents => {
 	return {
@@ -18,11 +19,7 @@ export const useMDXComponents = (components: MDXComponents): MDXComponents => {
 		h2: Heading.H2,
 		h3: Heading.H3,
 		h4: Heading.H4,
-		p: ({ children }) => (
-			<Text weight="light" size="3">
-				{children}
-			</Text>
-		),
+		p: Paragraph,
 		Kbd: Kbd,
 		// strong: Strong,
 		...components,
