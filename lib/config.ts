@@ -21,7 +21,7 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	display: string;
 }[] = Object.freeze([
 	// { path: "/workbench", name: "Shortcut menu", key: "?" }, // why doesnt this work?
-	{ path: "/", name: "Navigate to /Index", key: "i", display: "i" },
+	{ path: "/", name: "Navigate to /index", key: "i", display: "i" },
 	{
 		callbackName: "navigateNextPage",
 		name: "Navigate to next page",
@@ -34,10 +34,10 @@ export const KEYBOARD_SHORTCUTS: readonly {
 		key: "ArrowLeft",
 		display: "←",
 	},
-	{ callbackName: "toggleTheme", name: "Toggle Theme", key: "t", display: "t" },
+	{ callbackName: "toggleTheme", name: "Toggle theme", key: "t", display: "t" },
 	{
 		callbackName: "toggleMenuOpen",
-		name: "Toggle Menu",
+		name: "Toggle menu",
 		key: "m",
 		display: "m",
 	},

@@ -68,7 +68,7 @@ export const KeyboardShortcuts: React.FC = () => {
 												<kbd>{display}</kbd>
 											</Badge>
 										</Table.Cell>
-										<Table.Cell className="uppercase px-rx-4 text-gray-10 font-light">
+										<Table.Cell className="normal-case px-rx-4 text-gray-10 font-light">
 											{name}
 										</Table.Cell>
 									</Table.Row>
