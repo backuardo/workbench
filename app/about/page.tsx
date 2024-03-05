@@ -16,10 +16,11 @@ const About: NextPage = async () => {
 			<Section.Content>
 				<P>
 					I'm a software engineer and web enthusiast who likes tackling big
-					problems with rockstar teams.
+					problems with teams of rockstars.
 				</P>
 				<P>
-					I started programming while serving as an infantry squad leader in the{" "}
+					I started programming while serving as an infantry (0331) squad leader
+					in the{" "}
 					<Link href="https://marines.com" className="font-bold">
 						US&nbsp;Marines
 					</Link>
@@ -48,14 +49,13 @@ const About: NextPage = async () => {
 						Cedar
 					</Link>{" "}
 					as the lead engineer. Cedar is a seed-stage company building the
-					definitive platform for commercial development.
+					operating system for urban development.
 				</P>
 				<P>
-					Outside of my professional endeavors, I dedicate time to mentoring
-					military veterans, leveraging my experience to guide them through
-					their tech journeys. My leisure time is filled with collecting hot
-					sauce, lifting weights, and boating with my fiancée Maura and my dog
-					George.
+					Outside of my professional endeavors, I mentor military veterans,
+					leveraging my experience to guide them through their tech journeys. I
+					also like collecting hot sauce, and boating with my fiancée Maura and
+					my dog George.
 				</P>
 			</Section.Content>
 		</Section.Container>
