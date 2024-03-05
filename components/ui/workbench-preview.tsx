@@ -149,6 +149,7 @@ export const SearchBar: React.FC = () => {
 					placeholder="Search"
 					aria-label="Search"
 					key="search-bar"
+					variant="soft"
 					className="placeholder:uppercase pt-[0.15rem] font-medium"
 				/>
 			</TextField.Root>
