@@ -126,7 +126,7 @@ export const Menu: React.FC = () => {
 														align="end"
 														justify="between"
 														className={cn(
-															"h-[103.5px]" // Hacky way to align with header
+															"h-[106px]" // Hacky way to align with header
 														)}
 													>
 														<Text
@@ -144,7 +144,7 @@ export const Menu: React.FC = () => {
 															<Cross1Icon />
 														</IconButton>
 													</Flex>
-													<Separator size="4" className="bg-gray-3" />
+													{/* <Separator size="4" className="bg-gray-3" /> */}
 													<Flex
 														mt="4"
 														direction="column"
