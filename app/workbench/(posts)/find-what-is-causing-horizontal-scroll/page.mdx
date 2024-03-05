@@ -12,13 +12,15 @@ export const metadata = {
 
 # Credit
 
-**All credit goes to [the original author](https://pham.codes/blog/quickly-find-what-is-causing-horizontal-scrolling).**
+**All credit goes to [the original author, John Pham](https://pham.codes/blog/quickly-find-what-is-causing-horizontal-scrolling).**
 
 # Problem
 
-Your website has a horizontal scroll bar, and you want to find out what is causing it.
+A horizontal scroll bar appears on your website, and it's not immediately obvious which element is causing it.
 
 # Solution
+
+Copy and paste this snippet into your browser console, it will log all the elements that are causing the horizontal scroll.
 
 ```typescript
 const documentWidth = document.documentElement.offsetWidth;

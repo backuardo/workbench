@@ -12,7 +12,7 @@ export const metadata = {
 
 # Problem
 
-It's usually a [code smell](https://en.wikipedia.org/wiki/Code_smell) to break one of the rules of React hooks, but sometimes it can be necessary.
+It's usually a [code smell](https://en.wikipedia.org/wiki/Code_smell) to break one of the rules of React hooks, but sometimes it's necessary.
 
 I had a good reason to call hooks in a loop while building the keyboard shortcut functionality for this website. The keyboard shortcuts are defined in a configuration file, and I decided to use [`react-hotkeys-hook`](https://www.npmjs.com/package/react-hotkeys-hook) to manage the keyboard shortcuts, which supports adding **individual** shortcuts via the `useHotkeys` hook.
 
@@ -49,7 +49,4 @@ const UseHotkey: React.FC<{
 ```
 
 Boom, now we can call the `useHotkeys` hook in a loop, and take advantage of the benefits of centrally-located app configuration.
-
-# Future
-
-In my applications, I like to build a generalized utility component that can be used in multiple places.
+With this structure, we can pypass the constraint against invoking hooks within loops but abstracting each hook call into its dedicated component instance.
