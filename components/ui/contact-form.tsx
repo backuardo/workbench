@@ -80,7 +80,7 @@ export const ContactForm: React.FC = () => {
 				Want to connect? You can use the below form (100% delivery rate), or any
 				of the following methods and I&apos;ll get back to you.
 			</P>
-			<Callout.Root>
+			<Callout.Root variant="outline">
 				<Callout.Icon>
 					<GlobeIcon />
 				</Callout.Icon>

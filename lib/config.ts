@@ -58,12 +58,6 @@ export const CONTACT = Object.freeze({
 		handle: "@backuardo",
 		Icon: TwitterLogoIcon,
 	},
-	email: {
-		name: "Email",
-		url: "mailto:ben@beneisner.io",
-		handle: "ben@beneisner.io",
-		Icon: EnvelopeClosedIcon,
-	},
 	linkedIn: {
 		name: "LinkedIn",
 		url: "https://www.linkedin.com/in/ben-eisner",
@@ -75,6 +69,12 @@ export const CONTACT = Object.freeze({
 		url: "https://github.com/backuardo",
 		handle: "backuardo",
 		Icon: GitHubLogoIcon,
+	},
+	email: {
+		name: "Email",
+		url: "mailto:ben@beneisner.io",
+		handle: "ben@beneisner.io",
+		Icon: EnvelopeClosedIcon,
 	},
 });
 
