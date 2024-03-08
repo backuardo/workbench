@@ -48,8 +48,8 @@ const About: NextPage = async () => {
 					<Link href="https://cedar.build" className="font-bold">
 						Cedar
 					</Link>{" "}
-					as the lead engineer. Cedar is a seed-stage company building the
-					operating system for urban development.
+					as lead engineer. Cedar is a seed-stage company building the operating
+					system for urban development.
 				</P>
 				<P>
 					Outside of my professional endeavors, I mentor military veterans,
