@@ -16,7 +16,7 @@ const About: NextPage = async () => {
 			<Section.Content>
 				<P>
 					I'm a software engineer and web enthusiast who likes tackling big
-					problems with teams of rockstars.
+					problems with rockstars.
 				</P>
 				<P>
 					I started programming while serving as an infantry (0331) squad leader
@@ -49,7 +49,8 @@ const About: NextPage = async () => {
 						Cedar
 					</Link>{" "}
 					as lead engineer. Cedar is a seed-stage company building the operating
-					system for urban development.
+					system for urban development. Send me a message if you're interested
+					in what we're working on, and want to hear more about Cedar.
 				</P>
 				<P>
 					Outside of my professional endeavors, I mentor military veterans,
