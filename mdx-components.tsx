@@ -11,9 +11,7 @@ export const useMDXComponents = (components: MDXComponents): MDXComponents => {
 		// @ts-ignore
 		blockquote: Blockquote,
 		code: Code,
-		// @ts-ignore
 		a: Link,
-		// @ts-ignore
 		em: Em,
 		h1: Heading.H1,
 		h2: Heading.H2,
@@ -21,7 +19,7 @@ export const useMDXComponents = (components: MDXComponents): MDXComponents => {
 		h4: Heading.H4,
 		p: Paragraph,
 		Kbd: Kbd,
-		// strong: Strong,
+		strong: Strong,
 		...components,
 	};
 };
