@@ -78,6 +78,6 @@ export const CONTACT = Object.freeze({
 	},
 });
 
-export const VERSION = "2.0.1";
+export const VERSION = "2.0.2";
 
 export const BASE_URL = "https://beneisner.io";
