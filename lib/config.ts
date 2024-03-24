@@ -37,7 +37,7 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	{ callbackName: "toggleTheme", name: "Toggle theme", key: "t", display: "t" },
 	{
 		callbackName: "toggleMenuOpen",
-		name: "Toggle menu",
+		name: "Toggle menu visibility",
 		key: "m",
 		display: "m",
 	},
