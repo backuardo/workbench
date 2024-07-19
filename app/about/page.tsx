@@ -55,8 +55,7 @@ const About: NextPage = async () => {
 				<P>
 					Outside of my professional endeavors, I mentor military veterans,
 					leveraging my experience to guide them through their tech journeys. I
-					also like collecting hot sauce, and boating with my fiancée Maura and
-					my dog George.
+					also like collecting hot sauce, and boating with my wife and my dog.
 				</P>
 			</Section.Content>
 		</Section.Container>
