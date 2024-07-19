@@ -20,7 +20,6 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	key: string;
 	display: string;
 }[] = Object.freeze([
-	// { path: "/workbench", name: "Shortcut menu", key: "?" }, // why doesnt this work?
 	{ path: "/", name: "Navigate to /index", key: "i", display: "i" },
 	{
 		callbackName: "navigateNextPage",
@@ -44,8 +43,8 @@ export const KEYBOARD_SHORTCUTS: readonly {
 ]);
 
 export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
-	accentColor: "gold", // teal indigo red tomato orange bronze gold
-	grayColor: "sage", // sage olive
+	accentColor: "lime",
+	grayColor: "olive",
 	radius: "none",
 	scaling: "90%",
 	panelBackground: "translucent",
@@ -78,6 +77,6 @@ export const CONTACT = Object.freeze({
 	},
 });
 
-export const VERSION = "2.0.2";
+export const VERSION = "2.0.3";
 
 export const BASE_URL = "https://beneisner.io";

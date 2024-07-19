@@ -77,8 +77,8 @@ export const ContactForm: React.FC = () => {
 	return (
 		<Flex direction="column" gap="4">
 			<P>
-				Want to connect? You can use the below form (100% delivery rate), or any
-				of the following methods and I&apos;ll get back to you.
+				Want to connect? You can use the below form and I&apos;ll get back to
+				you.
 			</P>
 			<Callout.Root variant="outline">
 				<Callout.Icon>
