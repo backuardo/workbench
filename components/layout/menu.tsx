@@ -25,7 +25,7 @@ import { Logo } from "@/components/ui/logo";
 import { Link } from "@/components/ui/link";
 import { Clock } from "@/components/ui/clock";
 import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+// import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { useUI } from "@/components/ui-context-provider";
 
 const SIDE_MENU_ANIMATION_VARIANTS = {
@@ -230,11 +230,11 @@ export const Menu: React.FC = () => {
 									</Flex>
 								</Button>
 							</Flex>
-							<Flex gap="4" align="center">
+							{/* <Flex gap="4" align="center">
 								<Navigation.Item>
 									<ThemeToggle />
 								</Navigation.Item>
-							</Flex>
+							</Flex> */}
 						</Navigation.List>
 					</Navigation.Root>
 				</Flex>

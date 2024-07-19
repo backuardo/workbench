@@ -105,11 +105,11 @@ export const UIContextProvider: React.FC<{
 				};
 			} else if (callbackName) {
 				switch (callbackName) {
-					case "toggleTheme":
-						return {
-							key,
-							action: toggleTheme,
-						};
+					// case "toggleTheme":
+					// 	return {
+					// 		key,
+					// 		action: toggleTheme,
+					// 	};
 					case "toggleMenuOpen":
 						return {
 							key,

@@ -33,7 +33,7 @@ export const KEYBOARD_SHORTCUTS: readonly {
 		key: "ArrowLeft",
 		display: "←",
 	},
-	{ callbackName: "toggleTheme", name: "Toggle theme", key: "t", display: "t" },
+	// { callbackName: "toggleTheme", name: "Toggle theme", key: "t", display: "t" },
 	{
 		callbackName: "toggleMenuOpen",
 		name: "Toggle menu visibility",

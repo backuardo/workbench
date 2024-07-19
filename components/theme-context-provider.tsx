@@ -15,6 +15,8 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
 			attribute="class"
 			storageKey="backuardo-theme"
 			themes={Object.values(Theme)}
+			defaultTheme={Theme.Dark}
+			forcedTheme={Theme.Dark} // Force dark theme for now
 		>
 			{children}
 		</ThemeProvider>
