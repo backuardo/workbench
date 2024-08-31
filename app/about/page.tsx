@@ -15,8 +15,8 @@ const About: NextPage = async () => {
 			<Section.Heading title="About" />
 			<Section.Content>
 				<P>
-					I'm a software engineer and web enthusiast who likes tackling big
-					problems with rockstars.
+					I'm a software engineer who likes tackling important problems with
+					rockstars.
 				</P>
 				<P>
 					I started programming while serving as an infantry (0331) squad leader
@@ -54,8 +54,9 @@ const About: NextPage = async () => {
 				</P>
 				<P>
 					Outside of my professional endeavors, I mentor military veterans,
-					leveraging my experience to guide them through their tech journeys. I
-					also like collecting hot sauce, and boating with my wife and my dog.
+					leveraging my experience to guide them through their tech and
+					educational journeys. I also like collecting hot sauce, and boating
+					with my wife and my dog.
 				</P>
 			</Section.Content>
 		</Section.Container>

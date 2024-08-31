@@ -51,9 +51,9 @@ export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
 });
 
 export const CONTACT = Object.freeze({
-	twitter: {
-		name: "Twitter",
-		url: "https://twitter.com/backuardo",
+	x: {
+		name: "X",
+		url: "https://x.com/backuardo",
 		handle: "@backuardo",
 		Icon: TwitterLogoIcon,
 	},
@@ -77,6 +77,6 @@ export const CONTACT = Object.freeze({
 	},
 });
 
-export const VERSION = "2.0.3";
+export const VERSION = "2.0.4";
 
 export const BASE_URL = "https://beneisner.io";

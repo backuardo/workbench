@@ -35,10 +35,7 @@ const Workbench: NextPage = async ({
 					<Preview.SearchBar />
 				</Section.Heading>
 				<Section.Content>
-					<P>
-						A collection of ideas, experiments, and helpful code snippets for
-						the web.
-					</P>
+					<P>A collection of ideas, experiments, and helpful code snippets.</P>
 					<P>
 						Much of the content draws inspiration from the efforts of others,
 						including direct references to their work. I am committed to

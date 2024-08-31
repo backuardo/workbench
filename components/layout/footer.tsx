@@ -1,9 +1,4 @@
-import { Badge, Button, Flex, Kbd, Text } from "@radix-ui/themes";
-import {
-	TwitterLogoIcon,
-	LinkedInLogoIcon,
-	GitHubLogoIcon,
-} from "@radix-ui/react-icons";
+import { Badge, Flex, Text } from "@radix-ui/themes";
 
 import { Link } from "@/components/ui/link";
 import { VERSION, CONTACT } from "@/lib/config";
