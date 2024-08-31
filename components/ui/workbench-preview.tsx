@@ -15,11 +15,11 @@ import {
 	IconButton,
 } from "@radix-ui/themes";
 import {
-	Stack,
-	StackSimple,
 	Check,
 	ArrowUUpLeft,
 	MagnifyingGlass,
+	Hash,
+	X,
 } from "@phosphor-icons/react/dist/ssr";
 
 import { PreviewData } from "@/lib/types";
@@ -157,10 +157,10 @@ export const SearchBar: React.FC = () => {
 						variant="surface"
 						size="2"
 						radius="full"
-						className="uppercase bg-accent-2 pt-[0.1rem]"
+						className="uppercase bg-accent-2"
 						onClick={() => setTagsDropdownOpen((prev) => !prev)}
 					>
-						{tagsDropdownOpen ? <StackSimple /> : <Stack />}
+						{tagsDropdownOpen ? <X /> : <Hash />}
 					</IconButton>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content
