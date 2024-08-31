@@ -22,7 +22,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { GlobeIcon } from "@radix-ui/react-icons";
+import { Globe } from "@phosphor-icons/react/dist/ssr";
 
 import { P } from "@/components/ui/typography";
 import { Link } from "@/components/ui/link";
@@ -82,7 +82,7 @@ export const ContactForm: React.FC = () => {
 			</P>
 			<Callout.Root variant="outline">
 				<Callout.Icon>
-					<GlobeIcon />
+					<Globe size={24} weight="thin" />
 				</Callout.Icon>
 				<Callout.Text>Async communication always preferred.</Callout.Text>
 			</Callout.Root>
@@ -209,7 +209,7 @@ export const ContactForm: React.FC = () => {
 									gap="2"
 									className="text-1 text-gray-10 hover:text-accent-10"
 								>
-									<Icon />
+									<Icon size={12} />
 									<Text>{handle}</Text>
 								</Flex>
 							</Link>

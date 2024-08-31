@@ -15,14 +15,12 @@ import {
 	IconButton,
 } from "@radix-ui/themes";
 import {
-	ArrowUpIcon,
-	ArrowDownIcon,
-	StackIcon,
-	LayersIcon,
-	CheckIcon,
-	ResetIcon,
-	MagnifyingGlassIcon,
-} from "@radix-ui/react-icons";
+	Stack,
+	StackSimple,
+	Check,
+	ArrowUUpLeft,
+	MagnifyingGlass,
+} from "@phosphor-icons/react/dist/ssr";
 
 import { PreviewData } from "@/lib/types";
 import { FormattedDate } from "@/components/ui/formatted-date";
@@ -141,7 +139,7 @@ export const SearchBar: React.FC = () => {
 		<Flex justify="end" gap="2">
 			<TextField.Root size="2" variant="surface">
 				<TextField.Slot>
-					<MagnifyingGlassIcon />
+					<MagnifyingGlass />
 				</TextField.Slot>
 				<TextField.Input
 					defaultValue={searchParams.get("query")?.toString()}
@@ -162,7 +160,7 @@ export const SearchBar: React.FC = () => {
 						className="uppercase bg-accent-2 pt-[0.1rem]"
 						onClick={() => setTagsDropdownOpen((prev) => !prev)}
 					>
-						{tagsDropdownOpen ? <LayersIcon /> : <StackIcon />}
+						{tagsDropdownOpen ? <StackSimple /> : <Stack />}
 					</IconButton>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content
@@ -178,14 +176,14 @@ export const SearchBar: React.FC = () => {
 							onSelect={(e) => e.preventDefault()}
 							className="uppercase gap-2 flex w-48"
 						>
-							{tag} {includedTags.includes(tag) && <CheckIcon />}
+							{tag} {includedTags.includes(tag) && <Check />}
 						</DropdownMenu.Item>
 					))}
 					<DropdownMenu.Item
 						onClick={resetIncludedTags}
 						className="uppercase gap-2 bg-gray-3 hover:bg-gray-8 hover:text-gray-12 border-gray-5 border-1 font-bold"
 					>
-						Reset <ResetIcon />
+						Reset <ArrowUUpLeft />
 					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>

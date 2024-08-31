@@ -1,10 +1,10 @@
-import {
-	EnvelopeClosedIcon,
-	GitHubLogoIcon,
-	LinkedInLogoIcon,
-	TwitterLogoIcon,
-} from "@radix-ui/react-icons";
 import * as Theme from "@radix-ui/themes";
+import {
+	XLogo,
+	GithubLogo,
+	LinkedinLogo,
+	Envelope,
+} from "@phosphor-icons/react/dist/ssr";
 
 export const ROUTES = Object.freeze([
 	{ path: "/", name: "Index" },
@@ -44,7 +44,7 @@ export const KEYBOARD_SHORTCUTS: readonly {
 
 export const THEME: Partial<Theme.ThemeOptions> = Object.freeze({
 	accentColor: "lime",
-	grayColor: "olive",
+	grayColor: "mauve",
 	radius: "none",
 	scaling: "90%",
 	panelBackground: "translucent",
@@ -55,25 +55,25 @@ export const CONTACT = Object.freeze({
 		name: "X",
 		url: "https://x.com/backuardo",
 		handle: "@backuardo",
-		Icon: TwitterLogoIcon,
+		Icon: XLogo,
 	},
 	linkedIn: {
 		name: "LinkedIn",
 		url: "https://www.linkedin.com/in/ben-eisner",
 		handle: "ben-eisner",
-		Icon: LinkedInLogoIcon,
+		Icon: LinkedinLogo,
 	},
 	github: {
 		name: "GitHub",
 		url: "https://github.com/backuardo",
 		handle: "backuardo",
-		Icon: GitHubLogoIcon,
+		Icon: GithubLogo,
 	},
 	email: {
 		name: "Email",
 		url: "mailto:ben@beneisner.io",
 		handle: "ben@beneisner.io",
-		Icon: EnvelopeClosedIcon,
+		Icon: Envelope,
 	},
 });
 

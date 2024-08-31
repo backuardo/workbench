@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Box, Flex } from "@radix-ui/themes";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { ArrowElbowDownLeft } from "@phosphor-icons/react/dist/ssr";
 
 import "@/styles/syntax-highlight.css";
 
@@ -28,7 +28,7 @@ const PostLayout = ({
 						align="center"
 						className="uppercase text-gray-10 hover:text-accent-10"
 					>
-						<ArrowLeftIcon />
+						<ArrowElbowDownLeft />
 						Back
 					</Flex>
 				</Link>

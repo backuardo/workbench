@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Flex } from "@radix-ui/themes";
-import { ClockIcon } from "@radix-ui/react-icons";
+import { Clock as ClockIcon } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 
@@ -60,7 +60,7 @@ export const Clock: React.FC = () => {
 			justify="center"
 			gap="1"
 		>
-			<ClockIcon height={12} width={12} />
+			<ClockIcon size={12} />
 			<Flex>
 				{splitDigits(zuluTime.hours)}
 				{splitDigits(zuluTime.minutes)}

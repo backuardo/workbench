@@ -14,8 +14,8 @@ import {
 	Table,
 } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { AnimatePresence, motion } from "framer-motion";
+import { List, X } from "@phosphor-icons/react/dist/ssr";
 
 import { ROUTES, THEME } from "@/lib/config";
 import { useIsClient } from "@/lib/use-is-client";
@@ -25,7 +25,6 @@ import { Logo } from "@/components/ui/logo";
 import { Link } from "@/components/ui/link";
 import { Clock } from "@/components/ui/clock";
 import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
-// import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { useUI } from "@/components/ui-context-provider";
 
 const SIDE_MENU_ANIMATION_VARIANTS = {
@@ -141,7 +140,7 @@ export const Menu: React.FC = () => {
 															onClick={toggleSideMenuOpen}
 															variant="surface"
 														>
-															<Cross1Icon />
+															<X size={14} />
 														</IconButton>
 													</Flex>
 													{/* <Separator size="4" className="bg-gray-3" /> */}
@@ -225,16 +224,11 @@ export const Menu: React.FC = () => {
 							<Flex gap="3" className="uppercase" align="center">
 								<Button variant="surface" size="1" onClick={toggleSideMenuOpen}>
 									<Flex gap="2" align="center" justify="center">
-										<HamburgerMenuIcon />
+										<List size={14} />
 										<Text className="uppercase">Menu</Text>
 									</Flex>
 								</Button>
 							</Flex>
-							{/* <Flex gap="4" align="center">
-								<Navigation.Item>
-									<ThemeToggle />
-								</Navigation.Item>
-							</Flex> */}
 						</Navigation.List>
 					</Navigation.Root>
 				</Flex>
