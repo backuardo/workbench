@@ -80,12 +80,6 @@ export const ContactForm: React.FC = () => {
 				Want to connect? You can use the below form and I&apos;ll get back to
 				you.
 			</P>
-			<Callout.Root variant="outline">
-				<Callout.Icon>
-					<Globe size={24} weight="thin" />
-				</Callout.Icon>
-				<Callout.Text>Async communication always preferred.</Callout.Text>
-			</Callout.Root>
 			<Flex
 				direction="column"
 				gap="4"
@@ -135,7 +129,7 @@ export const ContactForm: React.FC = () => {
 												placeholder="Jonathan Doe"
 												{...register("name", { required: true })}
 												disabled={isSubmitting}
-												variant="soft"
+												variant="surface"
 											/>
 										</Flex>
 										<Flex direction="column" width="100%" gap="2">
@@ -154,7 +148,7 @@ export const ContactForm: React.FC = () => {
 												placeholder="jdoe@example.com"
 												{...register("email", { required: true })}
 												disabled={isSubmitting}
-												variant="soft"
+												variant="surface"
 											/>
 										</Flex>
 									</Flex>
@@ -174,7 +168,7 @@ export const ContactForm: React.FC = () => {
 											placeholder="Enter your message here"
 											{...register("message", { required: true })}
 											disabled={isSubmitting}
-											variant="soft"
+											variant="surface"
 										/>
 									</Flex>
 									<Grid columns="2" gap="4" mt="2">
