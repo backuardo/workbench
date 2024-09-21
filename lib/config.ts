@@ -7,7 +7,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 export const ROUTES = Object.freeze([
-	{ path: "/", name: "Index" },
+	{ path: "/", name: "" },
 	{ path: "/about", name: "About" },
 	{ path: "/contact", name: "Contact" },
 	{ path: "/workbench", name: "Workbench" },
@@ -20,7 +20,7 @@ export const KEYBOARD_SHORTCUTS: readonly {
 	key: string;
 	display: string;
 }[] = Object.freeze([
-	{ path: "/", name: "Navigate to /index", key: "i", display: "i" },
+	{ path: "/", name: "Navigate to /", key: "i", display: "i" },
 	{
 		callbackName: "navigateNextPage",
 		name: "Navigate to next page",

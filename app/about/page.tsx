@@ -14,24 +14,22 @@ const About: NextPage = async () => {
 		<Section.Container>
 			<Section.Heading title="About" />
 			<Section.Content>
-				<P>
-					I'm a software engineer who likes tackling important problems with
-					rockstars.
-				</P>
+				<P>I'm a software engineer who likes to solve big problems.</P>
 				<P>
 					I started programming while serving as an infantry (0331) squad leader
 					in the{" "}
 					<Link href="https://marines.com" className="font-bold">
 						US&nbsp;Marines
 					</Link>
-					. I became interested in technology and startups after reading{" "}
+					. While on deployment I read{" "}
 					<span className="italic">Without Their Permission</span> by Alexis
-					Ohanian, a book about the limited barriers to entry in building online
-					businesses. This pivotal moment led me to study computer science at{" "}
+					Ohanian, and started tinkering with JavaScript shortly after. After
+					leaving the service I continued learning programming and computer
+					science as an undergrad at{" "}
 					<Link href="https://dartmouth.edu" className="font-bold">
 						Dartmouth&nbsp;College
-					</Link>{" "}
-					after leaving the service.
+					</Link>
+					.
 				</P>
 				<P>
 					I was an early engineer at{" "}
@@ -49,14 +47,12 @@ const About: NextPage = async () => {
 						Cedar
 					</Link>{" "}
 					as lead engineer. Cedar is a seed-stage company building the operating
-					system for urban development. Send me a message if you're interested
-					in what we're working on, and want to hear more about Cedar.
+					system for urban development.
 				</P>
 				<P>
-					Outside of my professional endeavors, I mentor military veterans,
-					leveraging my experience to guide them through their tech and
-					educational journeys. I also like collecting hot sauce, and boating
-					with my wife and my dog.
+					Outside of programming, I like to mentor military veterans, collect
+					hot sauce, read, play video games, and go boating with my wife and my
+					dog.
 				</P>
 			</Section.Content>
 		</Section.Container>

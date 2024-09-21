@@ -27,7 +27,7 @@ const RootLayout = ({
 }>) => {
 	return (
 		<html lang="en" className={GeistMono.variable} suppressHydrationWarning>
-			<body>
+			<body className="overflow-hidden">
 				<AppContextProvider>
 					<Flex
 						direction="column"
