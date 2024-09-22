@@ -37,8 +37,8 @@ const Workbench: NextPage = async ({
 				<Section.Content>
 					<P>A collection of ideas, experiments, and helpful code snippets.</P>
 					<P>
-						Much of the content draws inspiration from the efforts of others,
-						including direct references to their work. I am committed to
+						Much of the content here will draw inspiration from the efforts of
+						others, including direct references to their work. I'm committed to
 						acknowledging their contributions and ensuring proper credit is
 						given to the original authors.
 					</P>

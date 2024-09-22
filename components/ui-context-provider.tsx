@@ -14,6 +14,7 @@ import { HotkeyCallback, Keys, Options, useHotkeys } from "react-hotkeys-hook";
 
 import { Theme } from "@/components/theme-context-provider";
 import { KEYBOARD_SHORTCUTS, ROUTES } from "@/lib/config";
+import { PrefetchKind } from "next/dist/client/components/router-reducer/router-reducer-types";
 
 type UIContextValue = {
 	sideMenuOpen: boolean;
@@ -62,7 +63,7 @@ export const UIContextProvider: React.FC<{
 
 	useEffect(() => {
 		ROUTES.forEach(({ path }) => {
-			router.prefetch(path);
+			router.prefetch(path, { kind: PrefetchKind.FULL });
 		});
 	}, []);
 
