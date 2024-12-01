@@ -1,33 +1,43 @@
+:root {
+	--gruvbox-bg: #282828;
+	--gruvbox-fg: #ebdbb2;
+	--gruvbox-red: #fb4934;
+	--gruvbox-green: #b8bb26;
+	--gruvbox-yellow: #fabd2f;
+	--gruvbox-blue: #83a598;
+	--gruvbox-purple: #d3869b;
+	--gruvbox-aqua: #8ec07c;
+	--gruvbox-gray: #a89984;
+}
+
 .hljs {
 	display: block;
 	overflow-x: auto;
 	padding: 0.5em;
+	color: var(--gruvbox-fg);
 }
 
 pre:has(.hljs),
 .hljs {
-	color: var(--gray-12);
-	background: var(--gray-2);
 	border-radius: var(--radius-4);
 	font-family: var(--default-font-family);
 	font-weight: 400;
 }
 
 pre:has(.hljs) {
-	padding: 1.5em;
 	margin-top: 1.5em;
 	margin-bottom: 1.5em;
-	border: 1px solid var(--gray-5);
+	border: 0.5px solid var(--gruvbox-gray);
 }
 
 .hljs-subst {
-	color: var(--gray-1);
+	color: var(--gruvbox-fg);
 }
 
 .hljs-title,
 .hljs-name {
-	color: var(--accent-11);
-	font-weight: 900;
+	color: var(--gruvbox-green);
+	font-weight: bold;
 }
 
 .hljs-string,
@@ -38,12 +48,13 @@ pre:has(.hljs) {
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-	color: var(--gray-9);
+	color: var(--gruvbox-green);
 }
 
 .hljs-comment,
 .hljs-quote {
-	color: var(--gray-9);
+	color: var(--gruvbox-gray);
+	font-style: italic;
 }
 
 .hljs-number,
@@ -51,12 +62,12 @@ pre:has(.hljs) {
 .hljs-literal,
 .hljs-type,
 .hljs-link {
-	color: var(--gray-9);
+	color: var(--gruvbox-purple);
 }
 
 .hljs-deletion,
 .hljs-meta {
-	color: var(--yellow-10);
+	color: var(--gruvbox-red);
 }
 
 .hljs-keyword,
@@ -65,7 +76,7 @@ pre:has(.hljs) {
 .hljs-section,
 .hljs-built_in,
 .hljs-tag {
-	color: var(--accent-10);
+	color: var(--gruvbox-red);
 }
 
 .hljs-emphasis {
@@ -73,5 +84,5 @@ pre:has(.hljs) {
 }
 
 .hljs-strong {
-	font-weight: 900;
+	font-weight: bold;
 }

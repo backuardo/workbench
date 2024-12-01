@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Box, Flex } from "@radix-ui/themes";
+import { Box, Flex, ScrollArea } from "@radix-ui/themes";
 import { ArrowElbowDownLeft } from "@phosphor-icons/react/dist/ssr";
 
 import "@/styles/syntax-highlight.css";
@@ -20,8 +20,8 @@ const PostLayout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<Box p="4">
-			<Flex>
+		<Box p="4" className="h-full">
+			<Flex className="h-full">
 				<Link href="/workbench">
 					<Flex
 						gap="2"
@@ -33,7 +33,7 @@ const PostLayout = ({
 					</Flex>
 				</Link>
 			</Flex>
-			{children}
+			<ScrollArea>{children}</ScrollArea>
 		</Box>
 	);
 };

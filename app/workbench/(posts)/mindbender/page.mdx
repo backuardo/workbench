@@ -1,0 +1,146 @@
+---
+title: Mindbender
+description: Building a Rust-based steganography tool for hiding text within images.
+tags: [rust, steganography, cryptography, espionage]
+createdAt: 2024-12-02
+---
+
+export const metadata = {
+  title: "Mindbender",
+  description:
+    "Building a Rust-based steganography tool for hiding text within images",
+};
+
+# Mindbender: Hiding Messages in Images with Rust
+
+I read an article about hiding malicious code inside image files. Attackers were using steganography to embed their payloads within images, allowing them to bypass security measures. I decided to explore steganography myself and ended up building [Mindbender](https://github.com/backuardo/mindbender), a CLI tool that hides encrypted text inside images.
+
+## How Mindbender Works
+
+Mindbender combines three main components:
+
+**Least Significant Bit (LSB) Steganography**
+
+**AES-256 Encryption**
+
+**Zlib Compression**
+
+### Hiding Data with LSB Steganography
+
+The core idea is simple: each pixel in an image is made up of bytes representing color values. By tweaking the least significant bit of these bytes, we can encode data without noticeably changing the image.
+
+Here's a simplified version of the encoding function:
+
+```rust
+pub fn encode(data: &str, image: &mut RgbImage) -> Result<(), ApplicationError> {
+    let data_with_delimiter = format!("{}{}", data, '\0');
+
+    if !is_sufficient_capacity(&data_with_delimiter, image) {
+        return Err(ApplicationError::EncodingError(
+            "Image too small to encode data".to_string(),
+        ));
+    }
+
+    let image_data = image.as_flat_samples_mut().samples;
+
+    image_data
+        .par_chunks_mut(8)
+        .zip(data_with_delimiter.as_bytes().par_iter())
+        .for_each(|(chunk, &data_byte)| {
+            chunk.iter_mut().enumerate().for_each(|(i, pixel_byte)| {
+                let bit = (data_byte >> (7 - i)) & 1;
+                *pixel_byte = (*pixel_byte & !1) | bit;
+            });
+        });
+
+    Ok(())
+}
+```
+
+We append a null character to mark the end of the message. Then we go through each byte of the message and store its bits in the LSBs of the image's pixel data.
+
+### Encrypting and Compressing the Data
+
+For convenience, I added options for encryption and compression, allowing users to secure their messages and optimize space usage as needed.
+
+Encryption function:
+
+```rust
+pub fn encrypt(data: &str, key: &[u8; 32]) -> Result<String, ApplicationError> {
+    let cipher = Aes256Gcm::new(key.into());
+
+    let mut nonce_bytes = [0u8; 12];
+    OsRng.fill_bytes(&mut nonce_bytes);
+    let nonce = Nonce::from_slice(&nonce_bytes);
+
+    let ciphertext = cipher
+        .encrypt(nonce, data.as_bytes())
+        .map_err(|_| ApplicationError::EncryptionError("Encryption failed".to_string()))?;
+
+    let mut encrypted_data = Vec::with_capacity(12 + ciphertext.len());
+    encrypted_data.extend_from_slice(&nonce_bytes);
+    encrypted_data.extend_from_slice(&ciphertext);
+
+    Ok(base64::encode(encrypted_data))
+}
+```
+
+Compression function:
+
+```rust
+pub fn compress(data: &[u8]) -> Result<Vec<u8>, ApplicationError> {
+    let mut encoder = ZlibEncoder::new(Vec::new(), Compression::default());
+    encoder.write_all(data)?;
+    Ok(encoder.finish()?)
+}
+```
+
+### Handling Image Formats
+
+Lossy image formats like JPEG can mess up our hidden data because they alter pixel values when compressing. Mindbender checks if the image is lossless and converts it to PNG if necessary:
+
+```rust
+pub fn is_lossless(file_path: &str) -> Result<bool, ApplicationError> {
+    let format = ImageFormat::from_path(file_path)?;
+    match format {
+        ImageFormat::Png | ImageFormat::Bmp | ImageFormat::Tiff => Ok(true),
+        _ => Ok(false),
+    }
+}
+
+pub fn convert_to_lossless(
+    file_path: &str,
+    output_path: &str,
+) -> Result<RgbImage, ApplicationError> {
+    let image = load_image(file_path)?;
+    image.save_with_format(output_path, ImageFormat::Png)?;
+    Ok(image)
+}
+```
+
+## Performance
+
+By parallelizing the encoding process with the `rayon` crate, I significantly reduced processing time for large images.
+
+```rust
+use rayon::prelude::*;
+
+image_data
+    .par_chunks_mut(8)
+    .zip(data_with_delimiter.as_bytes().par_iter())
+    .for_each(|(chunk, &data_byte)| {
+        // Encoding logic...
+    });
+```
+
+## Real-World Examples
+
+**APT29 (Cozy Bear)**: used steganography to hide malware in images during phishing attacks.
+
+**Stegano Malware**: hid code in ad banners to infect users without them knowing.
+
+**Duqu Malware**: used steganography for stealthy communication with command-and-control servers.
+
+## Conclusion
+
+Check out the project on [GitHub](https://github.com/backuardo/mindbender), feedback and contributions are appreciated.
