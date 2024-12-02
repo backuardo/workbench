@@ -215,7 +215,7 @@ export const Menu: React.FC = () => {
 			>
 				<Flex justify="center">
 					<Link href="/">
-						<Logo className="fill-gray-10 hover:fill-accent-11" />
+						<Logo className="fill-accent-8 hover:fill-accent-11" />
 					</Link>
 				</Flex>
 				<Flex px="4">

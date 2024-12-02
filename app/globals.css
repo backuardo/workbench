@@ -1,37 +1,187 @@
 @import "tailwindcss/base";
 @import url("@radix-ui/themes/styles.css");
-
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	/* Base Gruvbox Colors - Slightly muted versions */
+	--gruvbox-bg-h: #1d2021;
+	--gruvbox-bg: #282828;
+	--gruvbox-bg-s: #32302f;
+	--gruvbox-bg1: #3c3836;
+	--gruvbox-bg2: #504945;
+	--gruvbox-bg3: #665c54;
+	--gruvbox-bg4: #7c6f64;
+	/* Muted versions of the foreground colors */
+	--gruvbox-fg: #d5c4a1; /* Slightly darker than original */
+	--gruvbox-fg1: #cfbea2;
+	--gruvbox-fg2: #bdae93;
+	--gruvbox-fg3: #a89984;
+	--gruvbox-fg4: #928374;
+	/* Slightly muted versions of accent colors */
+	--gruvbox-red: #cc3f2d;
+	--gruvbox-green: #98971a;
+	--gruvbox-yellow: #d79921;
+	--gruvbox-blue: #458588;
+	--gruvbox-purple: #b16286;
+	--gruvbox-aqua: #689d6a;
+	--gruvbox-gray: #7c6f64;
+	--gruvbox-orange: #d65d0e;
+}
+
+/* Force background color on all root elements */
+:root,
+:root::before,
+:root::after {
+	background-color: var(--gruvbox-bg) !important;
+}
+
+html,
+html::before,
+html::after {
+	background-color: var(--gruvbox-bg) !important;
+}
+
+#root,
+#__next {
+	background-color: var(--gruvbox-bg) !important;
+	min-height: 100vh;
+}
+
 .radix-themes {
+	/* Layout & Fonts */
 	--default-font-family: var(--font-geist-mono);
 	--container-1: calc(448px + var(--space-4) * 2);
 	--container-2: calc(688px + var(--space-4) * 2);
 	--container-3: calc(880px + var(--space-4) * 2);
 	--container-4: calc(1136px + var(--space-4) * 2);
+
+	/* Base Colors */
+	--color-background: var(--gruvbox-bg);
+	--color-foreground: var(--gruvbox-fg);
+
+	/* Gray Scale - More gradual progression */
+	--gray-1: var(--gruvbox-bg-h);
+	--gray-2: var(--gruvbox-bg);
+	--gray-3: var(--gruvbox-bg-s);
+	--gray-4: var(--gruvbox-bg1);
+	--gray-5: var(--gruvbox-bg2);
+	--gray-6: var(--gruvbox-bg3);
+	--gray-7: var(--gruvbox-bg4);
+	--gray-8: var(--gruvbox-fg4);
+	--gray-9: var(--gruvbox-fg3);
+	--gray-10: var(--gruvbox-fg2);
+	--gray-11: var(--gruvbox-fg1);
+	--gray-12: var(--gruvbox-fg);
+
+	/* Accent Colors - Using blue as primary accent with more subtle transitions */
+	--accent-1: color-mix(in srgb, var(--gruvbox-blue) 5%, var(--gruvbox-bg));
+	--accent-2: color-mix(in srgb, var(--gruvbox-blue) 10%, var(--gruvbox-bg));
+	--accent-3: color-mix(in srgb, var(--gruvbox-blue) 15%, var(--gruvbox-bg));
+	--accent-4: color-mix(in srgb, var(--gruvbox-blue) 25%, var(--gruvbox-bg));
+	--accent-5: color-mix(in srgb, var(--gruvbox-blue) 35%, var(--gruvbox-bg));
+	--accent-6: color-mix(in srgb, var(--gruvbox-blue) 45%, var(--gruvbox-bg));
+	--accent-7: color-mix(in srgb, var(--gruvbox-blue) 55%, var(--gruvbox-bg));
+	--accent-8: color-mix(in srgb, var(--gruvbox-blue) 65%, var(--gruvbox-bg));
+	--accent-9: var(--gruvbox-blue);
+	--accent-10: color-mix(in srgb, var(--gruvbox-blue) 85%, var(--gruvbox-fg));
+	--accent-11: color-mix(in srgb, var(--gruvbox-blue) 90%, var(--gruvbox-fg));
+	--accent-12: color-mix(in srgb, var(--gruvbox-blue) 95%, var(--gruvbox-fg));
+
+	/* Success Colors - More subtle green transitions */
+	--success-1: color-mix(in srgb, var(--gruvbox-green) 5%, var(--gruvbox-bg));
+	--success-2: color-mix(in srgb, var(--gruvbox-green) 10%, var(--gruvbox-bg));
+	--success-3: color-mix(in srgb, var(--gruvbox-green) 15%, var(--gruvbox-bg));
+	--success-4: color-mix(in srgb, var(--gruvbox-green) 25%, var(--gruvbox-bg));
+	--success-5: color-mix(in srgb, var(--gruvbox-green) 35%, var(--gruvbox-bg));
+	--success-6: color-mix(in srgb, var(--gruvbox-green) 45%, var(--gruvbox-bg));
+	--success-7: color-mix(in srgb, var(--gruvbox-green) 55%, var(--gruvbox-bg));
+	--success-8: color-mix(in srgb, var(--gruvbox-green) 65%, var(--gruvbox-bg));
+	--success-9: var(--gruvbox-green);
+	--success-10: color-mix(in srgb, var(--gruvbox-green) 85%, var(--gruvbox-fg));
+	--success-11: color-mix(in srgb, var(--gruvbox-green) 90%, var(--gruvbox-fg));
+	--success-12: var(--gruvbox-fg);
+
+	/* Warning Colors - More subtle yellow transitions */
+	--warning-1: color-mix(in srgb, var(--gruvbox-yellow) 5%, var(--gruvbox-bg));
+	--warning-2: color-mix(in srgb, var(--gruvbox-yellow) 10%, var(--gruvbox-bg));
+	--warning-3: color-mix(in srgb, var(--gruvbox-yellow) 15%, var(--gruvbox-bg));
+	--warning-4: color-mix(in srgb, var(--gruvbox-yellow) 25%, var(--gruvbox-bg));
+	--warning-5: color-mix(in srgb, var(--gruvbox-yellow) 35%, var(--gruvbox-bg));
+	--warning-6: color-mix(in srgb, var(--gruvbox-yellow) 45%, var(--gruvbox-bg));
+	--warning-7: color-mix(in srgb, var(--gruvbox-yellow) 55%, var(--gruvbox-bg));
+	--warning-8: color-mix(in srgb, var(--gruvbox-yellow) 65%, var(--gruvbox-bg));
+	--warning-9: var(--gruvbox-yellow);
+	--warning-10: color-mix(
+		in srgb,
+		var(--gruvbox-yellow) 85%,
+		var(--gruvbox-fg)
+	);
+	--warning-11: var(--gruvbox-orange);
+	--warning-12: var(--gruvbox-fg);
+
+	/* Error Colors - More subtle red transitions */
+	--error-1: color-mix(in srgb, var(--gruvbox-red) 5%, var(--gruvbox-bg));
+	--error-2: color-mix(in srgb, var(--gruvbox-red) 10%, var(--gruvbox-bg));
+	--error-3: color-mix(in srgb, var(--gruvbox-red) 15%, var(--gruvbox-bg));
+	--error-4: color-mix(in srgb, var(--gruvbox-red) 25%, var(--gruvbox-bg));
+	--error-5: color-mix(in srgb, var(--gruvbox-red) 35%, var(--gruvbox-bg));
+	--error-6: color-mix(in srgb, var(--gruvbox-red) 45%, var(--gruvbox-bg));
+	--error-7: color-mix(in srgb, var(--gruvbox-red) 55%, var(--gruvbox-bg));
+	--error-8: color-mix(in srgb, var(--gruvbox-red) 65%, var(--gruvbox-bg));
+	--error-9: var(--gruvbox-red);
+	--error-10: color-mix(in srgb, var(--gruvbox-red) 85%, var(--gruvbox-fg));
+	--error-11: color-mix(in srgb, var(--gruvbox-red) 90%, var(--gruvbox-fg));
+	--error-12: var(--gruvbox-fg);
+
+	/* Panel Colors */
+	--panel-background: var(--gruvbox-bg1);
+	--panel-border: color-mix(in srgb, var(--gruvbox-bg3) 80%, var(--gruvbox-bg));
+
+	/* Overlay Colors */
+	--color-overlay: rgba(29, 32, 33, 0.75);
+
+	/* Ensure theme wrapper maintains background */
+	background-color: var(--gruvbox-bg) !important;
+	min-height: 100vh;
 }
 
+/* Base Styles */
 * {
 	@apply box-border relative min-w-0;
 }
 
-body {
-	@apply min-h-screen;
+body,
+body::before,
+body::after {
+	background-color: var(--gruvbox-bg) !important;
 }
 
+/* Typography */
 h1,
 h2,
 h3,
 h4 {
 	@apply text-balance;
+	color: var(--gruvbox-fg1);
 }
 
 p {
 	@apply text-pretty;
 }
 
+/* Selection */
 ::selection {
-	@apply !bg-accent-10;
-	@apply !text-gray-1;
+	background-color: color-mix(in srgb, var(--gruvbox-yellow) 30%, transparent);
+	color: var(--gruvbox-fg1);
+}
+
+/* Links */
+a {
+	color: var(--gruvbox-blue);
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: color-mix(in srgb, var(--gruvbox-blue) 80%, var(--gruvbox-fg));
 }

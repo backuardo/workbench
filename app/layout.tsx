@@ -33,7 +33,7 @@ const RootLayout = ({
 						direction="column"
 						justify="center"
 						align="center"
-						className="min-h-screen bg-gray-1 border-1 border-gray-5"
+						className="min-h-screen border-1 border-gray-5"
 					>
 						<Flex className="border-gray-5 border-x-1">
 							<Container size="2" width="100%" className="max-w-screen">

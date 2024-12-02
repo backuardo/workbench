@@ -19,7 +19,7 @@ const MainOG = async () => {
 	return new ImageResponse(
 		(
 			<div
-				tw="flex flex-col justify-center items-center h-full w-full text-[#454843] bg-[#1D211C]"
+				tw="flex flex-col justify-center items-center h-full w-full text-[#d5c4a1] bg-[#1d2021]"
 				style={{
 					fontFamily: "geist-mono-black",
 				}}
@@ -31,8 +31,8 @@ const MainOG = async () => {
 						width="381.75"
 						height="492.75"
 						viewBox="0 0 763.5 985.5"
-						fill="#454843"
-						stroke="#454843"
+						fill="#d5c4a1"
+						stroke="#d5c4a1"
 					>
 						<path
 							fill-rule="evenodd"

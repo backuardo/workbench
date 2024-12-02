@@ -77,8 +77,6 @@ export const CONTACT = Object.freeze({
 	},
 });
 
-export const VERSION = "2.0.4";
+export const VERSION = "2.1.0";
 
 export const BASE_URL = "https://beneisner.io";
-
-export const DAY_ONE = new Date(2024, 7, 18); // August 18, 2024
