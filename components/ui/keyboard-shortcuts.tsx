@@ -14,12 +14,7 @@ const KEYBOARD_SHORTCUTS_MENU_ID = "keyboard-shortcuts";
 
 export const KeyboardShortcuts: React.FC = () => {
 	return (
-		<Accordion.Root
-			type="single"
-			defaultValue={KEYBOARD_SHORTCUTS_MENU_ID}
-			collapsible
-			className="w-full"
-		>
+		<Accordion.Root type="single" collapsible className="w-full">
 			<Accordion.Item value={KEYBOARD_SHORTCUTS_MENU_ID}>
 				<Accordion.Trigger
 					className={cn(

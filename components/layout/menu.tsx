@@ -1,17 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRef } from "react";
+import { usePathname } from "next/navigation";
 import {
 	Flex,
 	IconButton,
 	Text,
 	Portal,
 	Theme as RadixTheme,
-	Separator,
 	Button,
-	Kbd,
-	Table,
 } from "@radix-ui/themes";
 import * as Navigation from "@radix-ui/react-navigation-menu";
 import { AnimatePresence, motion } from "framer-motion";
@@ -143,7 +140,6 @@ export const Menu: React.FC = () => {
 															<X size={14} />
 														</IconButton>
 													</Flex>
-													{/* <Separator size="4" className="bg-gray-3" /> */}
 													<Flex
 														mt="4"
 														direction="column"

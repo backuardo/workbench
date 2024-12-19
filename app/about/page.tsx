@@ -14,7 +14,12 @@ const About: NextPage = async () => {
 		<Section.Container>
 			<Section.Heading title="About" />
 			<Section.Content>
-				<P>I'm a software engineer who likes to solve big problems.</P>
+				<P>
+					I'm a software engineer who seeks out big problems &mdash;
+					particularly in building reliable software and enhancing application
+					security. My areas of interest include offensive security, OSINT, and
+					the technical systems that power modern espionage.
+				</P>
 				<P>
 					I started programming while serving as an infantry (0331) squad leader
 					in the{" "}
