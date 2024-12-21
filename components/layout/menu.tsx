@@ -207,7 +207,7 @@ export const Menu: React.FC = () => {
 				direction="column"
 				py="4"
 				gap="0"
-				className="border-b-1 border-gray-5"
+				className="border-b-1 border-dashed border-gray-5"
 			>
 				<Flex justify="center">
 					<Link href="/">

@@ -181,7 +181,7 @@ export const SearchBar: React.FC = () => {
 					))}
 					<DropdownMenu.Item
 						onClick={resetIncludedTags}
-						className="uppercase gap-2 bg-gray-3 hover:bg-gray-8 hover:text-gray-12 border-gray-5 border-1 font-bold"
+						className="uppercase gap-2 bg-gray-3 hover:bg-gray-8 hover:text-gray-12 border-gray-5 border-1 border-dashed font-bold"
 					>
 						Reset <ArrowUUpLeft />
 					</DropdownMenu.Item>
