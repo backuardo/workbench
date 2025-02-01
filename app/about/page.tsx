@@ -1,4 +1,6 @@
 import { NextPage } from "next";
+import Image from "next/image";
+import { Badge, Flex } from "@radix-ui/themes";
 
 import { Link } from "@/components/ui/link";
 import { Section } from "@/components/layout/section";
@@ -14,6 +16,24 @@ const About: NextPage = async () => {
 		<Section.Container>
 			<Section.Heading title="About" />
 			<Section.Content>
+				<Flex
+					className="relative"
+					width="100%"
+					height="auto"
+					direction="column"
+				>
+					<Image
+						src="/images/ben.webp"
+						alt="Ben"
+						layout="responsive"
+						width={589}
+						height={540}
+						className="rounded-full w-full h-auto filter brightness-105 contrast-125 border-1 border-gray-5"
+					/>
+					<Badge size="1" className="bg-gray-5 flex justify-end">
+						In a helicopter, deployment 2014
+					</Badge>
+				</Flex>
 				<P>
 					I'm a software engineer who seeks out big problems &mdash;
 					particularly in building reliable software and enhancing application
